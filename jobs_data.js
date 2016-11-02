@@ -48,7 +48,9 @@ jobsWidget = {
 			switch(dropdownValue){
 				//because we're comparing internal array properties, each sort type needs it's own compare function
 				case "Highest Salary":
-					jobsWidget.openJobs.jobData.sort(function(a,b) {return (a.salaryMax > b.salaryMax) ? 1 : ((b.salaryMax > a.salaryMax) ? -1 : 0);} );
+					jobsWidget.openJobs.jobData.sort(function(a,b){
+						return a.salaryMax - b.salaryMax;
+					} );
 					console.log(jobsWidget.openJobs.jobData);
 					break;
 				case "Part-Time":
