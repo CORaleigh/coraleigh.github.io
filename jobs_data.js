@@ -14,7 +14,7 @@ jobsWidget = {
 
 		}
 
-		getJobsData = function(){
+		getJobsData : function(){
 			$.ajax({
 				url: "https://data.raleighnc.gov/resource/a95t-r2n7.json",
 			}).done(function(data){
