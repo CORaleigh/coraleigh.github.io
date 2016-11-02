@@ -1,3 +1,8 @@
 #obr{
-	float: right
+	width: 420;
+	float: right;
+}
+
+#obr .gsa-widget{
+	width: 100%;
 }
