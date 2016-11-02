@@ -1,6 +1,6 @@
 jobsWidget = {
 	openJobs : {
-		jobData = [],
+		jobData : [],
 		getTableRowMarkup : function(jobTitle,jobSalaryMin,jobSalaryMax,jobDepartment){
 			jobTableMarkup = 
 				"<tr class='gsa-table__row'>" +
