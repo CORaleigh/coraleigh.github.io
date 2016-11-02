@@ -12,7 +12,7 @@ jobsWidget = {
 				"</tr>";
 			return getTableRowMarkup;
 
-		}
+		},
 
 		getJobsData : function(){
 			$.ajax({
