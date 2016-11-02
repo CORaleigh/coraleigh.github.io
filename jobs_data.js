@@ -30,7 +30,7 @@ jobsWidget = {
 						salaryMax : jobListing.maximum_salary,
 						department : jobListing.department
 					}
-					jobsWidget.openJobs.jobData.append(tempObject);
+					jobsWidget.openJobs.jobData.push(tempObject);
 				});
 				console.log(jobsWidget.openJobs.jobData);
 			});
