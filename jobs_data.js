@@ -19,11 +19,20 @@ jobsWidget = {
 			$.ajax({
 				url: "https://data.raleighnc.gov/resource/a95t-r2n7.json",
 			}).done(function(data){
-				console.log(data);
+				// console.log(data);
 				//load the array, and only keep the attr that we want
 				data.forEach(function(jobListing){
-					console.log(jobListing);
+					// console.log(jobListing);
+					var tempObject = {
+						url : "https://www.governmentjobs.com/careers/raleighnc/jobs/" + jobListing.jobid,
+						title : jobListing.job_title,
+						salaryMin : jobListing.minimum_salary,
+						salaryMax : jobListing.maximum_salary,
+						department : jobListing.department
+					}
+					jobsWidget.openJobs.jobData.append(tempObject);
 				});
+				console.log(jobsWidget.openJobs.jobData);
 			});
 		},
 		getJobTalbeRowMarkup : function(){
