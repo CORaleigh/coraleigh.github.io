@@ -26,8 +26,8 @@ jobsWidget = {
 					var tempObject = {
 						url : "https://www.governmentjobs.com/careers/raleighnc/jobs/" + jobListing.jobid,
 						title : jobListing.job_title,
-						salaryMin : jobListing.minimum_salary,
-						salaryMax : jobListing.maximum_salary,
+						salaryMin : Number(jobListing.minimum_salary),
+						salaryMax : Number(jobListing.maximum_salary),
 						department : jobListing.department,
 
 					}
@@ -48,9 +48,10 @@ jobsWidget = {
 			switch(dropdownValue){
 				//because we're comparing internal array properties, each sort type needs it's own compare function
 				case "Highest Salary":
-					jobsWidget.openJobs.jobData.sort(function(a,b){
-						return a.salaryMax - b.salaryMax;
-					} );
+					function salarySort(a, b){
+					  return ((a.salaryMax < b.salaryMax) ? -1 : ((a.salaryMax > b.salaryMax) ? 1 : 0));
+					}
+					jobsWidget.openJobs.jobData.sort(salarySort);
 					console.log(jobsWidget.openJobs.jobData);
 					break;
 				case "Part-Time":
