@@ -15,10 +15,15 @@ jobsWidget = {
 		},
 
 		getJobsData : function(){
+			//get the data from socrata
 			$.ajax({
 				url: "https://data.raleighnc.gov/resource/a95t-r2n7.json",
 			}).done(function(data){
 				console.log(data);
+				//load the array, and only keep the attr that we want
+				data.forEach(function(jobListing){
+					console.log(jobListing);
+				});
 			});
 		},
 		getJobTalbeRowMarkup : function(){
