@@ -62,3 +62,5 @@ jobsWidget = {
 		}	
 	}
 }
+
+jobsWidget.openJobs.jobData.getJobsData();
