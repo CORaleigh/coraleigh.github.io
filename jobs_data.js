@@ -14,7 +14,7 @@ jobsWidget = {
 
 		},
 
-		getJobsData : function(){
+		getJobsData : function(dropdownValue){
 			//get the data from socrata
 			$.ajax({
 				url: "https://data.raleighnc.gov/resource/a95t-r2n7.json",
@@ -34,7 +34,9 @@ jobsWidget = {
 					jobsWidget.openJobs.jobData.push(tempObject);
 				});
 				console.log(jobsWidget.openJobs.jobData);
+				console.log("MT WIDG?")
 			});
+			sortJobData(dropdownValue);
 		},
 		getJobTableRowMarkup : function(){
 			var tableRowsDisplayed = 7; //number of rows that show up in the onebox
@@ -72,5 +74,4 @@ jobsWidget = {
 	}
 }
 
-jobsWidget.openJobs.getJobsData();
-jobsWidget.openJobs.sortJobData("Highest Salary");
+jobsWidget.openJobs.getJobsData("Highest Salary");
