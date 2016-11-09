@@ -54,7 +54,7 @@ jobsWidget = {
 						if(job.salaryMax && job.salaryMax != "Hourly" && (typeof job.salaryMax != "undefined")){ //if there's no value for salary max, ignore the value
 							salariedJobs.push(job); //add the job to the list of salaried jobs
 						}
-					};
+					});
 					function salarySort(a, b){
 					  return ((a.salaryMax < b.salaryMax) ? -1 : ((a.salaryMax > b.salaryMax) ? 1 : 0));
 					}
