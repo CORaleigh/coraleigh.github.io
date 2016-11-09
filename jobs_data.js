@@ -73,4 +73,4 @@ jobsWidget = {
 }
 
 jobsWidget.openJobs.getJobsData();
-jobsWidget.openJobs.sortJobData();
+jobsWidget.openJobs.sortJobData("Highest Salary");
