@@ -73,5 +73,5 @@ jobsWidget = {
 	}
 }
 
-jobsWidget.openJobs.jobData.getJobsData();
+jobsWidget.openJobs.getJobsData();
 jobsWidget.openJobs.sortJobData();
