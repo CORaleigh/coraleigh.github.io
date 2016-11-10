@@ -62,9 +62,8 @@ jobsWidget = {
 					jobsWidget.openJobs.jobData.push(tempObject);
 				});
 				console.log(jobsWidget.openJobs.jobData);
-				console.log("MT WIDG?")
 			});
-			sortJobData(dropdownValue);
+			jobsWidget.openJobs.sortJobData(dropdownValue);
 		},
 		getJobTableRowMarkup : function(){
 			var tableRowsDisplayed = 7; //number of rows that show up in the onebox
