@@ -15,6 +15,9 @@ jobsWidget = {
 						console.log(job.salaryMax + "<-" + (typeof job.salaryMax));
 						console.log()
 						if(job.salaryMax && job.salaryMax != "Hourly" && (typeof job.salaryMax != "undefined")){ //if there's no value for salary max, ignore the value
+							if(Number(job.salaryMax) > 99){ //eliminate the jobs that have an hourly number listed
+								job.salaryMax = Number(job.salaryMax);
+							}
 							salariedJobs.push(job); //add the job to the list of salaried jobs
 						}
 					});
