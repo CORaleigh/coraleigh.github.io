@@ -7,7 +7,7 @@ jobsWidget = {
 			switch(dropdownValue){
 				//because we're comparing internal array properties, each sort type needs it's own compare function
 				case "Highest Salary":
-				console.log("starting sort");
+				console.log(jobsWidget.openJobs.jobData);
 					//first, we have to pull out the items that dont have a max salary, or have a salary of "Hourly"
 					salariedJobs = [];
 					jobsWidget.openJobs.jobData.forEach(function(job){
