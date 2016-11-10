@@ -9,8 +9,9 @@ jobsWidget = {
 				case "Highest Salary":
 				console.log("starting sort");
 					//first, we have to pull out the items that dont have a max salary, or have a salary of "Hourly"
-					var salariedJobs = [];
+					salariedJobs = [];
 					jobsWidget.openJobs.jobData.forEach(function(job){
+						console.log("forEach");
 						console.log(job.salaryMax + "<-" + (typeof job.salaryMax));
 						console.log()
 						if(job.salaryMax && job.salaryMax != "Hourly" && (typeof job.salaryMax != "undefined")){ //if there's no value for salary max, ignore the value
