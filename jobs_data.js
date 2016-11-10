@@ -3,7 +3,7 @@ jobsWidget = {
 		jobData : [],
 
 		sortJobData : function(dropdownValue){
-
+			console.log("starting sort");
 			switch(dropdownValue){
 				//because we're comparing internal array properties, each sort type needs it's own compare function
 				case "Highest Salary":
