@@ -30,9 +30,25 @@ jobsWidget = {
 					return salariedJobs;
 					break;
 				case "Part-Time":
+					partTimeJobs = [];
+					jobsWidget.openJobs.jobData.forEach(function(job){
+						if(job.type == "Part-Time"){
+							partTimeJobs.push(job);
+						}
+						return partTimeJobs;
+					});
 					break;
 				case "Most Popular":
+					popularJobs = jobsWidget.openJobs.jobData;
+					function hitsSort(a, b){
+					  return ((a.hits < b.hits) ? -1 : ((a.hits > b.hits) ? 1 : 0));
+					}
+					popularJobs.sort(hitsSort);
+					return popularJobs;
 					break;
+				default:
+					defaultJobs = jobsWidget.openJobs.jobData;
+					return defaultJobs;
 			}
 			
 			
@@ -68,6 +84,8 @@ jobsWidget = {
 						salaryMin : jobListing.minimum_salary,
 						salaryMax : jobListing.maximum_salary,
 						department : jobListing.department,
+						hits: jobListing.submitted_resume_count,
+						type : jobListing.job_type,
 
 					}
 					jobsWidget.openJobs.jobData.push(tempObject);
