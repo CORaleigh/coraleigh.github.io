@@ -89,12 +89,11 @@ jobsWidget = {
 								"<td>" +jobSalaryMin +"-" + jobSalaryMax + "</td>" +
 								"<td>" + jobDepartment +"</td>" +
 							"</tr>";
-							debugger;
 						return jobTableMarkup;
 
 					};
 				while(tableRowsDisplayed > 0){
-					var job = displayJobsData.shift();
+					var job = displayJobsData.pop();
 					console.log(displayJobsData);
 					console.log(job);
 					console.log(job.url);
@@ -109,7 +108,6 @@ jobsWidget = {
 
 					markup = generateTableRowMarkup(url,title,min,max,dept);
 					console.log(markup);
-					debugger;
 					jQuery(".gsa-table tbody").append(generateTableRowMarkup(job.url,job.title,job.salaryMin,job.salaryMax,job.department));
 					tableRowsDisplayed = tableRowsDisplayed - 1;
 				}
