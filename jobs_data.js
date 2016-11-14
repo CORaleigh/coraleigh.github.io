@@ -7,6 +7,7 @@ jobsWidget = {
 			switch(dropdownValue){
 				//because we're comparing internal array properties, each sort type needs it's own compare function
 				case "Highest Salary":
+				case "highest salary":
 				console.log(jobsWidget.openJobs.jobData);
 					//first, we have to pull out the items that dont have a max salary, or have a salary of "Hourly"
 					salariedJobs = [];
@@ -30,6 +31,7 @@ jobsWidget = {
 					return salariedJobs;
 					break;
 				case "Part-Time":
+				case "part time":
 					partTimeJobs = [];
 					jobsWidget.openJobs.jobData.forEach(function(job){
 						if(job.type == "Part-Time"){
@@ -39,6 +41,7 @@ jobsWidget = {
 					});
 					break;
 				case "Most Popular":
+				case "most popular":
 					popularJobs = jobsWidget.openJobs.jobData;
 					function hitsSort(a, b){
 					  return ((a.hits < b.hits) ? -1 : ((a.hits > b.hits) ? 1 : 0));
@@ -47,6 +50,7 @@ jobsWidget = {
 					return popularJobs;
 					break;
 				case "All":
+				case "all":
 				default:
 					defaultJobs = jobsWidget.openJobs.jobData;
 					return defaultJobs;
@@ -145,4 +149,9 @@ jobsWidget = {
 }
 dropdownValue = $("#filter-jobsSelectBoxItText").text();
 dropdownValue = dropdownValue.trim(); //get rid of the spaces at the start and end of the string
+
+$("#filter-jobs").change(function(){
+	dropdownValue = $("filter-jobs").val();
+	jobsWidget.openJobs.updateJobsTable(dropdownValue);
+})
 jobsWidget.openJobs.updateJobsTable(dropdownValue);
