@@ -151,8 +151,7 @@ dropdownValue = $("#filter-jobsSelectBoxItText").text();
 dropdownValue = dropdownValue.trim(); //get rid of the spaces at the start and end of the string
 
 $("#filter-jobs").change(function(){
-	dropdownValue = $("filter-jobs").val();
-	debugger;
+	dropdownValue = $("#filter-jobs").val();
 	jobsWidget.openJobs.updateJobsTable(dropdownValue);
 })
 jobsWidget.openJobs.updateJobsTable(dropdownValue);
