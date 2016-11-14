@@ -80,7 +80,7 @@ jobsWidget = {
 				}
 				jQuery(".gsa-table tbody").empty();
 				console.log(displayJobsData);
-				function generateTableRowMarkuip(jobLink,jobTitle,jobSalaryMin,jobSalaryMax,jobDepartment){
+				function generateTableRowMarkup(jobLink,jobTitle,jobSalaryMin,jobSalaryMax,jobDepartment){
 						jobTableMarkup = 
 							"<tr class='gsa-table__row'>" +
 								"<td>"+
