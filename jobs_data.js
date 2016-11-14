@@ -37,7 +37,10 @@ jobsWidget = {
 						if(job.type == "Part-Time"){
 							partTimeJobs.push(job);
 						}
+
+						debugger;
 						return partTimeJobs;
+
 					});
 					break;
 				case "Most Popular":
