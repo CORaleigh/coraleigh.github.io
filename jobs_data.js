@@ -26,7 +26,7 @@ jobsWidget = {
 					jobsWidget.openJobs.jobData.forEach(function(job){
 						console.log(job.salaryMax + "<-" + (typeof job.salaryMax));
 						console.log()
-						if(job.salaryMax && job.salaryMax != "Hourly" && (typeof job.salaryMax != "undefined")){ //if there's no value for salary max, ignore the value
+						if(job.salaryMax && job.salaryMax != "Hourly" && (typeof job.salaryMax != 0)){ //if there's no value for salary max, ignore the value
 							if(Number(job.salaryMax) > 99){ //eliminate the jobs that have an hourly number listed
 								console.log("^added^")
 								job.salaryMax = Number(job.salaryMax);
@@ -132,7 +132,7 @@ jobsWidget = {
 				function generateTableRowMarkup(jobLink,jobTitle,jobSalaryMin,jobSalaryMax,jobDepartment){
 					//control structures for the 'salary range' field.
 					if(jobSalaryMin < 99){ //hourly rate provided
-						if(typeof jobSalaryMax == "undefined"){
+						if(typeof jobSalaryMax == 0){
 							//only a min rate was provided
 							salaryString = jobSalaryMin.formatMoney(2) + "/hr";
 						}else{
