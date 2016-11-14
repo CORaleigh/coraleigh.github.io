@@ -73,14 +73,16 @@ jobsWidget = {
 					jobsWidget.openJobs.jobData.push(tempObject);
 				});
 				console.log(jobsWidget.openJobs.jobData);
-				var displayJobsData = jobsWidget.openJobs.sortJobData(dropdownValue);
+				displayJobsData = jobsWidget.openJobs.sortJobData(dropdownValue);
 				var tableRowsDisplayed = 7;
 				if(tableRowsDisplayed > displayJobsData.length){
 					tableRowsDisplayed = displayJobsData.length; //reduce the number of rows displayed to the number of available jobs to show
 				}
 				jQuery(".gsa-table tbody").empty();
+				console.log(displayJobsData);
 				while(tableRowsDisplayed > 0){
 					var job = displayJobsData.shift();
+					console.log(job);
 					jQuery(".gsa-table tbody").append(jobsWidget.openJobs.getTableRowMarkup((job.url,job.title,job.salaryMin,job.salaryMax,job.department)));
 				}
 			});
