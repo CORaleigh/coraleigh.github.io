@@ -83,6 +83,7 @@ jobsWidget = {
 				while(tableRowsDisplayed > 0){
 					var job = displayJobsData.shift();
 					console.log(job);
+					console.log(job.url);
 					jQuery(".gsa-table tbody").append(jobsWidget.openJobs.getTableRowMarkup((job.url,job.title,job.salaryMin,job.salaryMax,job.department)));
 					tableRowsDisplayed = tableRowsDisplayed - 1;
 				}
