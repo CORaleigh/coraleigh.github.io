@@ -39,9 +39,8 @@ jobsWidget = {
 						}
 
 						debugger;
-						return partTimeJobs;
-
 					});
+					return partTimeJobs;
 					break;
 				case "Most Popular":
 				case "most popular":
