@@ -94,6 +94,7 @@ jobsWidget = {
 					};
 				while(tableRowsDisplayed > 0){
 					var job = displayJobsData.shift();
+					console.log(displayJobsData);
 					console.log(job);
 					console.log(job.url);
 					var url = job.url;
