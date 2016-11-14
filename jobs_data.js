@@ -1,3 +1,15 @@
+//number format function for the salary values
+Number.prototype.formatMoney = function(c, d, t){
+var n = this, 
+    c = isNaN(c = Math.abs(c)) ? 2 : c, 
+    d = d == undefined ? "." : d, 
+    t = t == undefined ? "," : t, 
+    s = n < 0 ? "-" : "", 
+    i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))), 
+    j = (j = i.length) > 3 ? j % 3 : 0;
+   return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+ };
+
 jobsWidget = {
 	openJobs : {
 		jobData : [],
@@ -122,13 +134,13 @@ jobsWidget = {
 					if(jobSalaryMin < 99){ //hourly rate provided
 						if(typeof jobSalaryMax == "undefined"){
 							//only a min rate was provided
-							salaryString = jobSalaryMin + "/hr";
+							salaryString = jobSalaryMin.formatMoney(2) + "/hr";
 						}else{
 							//min and max rate provided
-							salaryString = jobSalaryMin + "/hr - " + jobSalaryMax + "/hr";
+							salaryString = jobSalaryMin.formatMoney(2) + "/hr - " + jobSalaryMax.formatMoney(2) + "/hr";
 						}
 					}else{ //annual salary provided
-						salaryString = jobSalaryMin + "-" + jobSalaryMax + "</td>";
+						salaryString = jobSalaryMin.formatMoney(2) + "-" + jobSalaryMax.formatMoney(2) + "</td>";
 					}
 					debugger;
 					jobTableMarkup = 
@@ -157,7 +169,7 @@ jobsWidget = {
 
 
 					markup = generateTableRowMarkup(url,title,min,max,dept);
-					console.log(markup);
+					console.log(markup); 
 					jQuery(".gsa-table tbody").append(generateTableRowMarkup(job.url,job.title,job.salaryMin,job.salaryMax,job.department));
 					tableRowsDisplayed = tableRowsDisplayed - 1;
 				}
