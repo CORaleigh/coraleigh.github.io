@@ -27,19 +27,24 @@ jobsWidget = {
 					}
 					salariedJobs.sort(salarySort);
 					console.log(salariedJobs);
+					return salariedJobs;
 					break;
 				case "Part-Time":
 					break;
 				case "Most Popular":
 					break;
 			}
+			
+			
+
+
 		},
 
-		getTableRowMarkup : function(jobTitle,jobSalaryMin,jobSalaryMax,jobDepartment){
+		getTableRowMarkup : function(jobLink,jobTitle,jobSalaryMin,jobSalaryMax,jobDepartment){
 			jobTableMarkup = 
 				"<tr class='gsa-table__row'>" +
 					"<td>"+
-						"<a href='#'>"+ jobTitle + "</a>" +
+						"<a href='" + jobLink + "'>"+ jobTitle + "</a>" +
 					"</td>"+
 					"<td>" +jobSalaryMin +"-" + jobSalaryMax + "</td>" +
 					"<td>" + jobDepartment +"</td>" +
@@ -48,7 +53,7 @@ jobsWidget = {
 
 		},
 
-		getJobsData : function(dropdownValue){
+		updateJobsTable : function(dropdownValue){
 			//get the data from socrata
 			$.ajax({
 				url: "https://data.raleighnc.gov/resource/a95t-r2n7.json",
@@ -68,7 +73,16 @@ jobsWidget = {
 					jobsWidget.openJobs.jobData.push(tempObject);
 				});
 				console.log(jobsWidget.openJobs.jobData);
-				jobsWidget.openJobs.sortJobData(dropdownValue);
+				var displayJobsData = jobsWidget.openJobs.sortJobData(dropdownValue);
+				var tableRowsDisplayed = 7;
+				if(tableRowsDisplayed > displayJobsData.length){
+					tableRowsDisplayed = displayJobsData.length; //reduce the number of rows displayed to the number of available jobs to show
+				}
+				jQuery(".gsa-table tbody").empty();
+				while(tableRowsDisplayed > 0){
+					var job = displayJobsData.shift();
+					jQuery(".gsa-table tbody").append(getTableRowMarkup((job.url,job.title,job.salaryMin,job.salaryMax,job.department)));
+				}
 			});
 			
 		},
@@ -83,4 +97,4 @@ jobsWidget = {
 	}
 }
 
-jobsWidget.openJobs.getJobsData("Highest Salary");
+jobsWidget.openJobs.updateJobsTable("Highest Salary");
