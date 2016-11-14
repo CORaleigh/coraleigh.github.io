@@ -46,7 +46,7 @@ jobsWidget = {
 					popularJobs.sort(hitsSort);
 					return popularJobs;
 					break;
-					case
+				case "All":
 				default:
 					defaultJobs = jobsWidget.openJobs.jobData;
 					return defaultJobs;
