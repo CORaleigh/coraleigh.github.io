@@ -49,7 +49,7 @@ jobsWidget = {
 					"<td>" +jobSalaryMin +"-" + jobSalaryMax + "</td>" +
 					"<td>" + jobDepartment +"</td>" +
 				"</tr>";
-			return getTableRowMarkup;
+			return jobTableMarkup;
 
 		},
 
@@ -81,7 +81,7 @@ jobsWidget = {
 				jQuery(".gsa-table tbody").empty();
 				while(tableRowsDisplayed > 0){
 					var job = displayJobsData.shift();
-					jQuery(".gsa-table tbody").append(getTableRowMarkup((job.url,job.title,job.salaryMin,job.salaryMax,job.department)));
+					jQuery(".gsa-table tbody").append(jobsWidget.openJobs.getTableRowMarkup((job.url,job.title,job.salaryMin,job.salaryMax,job.department)));
 				}
 			});
 			
