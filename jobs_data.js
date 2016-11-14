@@ -81,6 +81,7 @@ jobsWidget = {
 			}).done(function(data){
 				// console.log(data);
 				//load the array, and only keep the attr that we want
+				jobsWidget.openJobs.jobData = [] //clear the array, since we're re-pulling the data
 				data.forEach(function(jobListing){
 					// console.log(jobListing);
 					var tempObject = {
