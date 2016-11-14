@@ -134,7 +134,8 @@ jobsWidget = {
 					if(jobSalaryMin < 99){ //hourly rate provided
 						if(typeof jobSalaryMax == "undefined"){
 							//only a min rate was provided
-							salaryString = Number(jobSalaryMin).formatMoney(2) + "/hr";
+							var salaryMin = Number(jobSalaryMin);
+							salaryString = salaryMin.formatMoney(2) + "/hr";
 						}else{
 							//min and max rate provided
 							salaryString = Number(jobSalaryMin).formatMoney(2) + "/hr - " + Number(jobSalaryMax).formatMoney(2) + "/hr";
