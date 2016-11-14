@@ -62,12 +62,25 @@ jobsWidget = {
 		},
 
 		getTableRowMarkup : function(jobLink,jobTitle,jobSalaryMin,jobSalaryMax,jobDepartment){
+			//control structures for the 'salary range' field.
+			if(jobSalaryMin < 99){ //hourly rate provided
+				if(typeof jobSalaryMax == "undefined"){
+					//only a min rate was provided
+					salaryString = jobSalaryMin + "/hr";
+				}else{
+					//min and max rate provided
+					salaryString = jobSalaryMin + "/hr - " + jobSalaryMax + "/hr";
+				}
+			}else{ //annual salary provided
+				salaryString = jobSalaryMin + "-" + jobSalaryMax + "</td>";
+			}
+
 			jobTableMarkup = 
 				"<tr class='gsa-table__row'>" +
 					"<td>"+
 						"<a href='" + jobLink + "'>"+ jobTitle + "</a>" +
 					"</td>"+
-					"<td>" +jobSalaryMin +"-" + jobSalaryMax + "</td>" +
+					"<td>" + salaryString + "</td>" +
 					"<td>" + jobDepartment +"</td>" +
 				"</tr>";
 			return jobTableMarkup;
