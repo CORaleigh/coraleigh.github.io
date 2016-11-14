@@ -61,31 +61,31 @@ jobsWidget = {
 
 		},
 
-		getTableRowMarkup : function(jobLink,jobTitle,jobSalaryMin,jobSalaryMax,jobDepartment){
-			//control structures for the 'salary range' field.
-			if(jobSalaryMin < 99){ //hourly rate provided
-				if(typeof jobSalaryMax == "undefined"){
-					//only a min rate was provided
-					salaryString = jobSalaryMin + "/hr";
-				}else{
-					//min and max rate provided
-					salaryString = jobSalaryMin + "/hr - " + jobSalaryMax + "/hr";
-				}
-			}else{ //annual salary provided
-				salaryString = jobSalaryMin + "-" + jobSalaryMax + "</td>";
-			}
-			debugger;
-			jobTableMarkup = 
-				"<tr class='gsa-table__row'>" +
-					"<td>"+
-						"<a href='" + jobLink + "'>"+ jobTitle + "</a>" +
-					"</td>"+
-					"<td>" + salaryString + "</td>" +
-					"<td>" + jobDepartment +"</td>" +
-				"</tr>";
-			return jobTableMarkup;
+		// getTableRowMarkup : function(jobLink,jobTitle,jobSalaryMin,jobSalaryMax,jobDepartment){
+		// 	//control structures for the 'salary range' field.
+		// 	if(jobSalaryMin < 99){ //hourly rate provided
+		// 		if(typeof jobSalaryMax == "undefined"){
+		// 			//only a min rate was provided
+		// 			salaryString = jobSalaryMin + "/hr";
+		// 		}else{
+		// 			//min and max rate provided
+		// 			salaryString = jobSalaryMin + "/hr - " + jobSalaryMax + "/hr";
+		// 		}
+		// 	}else{ //annual salary provided
+		// 		salaryString = jobSalaryMin + "-" + jobSalaryMax + "</td>";
+		// 	}
+		// 	debugger;
+		// 	jobTableMarkup = 
+		// 		"<tr class='gsa-table__row'>" +
+		// 			"<td>"+
+		// 				"<a href='" + jobLink + "'>"+ jobTitle + "</a>" +
+		// 			"</td>"+
+		// 			"<td>" + salaryString + "</td>" +
+		// 			"<td>" + jobDepartment +"</td>" +
+		// 		"</tr>";
+		// 	return jobTableMarkup;
 
-		},
+		// },
 
 		updateJobsTable : function(dropdownValue){
 			//get the data from socrata
@@ -118,17 +118,30 @@ jobsWidget = {
 				jQuery(".gsa-table tbody").empty();
 				console.log(displayJobsData);
 				function generateTableRowMarkup(jobLink,jobTitle,jobSalaryMin,jobSalaryMax,jobDepartment){
-						jobTableMarkup = 
-							"<tr class='gsa-table__row'>" +
-								"<td>"+
-									"<a href='" + jobLink + "'>"+ jobTitle + "</a>" +
-								"</td>"+
-								"<td>" +jobSalaryMin +"-" + jobSalaryMax + "</td>" +
-								"<td>" + jobDepartment +"</td>" +
-							"</tr>";
-						return jobTableMarkup;
+					//control structures for the 'salary range' field.
+					if(jobSalaryMin < 99){ //hourly rate provided
+						if(typeof jobSalaryMax == "undefined"){
+							//only a min rate was provided
+							salaryString = jobSalaryMin + "/hr";
+						}else{
+							//min and max rate provided
+							salaryString = jobSalaryMin + "/hr - " + jobSalaryMax + "/hr";
+						}
+					}else{ //annual salary provided
+						salaryString = jobSalaryMin + "-" + jobSalaryMax + "</td>";
+					}
+					debugger;
+					jobTableMarkup = 
+						"<tr class='gsa-table__row'>" +
+							"<td>"+
+								"<a href='" + jobLink + "'>"+ jobTitle + "</a>" +
+							"</td>"+
+							"<td>" + salaryString + "</td>" +
+							"<td>" + jobDepartment +"</td>" +
+						"</tr>";
+					return jobTableMarkup;
 
-					};
+				}
 				while(tableRowsDisplayed > 0){
 					var job = displayJobsData.pop();
 					console.log(displayJobsData);
