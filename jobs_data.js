@@ -112,8 +112,8 @@ jobsWidget = {
 					var tempObject = {
 						url : "https://www.governmentjobs.com/careers/raleighnc/jobs/" + jobListing.jobid,
 						title : jobListing.job_title,
-						salaryMin : jobListing.minimum_salary,
-						salaryMax : jobListing.maximum_salary,
+						salaryMin : Number(jobListing.minimum_salary),
+						salaryMax : Number(jobListing.maximum_salary),
 						department : jobListing.department,
 						hits: jobListing.submitted_resume_count,
 						type : jobListing.job_type,
