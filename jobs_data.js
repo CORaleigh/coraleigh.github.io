@@ -26,7 +26,7 @@ jobsWidget = {
 					jobsWidget.openJobs.jobData.forEach(function(job){
 						console.log(job.salaryMax + "<-" + (typeof job.salaryMax));
 						console.log()
-						if(job.salaryMax && job.salaryMax != "Hourly" && (typeof job.salaryMax != 0)){ //if there's no value for salary max, ignore the value
+						if(job.salaryMax && job.salaryMax != "Hourly" && (typeof job.salaryMax != "undefined")){ //if there's no value for salary max, ignore the value
 							if(Number(job.salaryMax) > 99){ //eliminate the jobs that have an hourly number listed
 								console.log("^added^")
 								job.salaryMax = Number(job.salaryMax);
@@ -112,8 +112,8 @@ jobsWidget = {
 					var tempObject = {
 						url : "https://www.governmentjobs.com/careers/raleighnc/jobs/" + jobListing.jobid,
 						title : jobListing.job_title,
-						salaryMin : Number(jobListing.minimum_salary),
-						salaryMax : Number(jobListing.maximum_salary),
+						salaryMin : jobListing.minimum_salary,
+						salaryMax : jobListing.maximum_salary,
 						department : jobListing.department,
 						hits: jobListing.submitted_resume_count,
 						type : jobListing.job_type,
@@ -132,16 +132,17 @@ jobsWidget = {
 				function generateTableRowMarkup(jobLink,jobTitle,jobSalaryMin,jobSalaryMax,jobDepartment){
 					//control structures for the 'salary range' field.
 					if(jobSalaryMin < 99){ //hourly rate provided
-						if(typeof jobSalaryMax == 0){
+						if(typeof jobSalaryMax == "undefined"){
 							//only a min rate was provided
-							salaryString = jobSalaryMin.formatMoney(2) + "/hr";
+							salaryString = Number(jobSalaryMin).formatMoney(2) + "/hr";
 						}else{
 							//min and max rate provided
-							salaryString = jobSalaryMin.formatMoney(2) + "/hr - " + jobSalaryMax.formatMoney(2) + "/hr";
+							salaryString = Number(jobSalaryMin).formatMoney(2) + "/hr - " + Number(jobSalaryMax).formatMoney(2) + "/hr";
 						}
 					}else{ //annual salary provided
-						salaryString = jobSalaryMin.formatMoney(2) + "-" + jobSalaryMax.formatMoney(2) + "</td>";
+						salaryString = Number(jobSalaryMin).formatMoney(2) + "-" + Number(jobSalaryMax).formatMoney(2) + "</td>";
 					}
+					debugger;
 					jobTableMarkup = 
 						"<tr class='gsa-table__row'>" +
 							"<td>"+
