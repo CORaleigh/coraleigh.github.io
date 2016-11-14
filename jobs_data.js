@@ -80,6 +80,18 @@ jobsWidget = {
 				}
 				jQuery(".gsa-table tbody").empty();
 				console.log(displayJobsData);
+				function generateTableRowMarkuip(jobLink,jobTitle,jobSalaryMin,jobSalaryMax,jobDepartment){
+						jobTableMarkup = 
+							"<tr class='gsa-table__row'>" +
+								"<td>"+
+									"<a href='" + jobLink + "'>"+ jobTitle + "</a>" +
+								"</td>"+
+								"<td>" +jobSalaryMin +"-" + jobSalaryMax + "</td>" +
+								"<td>" + jobDepartment +"</td>" +
+							"</tr>";
+						return jobTableMarkup;
+
+					};
 				while(tableRowsDisplayed > 0){
 					var job = displayJobsData.shift();
 					console.log(job);
@@ -89,10 +101,14 @@ jobsWidget = {
 					var min = job.salaryMin;
 					var max = job.salaryMax;
 					var dept = job.department;
-					markup = jobsWidget.openJobs.getTableRowMarkup((url,title,min,max,dept));
+
+					
+
+
+					markup = jobsWidget.openJobs.generateTableRowMarkup((url,title,min,max,dept));
 					console.log(markup);
 
-					jQuery(".gsa-table tbody").append(jobsWidget.openJobs.getTableRowMarkup((job.url,job.title,job.salaryMin,job.salaryMax,job.department)));
+					jQuery(".gsa-table tbody").append(jobsWidget.openJobs.generateTableRowMarkup((job.url,job.title,job.salaryMin,job.salaryMax,job.department)));
 					tableRowsDisplayed = tableRowsDisplayed - 1;
 				}
 			});
