@@ -142,7 +142,6 @@ jobsWidget = {
 					}else{ //annual salary provided
 						salaryString = jobSalaryMin.formatMoney(2) + "-" + jobSalaryMax.formatMoney(2) + "</td>";
 					}
-					debugger;
 					jobTableMarkup = 
 						"<tr class='gsa-table__row'>" +
 							"<td>"+
