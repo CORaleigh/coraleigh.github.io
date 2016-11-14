@@ -46,6 +46,7 @@ jobsWidget = {
 					popularJobs.sort(hitsSort);
 					return popularJobs;
 					break;
+					case
 				default:
 					defaultJobs = jobsWidget.openJobs.jobData;
 					return defaultJobs;
@@ -142,5 +143,6 @@ jobsWidget = {
 			
 	}
 }
-
-jobsWidget.openJobs.updateJobsTable("Highest Salary");
+dropdownValue = $("#filter-jobsSelectBoxItText").text();
+dropdownValue = dropdownValue.trim(); //get rid of the spaces at the start and end of the string
+jobsWidget.openJobs.updateJobsTable(dropdownValue);
