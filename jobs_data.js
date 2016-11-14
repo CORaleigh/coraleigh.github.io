@@ -89,6 +89,7 @@ jobsWidget = {
 								"<td>" +jobSalaryMin +"-" + jobSalaryMax + "</td>" +
 								"<td>" + jobDepartment +"</td>" +
 							"</tr>";
+							debugger;
 						return jobTableMarkup;
 
 					};
