@@ -84,6 +84,7 @@ jobsWidget = {
 					var job = displayJobsData.shift();
 					console.log(job);
 					jQuery(".gsa-table tbody").append(jobsWidget.openJobs.getTableRowMarkup((job.url,job.title,job.salaryMin,job.salaryMax,job.department)));
+					tableRowsDisplayed = tableRowsDisplayed - 1;
 				}
 			});
 			
