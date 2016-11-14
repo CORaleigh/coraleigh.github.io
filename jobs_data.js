@@ -89,7 +89,7 @@ jobsWidget = {
 					var min = job.salaryMin;
 					var max = job.salaryMax;
 					var dept = job.department;
-					markup = jobsWidget.openJobs.getTableRowMarkup((url,title,min,job.max,department));
+					markup = jobsWidget.openJobs.getTableRowMarkup((url,title,min,job.max,dept));
 					jQuery(".gsa-table tbody").append(jobsWidget.openJobs.getTableRowMarkup((job.url,job.title,job.salaryMin,job.salaryMax,job.department)));
 					tableRowsDisplayed = tableRowsDisplayed - 1;
 				}
