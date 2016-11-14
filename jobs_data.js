@@ -11,14 +11,15 @@ jobsWidget = {
 					//first, we have to pull out the items that dont have a max salary, or have a salary of "Hourly"
 					salariedJobs = [];
 					jobsWidget.openJobs.jobData.forEach(function(job){
-						console.log("forEach");
 						console.log(job.salaryMax + "<-" + (typeof job.salaryMax));
 						console.log()
 						if(job.salaryMax && job.salaryMax != "Hourly" && (typeof job.salaryMax != "undefined")){ //if there's no value for salary max, ignore the value
 							if(Number(job.salaryMax) > 99){ //eliminate the jobs that have an hourly number listed
+								console.log("^added^")
 								job.salaryMax = Number(job.salaryMax);
+								salariedJobs.push(job); //add the job to the list of salaried jobs
 							}
-							salariedJobs.push(job); //add the job to the list of salaried jobs
+							
 						}
 					});
 					function salarySort(a, b){
