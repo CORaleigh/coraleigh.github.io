@@ -107,10 +107,10 @@ jobsWidget = {
 					
 
 
-					markup = generateTableRowMarkup((url,title,min,max,dept));
+					markup = generateTableRowMarkup(url,title,min,max,dept);
 					console.log(markup);
 					debugger;
-					jQuery(".gsa-table tbody").append(generateTableRowMarkup((job.url,job.title,job.salaryMin,job.salaryMax,job.department)));
+					jQuery(".gsa-table tbody").append(generateTableRowMarkup(job.url,job.title,job.salaryMin,job.salaryMax,job.department));
 					tableRowsDisplayed = tableRowsDisplayed - 1;
 				}
 			});
