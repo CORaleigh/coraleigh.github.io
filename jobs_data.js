@@ -217,7 +217,9 @@ $.ajax({
             top: 20
         }
     };
+    debugger;
     var chartPeakHiringData = new google.visualization.AreaChart(document.getElementById("#chart-peak-hiring"));
     chartPeakHiringData.draw(refinedPeakHiringData,hiringDataChartOptions);
+    debugger;
 
 });
