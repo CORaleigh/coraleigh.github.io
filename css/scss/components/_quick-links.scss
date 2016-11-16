@@ -1,0 +1,30 @@
+.gsa-widget {
+	.quick-links {
+		
+	}
+
+	.quick-links__item {
+		border-top: 1px solid #e5e5e5;
+
+		&:last-child {
+			border-bottom: 1px solid #e5e5e5;
+		}
+	}
+
+	.quick-links__link {
+		padding: rem(10);
+		display: flex;
+		justify-content: space-between;
+
+		&:hover, &:focus {
+			background-color: $action-color;
+			color: #ffffff;
+			text-decoration: none;
+		}
+
+		.gsa-icon-arrow-right {
+			align-self: center;
+			margin-left: rem(10);
+		}
+	}
+}

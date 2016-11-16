@@ -1,0 +1,163 @@
+@font-face {
+  font-family: 'gsa-widget';
+  src:  url('../../fonts/gsa-widget.eot?961ucb');
+  src:  url('../../fonts/gsa-widget.eot?961ucb#iefix') format('embedded-opentype'),
+    url('../../fonts/gsa-widget.ttf?961ucb') format('truetype'),
+    url('../../fonts/gsa-widget.woff?961ucb') format('woff'),
+    url('../../fonts/gsa-widget.svg?961ucb#gsa-widget') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="gsa-icon-"], [class*=" gsa-icon-"],.selectboxit-default-arrow {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'gsa-widget' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: middle;
+  display: inline-block;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-size: rem(16);
+}
+
+a {
+  [class^="gsa-icon-"], [class*=" gsa-icon-"] {
+    &:hover, &:focus, &:active {
+      text-decoration: none;
+    }
+  }
+}
+
+// small icons
+.gsa-icon--sm:before,                
+.selectboxit-default-arrow {
+  font-size: rem(11);
+}
+
+// large icons
+.gsa-icon--lrg:before {              
+  font-size: rem(20);
+}
+
+// large icons
+.gsa-icon--xl:before {              
+  font-size: rem(28);
+}
+
+.gsa-icon--circle {
+  text-align: center;
+  display: block;
+  width: 35px;
+  height: 35px;
+  line-height: 40px;
+  color: #ffffff;
+  border-radius: 50%;
+  padding-left: 1px;
+}
+
+.gsa-icon--dark-blue { background-color: $dark-blue; }
+.gsa-icon--blue { background-color: $blue; }
+.gsa-icon--green { background-color: $green; }
+.gsa-icon--gold { background-color: $gold; }
+.gsa-icon--orange { background-color: $orange; }
+
+// icons to left of text
+.gsa-icon--left {             
+  margin-right: rem(4)
+}
+
+.selectboxit-default-arrow:before {
+  content: "\e900";
+}
+
+// extended right arrow
+.gsa-icon-arrow-down {
+  transform: rotate(90deg);
+
+   &:before {
+    content: "\e900";
+  }
+}
+
+//icon adjustments
+.gsa-icon-mail:before {
+  position: relative;
+  top: -1px;
+}
+
+
+
+
+// CSS from Icomoon
+.gsa-icon-star:before {
+  content: "\e914";
+}
+.gsa-icon-address:before {
+  content: "\e905";
+}
+.gsa-icon-briefcase:before {
+  content: "\e906";
+}
+.gsa-icon-clock:before {
+  content: "\e907";
+}
+.gsa-icon-download:before {
+  content: "\e908";
+}
+.gsa-icon-hammer:before {
+  content: "\e909";
+}
+.gsa-icon-info:before {
+  content: "\e90a";
+}
+.gsa-icon-light:before {
+  content: "\e90b";
+}
+.gsa-icon-location-outline:before {
+  content: "\e90c";
+}
+.gsa-icon-mail:before {
+  content: "\e90d";
+}
+.gsa-icon-phone:before {
+  content: "\e90e";
+}
+.gsa-icon-plus:before {
+  content: "\e90f";
+}
+.gsa-icon-pointer:before {
+  content: "\e910";
+}
+.gsa-icon-police:before {
+  content: "\e911";
+}
+.gsa-icon-warning-outline:before {
+  content: "\e912";
+}
+.gsa-icon-warning:before {
+  content: "\e913";
+}
+.gsa-icon-arrow-right:before {
+  content: "\e900";
+}
+.gsa-icon-filter:before {
+  content: "\e901";
+}
+.gsa-icon-location:before {
+  content: "\e902";
+}
+.gsa-icon-minus:before {
+  content: "\e903";
+}
+.gsa-icon-plus2:before {
+  content: "\e904";
+}
+

@@ -1438,6 +1438,10 @@ a [class^="gsa-icon-"]:hover, a [class^="gsa-icon-"]:focus, a [class^="gsa-icon-
   margin-top: 0;
 }
 
+.gsa-widget .panel__foot .gsa-icon-arrow-right {
+  vertical-align: top;
+}
+
 .gsa-widget .panel__foot--pad {
   padding-top: 20px;
   padding-bottom: 10px;
@@ -1716,7 +1720,6 @@ a [class^="gsa-icon-"]:hover, a [class^="gsa-icon-"]:focus, a [class^="gsa-icon-
   background-color: #3c61a5;
   display: table;
   width: 100%;
-  table-layout: fixed;
   border-collapse: collapse;
   padding: 1.25rem 0 1.25rem 1.25rem;
   margin-top: 0.625rem;

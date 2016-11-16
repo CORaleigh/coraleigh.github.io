@@ -1,0 +1,51 @@
+.gsa-widget {
+	background-color: #ffffff;
+	font-size: rem(13);
+	box-shadow: 0 0 rem(15) rgba(0,0,0,.25);
+	margin: rem(20) auto;
+}
+
+.gsa-widget__header {
+	padding: rem(20) rem(20) rem(10);
+}
+
+.gsa-widget__title {
+	font-size: rem(30);
+}
+
+.gsa-icon-location {
+	color: $action-color;
+}
+
+.gsa-widget__location {
+
+	.label {
+		display: none;
+
+		@include media(">phablet"){
+			display: inline-block;
+		}
+
+		@include media(">tablet", "<=desktop_960"){
+			display: none;
+		}
+	}
+
+	.toggle-content {
+		margin-left: rem(25);
+	}
+
+	.gsa-icon-arrow-right {
+		@include transform(rotate(90deg));
+	}
+}
+
+.gsa-widget__location-change {
+	//display: none;
+	padding-top: rem(16);
+}
+
+.filter__icon {
+	color: shade($action-color, 20%);
+	margin: rem(5) rem(2) 0 0;
+}

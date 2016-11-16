@@ -1,0 +1,15 @@
+.gsa-widget {
+	.ad-space {
+		
+	}
+
+	.ad-space__link {
+		display: table;
+		margin: 0 auto;
+		@extend .group;
+	}
+
+	.ad-space__img {
+		float: left;
+	}
+}

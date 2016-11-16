@@ -1,0 +1,52 @@
+.gsa-widget {
+	// amenities & activity types
+
+	.park-extras {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.park-extras__item {
+		width: 23%;
+		max-width: 80px;
+		font-size: rem(11);
+
+		@include media(">phablet"){
+			font-size: rem(12);
+		}
+
+		img {
+			border: 1px solid darken($light-gray, 10%);
+		}
+
+		a {
+			color: $dark-gray;
+		}
+	}
+
+	.park-extras__link {
+		position: relative;
+		display: block;
+
+		&:hover {
+			.park-extras__overlay {
+				opacity: 1;
+			}
+		}
+	}
+
+	.park-extras__overlay {
+		opacity: 0;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 67px;
+		background-color: rgba($dark-blue, .90);
+		transition: opacity $base-duration $base-timing;
+		text-align: center;
+		padding: 20px;
+		color: #ffffff;
+	}
+}

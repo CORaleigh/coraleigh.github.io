@@ -1,0 +1,107 @@
+body {
+  color: $base-font-color;
+  font-family: $base-font-family;
+  font-feature-settings: "kern", "liga", "pnum";
+  line-height: $base-line-height;
+}
+
+
+// Headings
+//
+// Hierarchical titles
+//
+// Markup:
+// <h1>Heading 1</h1>
+// <h2>Heading 2</h2>
+// <h3>Heading 3</h3>
+// <h4>Heading 4</h4>
+// <h5>Heading 5</h5>
+// <h6>Heading 6</h6>
+//
+// Styleguide Elements - Headings
+
+.gsa-widget {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $heading-font-family;
+    line-height: $heading-line-height;
+    margin: 0 0 $small-spacing;
+    color: $dark-gray;
+  }
+
+
+  // Paragraphs
+  //
+  // The p element is one of the most commonly used building blocks of HTML.
+  //
+  // Markup:
+  // <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas odio tortor, sed vehicula nunc lobortis rutrum. Cras ultrices luctus purus non malesuada. Morbi accumsan, justo ut venenatis aliquet, risus elit sollicitudin tellus, eu vestibulum velit odio a justo.</p>
+  //
+  // Styleguide Elements - Paragraphs
+
+  p {
+    margin: 0 0 $small-spacing;
+  }
+
+
+  // Links
+  //
+  // The a element is usually referred to as a link.
+  //
+  // Markup:
+  // <a href="#" title="link title">Text link</a>
+  //
+  // Styleguide Elements - Links
+
+  a {
+    color: $action-color;
+    text-decoration: none;
+    transition: color $base-duration $base-timing;
+
+    &:active,
+    &:focus,
+    &:hover {
+      color: shade($action-color, 25%);
+      text-decoration: underline;
+    }
+  }
+
+  a[href^="mailto:"]:after {
+    display: none !important;
+  }
+
+
+  // Blockquotes
+  //
+  // The blockquote element is a mechanism for marking up a block of text quoted from a person or another document or source.
+  //
+  // Markup:
+  // <blockquote>
+  //     <p>Design is not just what it looks like and feels like. Design is how it works.</p>
+  //     <footer>
+  //         <cite>Steve Jobs</cite>
+  //     </footer>
+  // </blockquote>
+  //
+  // Styleguide Elements - Blockquotes
+
+  blockquote {}
+  cite {}
+
+
+  // Line Rules
+  //
+  // The hr element creates in the document a highly visible break that renders as a slim horizontal line running the width of the area to which it’s applied.
+  //
+  // Markup:
+  // <hr />
+  //
+  // Styleguide Elements - Line Rules
+
+  hr {
+    border-bottom: $base-border;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    margin: $base-spacing 0;
+  }
+}

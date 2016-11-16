@@ -1,0 +1,39 @@
+// Alerts
+//
+// Notifications provide lightweight feedback about an operation. They show a brief message at the top of the screen. Notifications can contain an action.
+//
+// Markup:
+//
+// Styleguide Components - Alerts
+.gsa-widget {
+	.alert-box {
+		background-color: $light-gray;
+		display: table;
+		width: 100%;
+
+		+ .alert-box {
+			margin-top: rem(10);
+		}
+	}
+
+	.alert-box__icon {
+		display: table-cell;
+		width: 47px;
+		vertical-align: middle;
+		color: #ffffff;
+		padding: rem(13);
+		text-align: center;
+	}
+
+	.alert-box__icon--red { background-color: $red; }
+	.alert-box__icon--gold { background-color: $gold; }
+	.alert-box__icon--green { background-color: $green; }
+
+	.alert-box__detail {
+		
+		font-weight: 600;
+		padding: rem(15) rem(5) rem(15) rem(13);
+		vertical-align: middle;
+	}
+}
+

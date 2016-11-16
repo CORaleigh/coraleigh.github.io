@@ -1,0 +1,65 @@
+.gsa-widget {	
+	.cta-stats {
+		display: flex;
+	}
+
+	.cta-stats--border {
+		border-top: 1px solid #ffffff;
+		border-bottom: 1px solid #ffffff;
+	}
+
+	.cta-stats--border-bottom {
+		border-bottom: 1px solid #ffffff;
+	}
+
+	.cta-stats__icon {
+		font-size: rem(65);
+		height: 90px;
+		line-height: 90px;
+		text-align: center;
+		flex: 1;
+
+		&:before {
+			vertical-align: middle;
+		}
+	}
+
+	.cta-stats__item {
+		padding: rem(15) rem(10) 0 0;
+		flex: 1.5;
+	}
+
+	.cta-stats__item-text {
+		text-transform: uppercase;
+		line-height: 1.1;
+		font-size: 12.5px;
+	}
+
+	.cta-stats__item-count {
+		font-size: rem(26);
+		line-height: 1;
+
+		@include media(">=phablet"){
+			font-size: rem(40);
+		}
+
+		&.pull-left {
+			padding-top: rem(10);
+			margin-right: rem(5);
+		}
+	}
+
+	.cta-stats__count-label {
+		line-height: 1;
+		display: block;
+		text-transform: uppercase;
+		font-size: rem(11);
+		padding-top: rem(13);
+		
+
+		@include media(">=phablet"){
+			font-size: rem(13);
+			padding-top: rem(20);
+		}
+	}
+}

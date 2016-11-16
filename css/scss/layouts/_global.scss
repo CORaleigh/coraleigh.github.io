@@ -1,0 +1,42 @@
+html,
+body {
+    min-height: 100%;
+}
+body {
+    // Allow Mobile Elasticity
+    -webkit-overflow-scrolling: touch;
+    * {
+        // Set border-box on all elements
+        box-sizing: border-box;
+    }
+}
+
+.header-container,
+.content-container,
+.footer-container {
+    clear: both; 
+    float: left;
+    width: 100%;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 0 rem(20);
+    @include transition(all .15s ease-in-out);
+
+    @include media(">=phone", "<tablet") {
+        padding: 0 rem(20);
+    }
+    @include media(">tablet", "<desktop") {
+        padding: 0 rem(60);
+    }
+    @include media(">desktop", "<desktop_wide") {
+        max-width: 93.75%;
+        padding: 0;
+        margin: 0 auto;     
+    }
+    @include media(">desktop_wide") {     
+        max-width: 0 rem(1200);
+    }
+}

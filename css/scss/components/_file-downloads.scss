@@ -1,0 +1,73 @@
+.gsa-widget {
+	.file-downloads {
+		list-style: none;
+
+		a {
+			text-decoration: none;
+			display: block;
+			padding: rem(12) 50px rem(12) rem(15);
+			color: #ffffff;
+
+			&:hover, &:focus {
+				
+				.file-downloads__icon {
+					width: 115px;
+				}
+
+				.file-downloads__icon-text {
+					opacity: 1;
+					right: 42px;
+				}
+
+				.gsa-icon-download {
+					animation-name: floating;
+					animation-duration: 1.25s;	
+					animation-iteration-count: infinite;
+				}
+			}
+		}
+	}
+
+	.file-downloads__item {
+		background-color: $dark-blue;
+		margin-bottom: rem(2);
+		@extend .group;
+	}
+
+	.file-downloads__icon {
+		overflow: hidden;
+		display: inline-block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: rem(50);
+		height: 100%;
+		background-color: darken($blue, 5%);
+		padding: rem(12) rem(16);
+		text-align: center;
+		@include transition(all .25s ease-in-out);
+
+		.gsa-icon-download {
+			position: absolute;
+			right: 16px;
+			top: 50%;
+			margin-top: -8px;
+		}
+	}
+
+	.file-downloads__icon-text {
+		opacity: 0;
+		@include transition(all .25s ease-in-out);
+		position: absolute;
+		right: 100%;
+		top: 50%;
+		margin-top: -8px;
+	}
+
+
+	@keyframes floating {
+		0% { transform: translateY(0%);	}
+		50% { transform: translateY(-15%); }	
+		100% { transform: translateY(0%); }			
+	}
+}

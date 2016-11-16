@@ -1,0 +1,174 @@
+.gsa-widget {
+	.panel__content--weather {
+		background-color: darken($light-gray, 2%);
+		text-align: center;
+
+		a {
+			color: #ffffff;
+
+			&:hover {
+				color: #ffffff;
+			}
+		}
+	}
+
+	.weather__day-time,
+	.weather__location {
+		text-align: left;
+		color: $dark-blue;
+		margin: 0;
+		font-weight: 400;
+	}
+
+	.weather__location {
+		padding: rem(15) 0 0 rem(30);
+	}
+
+	.weather__day-time {
+		padding: 0 0 rem(16) rem(30);
+
+	}
+
+	.weather__current {
+		background-color: $dark-blue;
+		color: #ffffff;
+	}
+
+	.weather__current-temp {
+		font-size: rem(46);
+		line-heigh: 1;
+
+		@include media(">phablet"){
+			font-size: rem(70);
+		}
+
+		@include media(">phablet_640"){
+			//font-size: rem(48);
+		}
+
+		@include media(">tablet"){
+			font-size: rem(46);
+		}
+
+		@include media(">=800px"){
+			font-size: rem(50);
+		}
+
+		@include media(">desktop"){
+			font-size: rem(64);
+		}
+
+		span {
+			position: relative;
+			line-height: .75;
+			@include media(">desktop"){
+			}
+		}
+
+		sup {
+			font-size: rem(18);
+			position: absolute;
+			top: 26%;
+			right: rem(-20);		
+
+			@include media(">desktop"){
+				font-size: rem(20);
+			}
+		}
+	}
+
+	.weather__current-conditions {
+		padding-top: rem(5);
+
+		img {
+			display: block;
+			margin: 0 auto;
+		}
+
+	}
+
+	.weather__current-chances {
+		text-align: left;
+		font-size: rem(14);
+		padding-top: rem(15);
+
+		@include media(">phablet_640"){
+			//font-size: rem(16);
+		}
+
+		img {
+			width: 22px;
+			vertical-align: middle;
+			margin-right: rem(8)
+		}
+
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+
+			padding-left: rem(5);
+
+			li {
+				margin-bottom: rem(5);
+			}
+		}
+	}
+
+
+
+	.weather__more-data {
+		padding: rem(15) 0 rem(10);
+
+		@include media(">tablet"){
+			padding: rem(10) 0;
+		}
+
+		@include media(">desktop"){
+			padding: rem(10) 0 rem(10);
+			margin-top: -10px;
+		}
+	}
+
+
+
+
+
+	.weather__forecast {
+		background-color: $dark-blue;
+		border-top: 1px solid #ffffff;
+		color: #ffffff;
+		text-align: center;
+	}
+
+	.weather__forecast-item {
+		padding: rem(10) rem(5);
+		border-right: 1px solid #ffffff;
+
+		@include media(">tablet"){
+			padding: rem(20) rem(5);
+		}
+
+		&:last-child {
+			border-right: 0;
+		}
+	}
+
+	.weather__forecast-day {
+		font-size: rem(12);
+		display: block;
+		text-transform: uppercase;
+	}
+
+	.weather__forecast-degree {
+		font-size: rem(19);
+		display: block;
+
+
+		sup {
+			font-size: rem(30);
+			line-height: 15px;
+			vertical-align: middle;
+		}
+	}
+}
