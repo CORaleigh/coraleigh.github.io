@@ -194,3 +194,30 @@ $("#filter-jobs").change(function(){
 	jobsWidget.openJobs.updateJobsTable(dropdownValue);
 })
 jobsWidget.openJobs.updateJobsTable(dropdownValue);
+$.ajax({
+	url:"https://data.raleighnc.gov/resource/8e89-69gk.json"
+}).done(function(rawPeakHiringData){
+	var monthAbbrArray = ['J',"F","M","A","M","J","J","A","S","N","D"];
+	var peakHiringData = [['Year','Full-Time','Part-Time',{role : "annotation"}]];
+	rawPeakHiringData.forEach(function(rawMonthData){
+		var monthData = [monthAbbrArray.shift(),rawMonthData.full_time_hires,rawMonthData.part_time_hires];
+		peakHiringData.push(monthData);
+	});
+	var refinedPeakHiringData = google.google.visualization.arrayToDataTable(peakHiringData);
+	var hiringDataChartOptions = {
+		isStacked : true,
+        hAxis: {title: 'Month',  titleTextStyle: {color: '#333'}},
+        vAxis: {minValue: 0},
+        backgroundColor: { fill:'transparent' },
+        legend: {position: 'none'},
+        chartArea: {
+            backgroundColor: 'f5f5f5',
+            left: 40,
+            right: 1,
+            top: 20
+        }
+    };
+    var chartPeakHiringData = new google.visualization.AreaChart(document.getElementById("#chart-peak-hiring"));
+    chartPeakHiringData.draw(refinedPeakHiringData,hiringDataChartOptions);
+
+});
