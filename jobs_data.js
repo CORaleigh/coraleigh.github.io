@@ -203,7 +203,7 @@ $.ajax({
 		var monthData = [monthAbbrArray.shift(),rawMonthData.full_time_hires,rawMonthData.part_time_hires];
 		peakHiringData.push(monthData);
 	});
-	var refinedPeakHiringData = google.google.visualization.arrayToDataTable(peakHiringData);
+	var refinedPeakHiringData = google.visualization.arrayToDataTable(peakHiringData);
 	var hiringDataChartOptions = {
 		isStacked : true,
         hAxis: {title: 'Month',  titleTextStyle: {color: '#333'}},
