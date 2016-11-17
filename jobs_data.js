@@ -205,6 +205,7 @@ $.ajax({
 	});
 	debugger;
 	var refinedPeakHiringData = google.visualization.arrayToDataTable(peakHiringData);
+	debugger;
 	var hiringDataChartOptions = {
 		isStacked : true,
         hAxis: {title: 'Month',  titleTextStyle: {color: '#333'}},
@@ -218,6 +219,7 @@ $.ajax({
             top: 20
         }
     };
+    debugger;
     var chartPeakHiringData = new google.visualization.AreaChart(document.getElementById("#chart-peak-hiring"));
     chartPeakHiringData.draw(refinedPeakHiringData,hiringDataChartOptions);
 
