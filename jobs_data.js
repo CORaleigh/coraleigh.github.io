@@ -222,7 +222,7 @@ $.ajax({
         }
     };
     debugger;
-    var chartPeakHiringData = new google.visualization.AreaChart(document.getElementById("#chart-peak-hiring"));
+    var chartPeakHiringData = new google.visualization.AreaChart(document.getElementById("chart-peak-hiring"));
     chartPeakHiringData.draw(refinedPeakHiringData,hiringDataChartOptions);
 
 });
