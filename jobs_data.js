@@ -198,7 +198,9 @@ $.ajax({
 	url:"https://data.raleighnc.gov/resource/8e89-69gk.json"
 }).done(function(rawPeakHiringData){
 	var monthAbbrArray = ['J',"F","M","A","M","J","J","A","S","O","N","D"];
-	var peakHiringData = [['Year','Full-Time','Part-Time',{role : "annotation"}]];
+	var peakHiringData = [['Year','Full-Time','Part-Time'
+	// ,{role : "annotation"}
+	]];
 	rawPeakHiringData.forEach(function(rawMonthData){
 		var monthData = [monthAbbrArray.shift(),rawMonthData.full_time_hires,rawMonthData.part_time_hires];
 		peakHiringData.push(monthData);
