@@ -202,7 +202,7 @@ $.ajax({
 	// ,{role : "annotation"}
 	]];
 	rawPeakHiringData.forEach(function(rawMonthData){
-		var monthData = [monthAbbrArray.shift(),rawMonthData.full_time_hires,rawMonthData.part_time_hires];
+		var monthData = [monthAbbrArray.shift(),Number(rawMonthData.full_time_hires),Number(rawMonthData.part_time_hires)];
 		peakHiringData.push(monthData);
 	});
 	debugger;
