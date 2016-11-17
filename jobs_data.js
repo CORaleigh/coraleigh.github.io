@@ -205,9 +205,9 @@ $.ajax({
 		var monthData = [monthAbbrArray.shift(),Number(rawMonthData.full_time_hires),Number(rawMonthData.part_time_hires)];
 		peakHiringData.push(monthData);
 	});
-	debugger;
+	// debugger;
 	var refinedPeakHiringData = google.visualization.arrayToDataTable(peakHiringData);
-	debugger;
+	// debugger;
 	var hiringDataChartOptions = {
 		isStacked : true,
         hAxis: {title: 'Month',  titleTextStyle: {color: '#333'}},
@@ -221,7 +221,7 @@ $.ajax({
             top: 20
         }
     };
-    debugger;
+    // debugger;
     var chartPeakHiringData = new google.visualization.ColumnChart(document.getElementById("chart-peak-hiring"));
     chartPeakHiringData.draw(refinedPeakHiringData,hiringDataChartOptions);
 
