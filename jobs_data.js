@@ -177,7 +177,7 @@ jobsWidget = {
 			
 		},
 		getJobTableRowMarkup : function(){
-			var tableRowsDisplayed = 7; //number of rows that show up in the onebox
+			var tableRowsDisplayed = 10; //number of rows that show up in the onebox
 
 			//check the value of the dropdown
 			dropdownValue = $("#filter-jobsSelectBoxItText").text();
