@@ -114,40 +114,40 @@ var gsa = {
         // charts for info on dynamically loading data go to https://developers.google.com/chart/interactive/docs/queries
         drawPeakHiring: function() {
 
-            if ( $('#' + $chartPeakHiringContainer).length > 0 ) {
-                var dataPeakHiring = google.visualization.arrayToDataTable([
-                  ['Month', 'Hires'],
-                  ['J',  90],
-                  ['F',  150],
-                  ['M',  60],
-                  ['A',  70],
-                  ['M',  60],
-                  ['J',  120],
-                  ['J',  130],
-                  ['A',  120],
-                  ['S',  40],
-                  ['O',  47],
-                  ['N',  35],
-                  ['D',  250]
-                ]);
+            // if ( $('#' + $chartPeakHiringContainer).length > 0 ) {
+            //     var dataPeakHiring = google.visualization.arrayToDataTable([
+            //       ['Month', 'Hires'],
+            //       ['J',  90],
+            //       ['F',  150],
+            //       ['M',  60],
+            //       ['A',  70],
+            //       ['M',  60],
+            //       ['J',  120],
+            //       ['J',  130],
+            //       ['A',  120],
+            //       ['S',  40],
+            //       ['O',  47],
+            //       ['N',  35],
+            //       ['D',  250]
+            //     ]);
 
-                var options = {
-                    hAxis: {title: 'Month',  titleTextStyle: {color: '#333'}},
-                    vAxis: {minValue: 0},
-                    backgroundColor: { fill:'transparent' },
-                    legend: {position: 'none'},
-                    chartArea: {
-                        backgroundColor: 'f5f5f5',
-                        left: 40,
-                        right: 1,
-                        top: 20
-                    }
-                };
+            //     var options = {
+            //         hAxis: {title: 'Month',  titleTextStyle: {color: '#333'}},
+            //         vAxis: {minValue: 0},
+            //         backgroundColor: { fill:'transparent' },
+            //         legend: {position: 'none'},
+            //         chartArea: {
+            //             backgroundColor: 'f5f5f5',
+            //             left: 40,
+            //             right: 1,
+            //             top: 20
+            //         }
+            //     };
 
-                var chartPeakHiring = new google.visualization.AreaChart(document.getElementById($chartPeakHiringContainer));
+            //     var chartPeakHiring = new google.visualization.AreaChart(document.getElementById($chartPeakHiringContainer));
 
-                chartPeakHiring.draw(dataPeakHiring, options);
-            }
+            //     chartPeakHiring.draw(dataPeakHiring, options);
+            // }
         },
 
         drawBenefitsComparison: function() {
