@@ -146,7 +146,7 @@ jobsWidget = {
 					jobTableMarkup = 
 						"<tr class='gsa-table__row'>" +
 							"<td>"+
-								"<a href='" + jobLink + "' target='_blank'>"+ jobTitle + "</a>" +
+								"<a href='" + jobLink + "'  target='_blank'>"+ jobTitle + "</a>" +
 							"</td>"+
 							"<td>" + salaryString + "</td>" +
 							"<td>" + jobDepartment +"</td>" +
