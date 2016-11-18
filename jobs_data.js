@@ -154,6 +154,8 @@ jobsWidget = {
 					return jobTableMarkup;
 
 				}
+				jQuery(".gsa-table tbody").empty();
+				jQuery(".cor-blurred").removeClass("cor-blurred");
 				while(tableRowsDisplayed > 0){
 					var job = displayJobsData.pop();
 					console.log(displayJobsData);
@@ -170,8 +172,6 @@ jobsWidget = {
 
 					markup = generateTableRowMarkup(url,title,min,max,dept);
 					console.log(markup); 
-					jQuery(".gsa-table tbody").empty();
-					jQuery(".cor-blurred").removeClass("cor-blurred");
 					jQuery(".gsa-table tbody").append(generateTableRowMarkup(job.url,job.title,job.salaryMin,job.salaryMax,job.department));
 					tableRowsDisplayed = tableRowsDisplayed - 1;
 				}
