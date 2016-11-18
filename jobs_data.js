@@ -127,7 +127,7 @@ jobsWidget = {
 				if(tableRowsDisplayed > displayJobsData.length){
 					tableRowsDisplayed = displayJobsData.length; //reduce the number of rows displayed to the number of available jobs to show
 				}
-				jQuery(".gsa-table tbody").empty();
+				
 				console.log(displayJobsData);
 				function generateTableRowMarkup(jobLink,jobTitle,jobSalaryMin,jobSalaryMax,jobDepartment){
 					//control structures for the 'salary range' field.
@@ -170,6 +170,8 @@ jobsWidget = {
 
 					markup = generateTableRowMarkup(url,title,min,max,dept);
 					console.log(markup); 
+					jQuery(".gsa-table tbody").empty();
+					jQuery(".cor-blurred").removeClass("cor-blurred");
 					jQuery(".gsa-table tbody").append(generateTableRowMarkup(job.url,job.title,job.salaryMin,job.salaryMax,job.department));
 					tableRowsDisplayed = tableRowsDisplayed - 1;
 				}
