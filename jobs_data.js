@@ -123,7 +123,7 @@ jobsWidget = {
 				});
 				console.log(jobsWidget.openJobs.jobData);
 				displayJobsData = jobsWidget.openJobs.sortJobData(dropdownValue);
-				var tableRowsDisplayed = 7;
+				var tableRowsDisplayed = 10; //number of rows that show up in the onebox
 				if(tableRowsDisplayed > displayJobsData.length){
 					tableRowsDisplayed = displayJobsData.length; //reduce the number of rows displayed to the number of available jobs to show
 				}
