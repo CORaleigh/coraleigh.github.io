@@ -52,3 +52,13 @@
 		text-align: center !important;
 	}
 }
+
+.panel__foot a strong{
+	position: relative;
+	top: 5px;
+}
+
+.panel__foot a span{
+	position: relative;
+	top: 5px;
+}
