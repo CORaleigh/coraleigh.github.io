@@ -30,7 +30,7 @@
 	}
 }
 
-@media (min-width: 960px){
+@media (max-width: 960px){
 	#obr{
 		display: block;
 		width: 100%;
