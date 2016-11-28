@@ -49,6 +49,6 @@
 	}
 
 	.gsa-table__row td{
-		text-align: center;
+		text-align: center !important;
 	}
 }
