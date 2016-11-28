@@ -47,4 +47,8 @@
 	.gsa-table__row td > * {
 		display: block;
 	}
+
+	.gsa-table__row td{
+		text-align: center;
+	}
 }
