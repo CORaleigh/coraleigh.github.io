@@ -29,3 +29,16 @@
 		width: 40%;
 	}
 }
+
+@media (min-width: 960px){
+	#obr{
+		display: block;
+		width: 100%;
+	}
+
+	.gsa-widget{
+		width: 100%;
+		margin: 0px;
+		float:none;
+	}
+}
