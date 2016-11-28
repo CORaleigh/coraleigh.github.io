@@ -42,3 +42,9 @@
 		float:none;
 	}
 }
+
+@media (max-width: 639px){
+	.gsa-table__row > * {
+		display: block;
+	}
+}
