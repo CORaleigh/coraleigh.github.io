@@ -195,7 +195,7 @@ $("#filter-jobs").change(function(){
 	dropdownValue = $("#filter-jobs").val();
 	jobsWidget.openJobs.updateJobsTable(dropdownValue);
 })
-jobsWidget.openJobs.updateJobsTable(dropdownValue);
+jobsWidget.openJobs.updateJobsTable("Highest Salary");
 $.ajax({
 	url:"https://data.raleighnc.gov/resource/8e89-69gk.json"
 }).done(function(rawPeakHiringData){
