@@ -44,7 +44,7 @@
 }
 
 @media (max-width: 639px){
-	.gsa-table__row > * {
+	.gsa-table__row td > * {
 		display: block;
 	}
 }
