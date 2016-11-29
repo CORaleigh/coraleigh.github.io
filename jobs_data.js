@@ -224,7 +224,14 @@ $.ajax({
         }
     };
     // debugger;
-    var chartPeakHiringData = new google.visualization.ColumnChart(document.getElementById("chart-peak-hiring"));
-    chartPeakHiringData.draw(refinedPeakHiringData,hiringDataChartOptions);
 
+    
+
+    function generateChart(){
+    	var chartPeakHiringData = new google.visualization.ColumnChart(document.getElementById("chart-peak-hiring"));
+    	chartPeakHiringData.draw(refinedPeakHiringData,hiringDataChartOptions);
+    }
+
+    window.onload = generateChart();
+    window.onresize = generateChart;
 });
