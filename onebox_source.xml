@@ -1,0 +1,16 @@
+<module oneboxName="cognos_report">
+	<mapEntries>
+		<mapEntry provider="cm">
+			<regex>.*revenue.*</regex>
+			<path type="output">/content/package
+       [@name='Onebox Reports']/query[@name='RevenueReport']
+      </path>
+		</mapEntry>
+		<mapEntry provider="cm">
+			<regex>.*inventory.*</regex>
+			<path type="output">/content/package
+       [@name='Onebox Reports']/query[@name='InventoryReport']
+      </path>
+		</mapEntry>
+	</mapEntries>
+</module>
