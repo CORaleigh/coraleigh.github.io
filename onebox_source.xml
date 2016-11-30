@@ -1,16 +1,20 @@
-<module oneboxName="cognos_report">
-	<mapEntries>
-		<mapEntry provider="cm">
-			<regex>.*revenue.*</regex>
-			<path type="output">/content/package
-       [@name='Onebox Reports']/query[@name='RevenueReport']
-      </path>
-		</mapEntry>
-		<mapEntry provider="cm">
-			<regex>.*inventory.*</regex>
-			<path type="output">/content/package
-       [@name='Onebox Reports']/query[@name='InventoryReport']
-      </path>
-		</mapEntry>
-	</mapEntries>
-</module>
+<OneBoxResults>
+<resultCode>success</resultCode>
+<Diagnostics>failure_reason do not know</Diagnostics>
+<provider>Raleigh NC</provider>
+<searchTerm>one box demo</searchTerm>
+<totalResults>4</totalResults>
+<title>
+<urlText>one box demo</urlText>
+<urlLink>http://google.com/onebox</urlLink>
+</title>
+<IMAGE_SOURCE>image_url</IMAGE_SOURCE>
+<MODULE_RESULT>
+<U>http://raleighnc.gov/</U>
+<Title>OneBox Demo</Title>
+<Field name="name1">Chad</Field>
+<Field name="name2">Adam</Field>
+<Field name="name3">Surender</Field>
+<Field name="name4">Will</Field>
+</MODULE_RESULT>
+</OneBoxResults>
