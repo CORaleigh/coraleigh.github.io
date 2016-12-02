@@ -157,7 +157,7 @@ jobsWidget = {
 					jobTableMarkup = 
 						"<tr class='gsa-table__row'>" +
 							"<td>"+
-								"<a href='" + jobLink + "'  target='_blank'>"+ jobTitle + "</a>" +
+								"<a class='cor-gsa-onebox-job-link' href='" + jobLink + "'  target='_blank'>"+ jobTitle + "</a>" +
 							"</td>"+
 							"<td>" + salaryString + "</td>" +
 							"<td>" + jobDepartment +"</td>" +
@@ -186,6 +186,11 @@ jobsWidget = {
 					jQuery(".gsa-table tbody").append(generateTableRowMarkup(job.url,job.title,job.salaryMin,job.salaryMax,job.department));
 					tableRowsDisplayed = tableRowsDisplayed - 1;
 				}
+
+				$(".cor-gsa-onebox-job-link").click(function(){
+					ga("send","event","Link","click","Individual Job Listing");
+					console.log("Sending GA Event");
+				})
 			});
 			
 		},
