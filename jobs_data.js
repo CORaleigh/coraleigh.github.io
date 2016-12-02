@@ -126,7 +126,7 @@ jobsWidget = {
 						salaryMin : jobListing.minimum_salary,
 						salaryMax : jobListing.maximum_salary,
 						department : jobListing.department,
-						hits: jobListing.submitted_resume_count,
+						hits: jobListing.hits,
 						type : jobListing.job_type,
 
 					}
