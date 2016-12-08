@@ -51,6 +51,10 @@
 	.gsa-table__row td{
 		text-align: center !important;
 	}
+
+	#col3{
+		display: block;
+	}
 }
 
 .panel__foot a strong{
