@@ -70,3 +70,7 @@
 .panel__foot a.push-right{
 	padding-bottom: 10px;
 }
+
+#Advanced{
+	display: none;
+}
