@@ -41,6 +41,11 @@
 		margin: 0px !important;
 		float:none;
 	}
+	#col2, #col3{
+		display: block;
+		width: 100%;
+		clear: both;
+	}
 }
 
 @media (max-width: 639px){
