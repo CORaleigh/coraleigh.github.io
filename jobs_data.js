@@ -190,6 +190,22 @@ jobsWidget = {
 				$(".cor-gsa-onebox-job-link").click(function(){
 					ga("send","event","Link","click","Individual Job Listing");
 					console.log("Sending GA Event");
+				});
+
+				$("#cor-onebox-view-all-jobs").click(function(){
+					ga("send","event","Link","click","View All Jobs");
+				});
+
+				$("#cor-onebox-expand-list").click(function(){
+					ga("send","event","Link","click","Expand List");
+				});
+
+				$("#cor-onebox-view-more-data").click(function(){
+					ga("send","event","Link","click","View More Data");
+				});
+
+				$("#keymatch").children().first().children('a').click(function(){
+					ga("send","event","Link","click","Keyword Match");
 				})
 			});
 			
