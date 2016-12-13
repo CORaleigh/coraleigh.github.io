@@ -212,6 +212,11 @@ jobsWidget = {
 					console.log("Sending GA Event - KM");
 				})
 
+				$("#filter-jobsSelectBoxItText").change(function(){
+					var newDropDownVal = $(this).val();
+					ga("send","event","Dropdown","Selection",newDropDownVal);
+				});
+
 				$(".result-item").children().first().children().first().children('a');
 			});
 			
