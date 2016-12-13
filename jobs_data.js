@@ -215,6 +215,7 @@ jobsWidget = {
 				$("#filter-jobsSelectBoxItText").change(function(){
 					var newDropDownVal = $(this).val();
 					ga("send","event","Dropdown","Selection",newDropDownVal);
+					console.log("sending event DDSel - " + newDropDownVal);
 				});
 
 				$(".result-item").children().first().children().first().children('a');
