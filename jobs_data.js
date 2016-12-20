@@ -212,7 +212,7 @@ jobsWidget = {
 					console.log("Sending GA Event - KM");
 				})
 
-				$("#filter-jobsSelectBoxItText").change(function(){
+				$("#filter-jobs").change(function(){
 					var newDropDownVal = $(this).val();
 					ga("send","event","Dropdown","Selection",newDropDownVal);
 					console.log("sending event DDSel - " + newDropDownVal);
