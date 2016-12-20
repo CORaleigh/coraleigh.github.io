@@ -1,0 +1,30 @@
+// Images
+//
+// Display a photograph/graphic in the content. You can optionally configure image sources for multi-device support.
+//
+// Markup:
+// <img src="assets/image.jpg" alt="Scenic view of mountains and ocean" />
+//
+// Styleguide Elements - Images
+
+.gsa-widget {
+	img,
+	picture {
+	    margin: 0;
+	    max-width: 100%;
+	}
+
+
+	// Videos
+	//
+	// Displays a video from an external source, such as YouTube or Vimeo, without forcing the user to leave the current web page.
+	//
+	// Markup:
+	// <iframe src="https://www.youtube.com/embed/jnk15Wf6xMU?rel=0" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+	// <iframe src="https://player.vimeo.com/video/105432007" width="560" height="315" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	//
+	// Styleguide Elements - Videos
+
+	iframe {}
+	video {}
+}

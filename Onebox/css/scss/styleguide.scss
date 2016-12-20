@@ -1,0 +1,477 @@
+// Let's import our project's stylesheet
+// So that we can use it on our style guide
+// -----------------------------------------
+@import "style";
+
+#kss-node {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+#kss-node .kss-section {
+  margin-bottom: 96px;
+}
+#kss-node .kss-section.kss-section--depth-3 {
+  margin-top: -48px;
+}
+.kss-style a { color: #2196F3; }
+.kss-style a:visited { color: #2196F3; }
+
+
+//
+// Titles
+// -----------------------------------------
+//
+#kss-node .style-guide-title {
+  padding: 100px 0;
+  margin: 0 0 50px;
+  border-bottom: 1px solid #eee;
+  color: #263238;
+  font-size: 80px;
+  font-weight: normal;
+}
+#kss-node .table-of-contents-title,
+#kss-node .developers-title {
+  color: #263238;
+  font-weight: normal;
+}
+#kss-node .kss-title__ref {
+  color: #CFD8DC;
+}
+#kss-node .kss-title--level-1 .kss-title__permalink {
+  color: #263238;
+  font-size: 48px;
+}
+#kss-node .kss-title--level-2 .kss-title__permalink {
+  color: #455A64;
+  font-size: 36px;
+  font-weight: normal;
+}
+#kss-node .kss-title--level-3 .kss-title__permalink {
+  color: #607D8B;
+  font-size: 24px;
+  font-weight: normal;
+}
+
+
+//
+// Table of Contents
+// -----------------------------------------
+//
+#kss-node .table-of-contents {
+  display: flex;
+  @include flex-wrap(wrap);
+  @include justify-content(space-between);
+
+  h2 {
+    width: 100%;
+  }
+  section {
+    width: 48%;
+    margin-bottom: 40px;
+    vertical-align: top;
+    color: #647687;
+
+    &:before {
+      content: '';
+      display: block;
+      width: 150px;
+      height: 150px;
+      margin: 0 -25px -25px;
+    }
+    h3 {
+      font-weight: normal;
+    }
+  }
+  .guide-branding:before {
+    background: url('../assets/i_section-branding.png') no-repeat 0 0;
+  }
+  .guide-layouts:before {
+    background: url('../assets/i_section-layouts.png') no-repeat 0 0;
+  }
+  .guide-elements:before {
+    background: url('../assets/i_section-elements.png') no-repeat 0 0;
+  }
+  .guide-components:before {
+    background: url('../assets/i_section-components.png') no-repeat 0 0;
+  }
+
+}
+
+
+//
+// Toolbar
+// -----------------------------------------
+//
+#kss-node .kss-toolbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  width: 80%;
+  height: 60px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  z-index: 1000;
+  @include justify-content(space-between);
+  @include align-items(center);
+  @include transition-property(width);
+  @include transition-duration(0.25s);
+  @include transition-timing-function(cubic-bezier(0.770, 0.000, 0.175, 1.000));
+}
+
+
+//
+// Main Article
+// -----------------------------------------
+//
+#kss-node .kss-main {
+  padding-top: 60px;
+  @include transition-property(margin);
+  @include transition-duration(0.25s);
+  @include transition-timing-function(cubic-bezier(0.770, 0.000, 0.175, 1.000));
+}
+
+
+
+//
+// Sidebar
+// -----------------------------------------
+//
+#kss-node .kss-sidebar {
+  background: #263238;
+  @include transition-property(transform);
+  @include transition-duration(0.25s);
+  @include transition-timing-function(cubic-bezier(0.770, 0.000, 0.175, 1.000));
+}
+#kss-node .kss-header {
+  display: flex;
+  height: 60px;
+  padding: 0 20px;
+  border-bottom: 1px solid rgba(255,255,255,.2);
+  @include align-items(center);
+  @include justify-content(center);
+  @include flex-direction(column);
+}
+#kss-node .kss-doc-title {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+
+//
+// Menu Toggle
+// -----------------------------------------
+//
+#kss-node #kss-menu-toggle {
+  width: 40px;
+  height: 40px;
+  margin-left: 20px;
+  background: url(../assets/i_menu.svg) no-repeat 50% 50% / 24px auto;
+  font-size: 0;
+  line-height: 0;
+
+  &:focus {
+    outline: 0;
+  }
+}
+#kss-node[data-menu='hidden'] {
+
+  .kss-sidebar {
+    @include transform(translateX(-100%));
+  }
+  .kss-main {
+    margin-left: 0;
+  }
+  .kss-toolbar {
+    width: 100%;
+  }
+
+}
+
+
+
+//
+// Menu
+// -----------------------------------------
+//
+#kss-node .kss-nav__menu-child {
+  background: #37474F;
+  > li {
+    padding-left: 0;
+    border-bottom: 1px solid rgba(#fff, .1);
+    > a {
+      padding-left: 30px;
+    }
+  }
+}
+#kss-node .kss-nav__menu-item {
+  a {
+    color: rgba(#fff, .75);
+  }
+  .active {
+    background-color: rgba(#000, .1);
+    color: #fff;
+  }
+  a.active {
+    border-left: 3px solid #2196F3;
+    transition: all .1s ease;
+  }
+}
+
+
+#kss-node .kss-nav li:hover {
+  background-color: rgba(#000, .1);
+}
+
+#kss-node .kss-nav__ref-child + .kss-nav__name {
+  padding-left: 15px;
+  position: relative;
+
+  &:before {
+    content:'';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 4px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.5);
+  }
+  &:after {
+    content:'';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    @include transform(translateY(-100%));
+    width: 1px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.5);
+  }
+}
+
+//
+// Github Syntax
+// -----------------------------------------
+//
+#kss-node {
+  pre {
+      border: 0;
+      word-wrap: break-word;
+      padding: 6px 10px;
+      line-height: 19px;
+      margin-bottom: 20px;
+  }
+  code {
+      border: 0;
+      margin: 0px 2px;
+      padding: 0px 5px;
+      font-size: 12px;
+  }
+  pre code {
+      border: 0px;
+      padding: 0px;
+      margin: 0px;
+      -moz-border-radius: 0px;
+      -webkit-border-radius: 0px;
+      border-radius: 0px;
+  }
+  pre, code {
+      font-family: Consolas, 'Liberation Mono', Courier, monospace;
+  }
+  pre, pre code {
+      font-size: 14px;
+  }
+
+}
+
+
+//
+// Breakpoints for Examples
+// -----------------------------------------
+//
+#kss-node .kss-modifier__example {
+  //width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  @include transition(all .25s ease-in-out);
+}
+.phone#kss-node .kss-modifier__example {
+  //width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.tablet#kss-node .kss-modifier__example {
+  //width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+//
+// Custom radio switches
+// -----------------------------------------
+//
+.switch-field {
+  font-family: "Lucida Grande", Tahoma, Verdana, sans-serif;
+  padding: 0 20px;
+  overflow: hidden;
+  display: none;
+
+  @media screen and (min-width: 769px) {
+    display: block;
+    float: right;
+  }
+}
+.switch-title {
+  margin-bottom: 6px;
+}
+.switch-field input {
+  display: none !important;
+}
+.switch-field label {
+  float: left;
+}
+.switch-field label {
+  display: inline-block;
+  //width: 60px;
+  background-color: #ECEFF1;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+  font-weight: normal;
+  text-align: center;
+  text-shadow: none;
+  padding: 6px 14px;
+  margin: 0;
+  border: 1px solid #fff;
+  cursor: pointer;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition:    all 0.1s ease-in-out;
+  -ms-transition:     all 0.1s ease-in-out;
+  -o-transition:      all 0.1s ease-in-out;
+  transition:         all 0.1s ease-in-out;
+}
+.switch-field label:hover {
+    cursor: pointer;
+}
+.switch-field input:checked + label {
+  background-color: #263238;
+  color: #fff;
+}
+.switch-field label:first-of-type {
+  border-radius: 4px 0 0 4px;
+}
+.switch-field label:last-of-type {
+  border-radius: 0 4px 4px 0;
+}
+
+
+//
+// Custom swatches
+// -----------------------------------------
+//
+.kss-style .swatches {
+  display: flex;
+  @include flex-wrap(wrap);
+  padding: 0;
+  margin: 0 -10px;
+  font-size: 0;
+  line-height: 0;
+
+  .swatch {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    padding: 140px 20px 20px;
+    margin: 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    vertical-align: top;
+    text-align: center;
+    overflow: hidden;
+
+    > div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '';
+      display: block;
+      background: #ddd;
+      width: 100%;
+      height: 120px;
+    }
+    h5 {
+      margin: 0 0 20px;
+      font-size: 16px;
+      line-height: 20px;
+    }
+    ul {
+      padding: 0;
+      margin: 0;
+      font-size: 12px;
+      color: lighten(#2a2a2a, 50%);
+      line-height: 1.25;
+      text-align: left;
+      text-transform: uppercase;
+
+      li {
+        display: flex;
+        padding: 1px 0;
+        @include justify-content(space-between);
+      }
+
+      strong {
+        color: lighten(#2a2a2a, 10%);
+      }
+    }
+  }
+
+}
+
+
+//
+// Custom typefaces
+// -----------------------------------------
+//
+.kss-style .typefaces {
+  display: flex;
+  @include flex-wrap(wrap);
+  padding: 0;
+  margin: 0 -10px;
+  font-size: 0;
+  line-height: 0;
+
+  .typeface {
+    width: 500px;
+    margin: 0 10px;
+
+    h5 {
+      font-size: 18px;
+    }
+    p {
+      font-size: 24px;
+      line-height: 1.5;
+    }
+    p span {
+      font-size: 96px;
+      line-height: 1;
+    }
+  }
+}
+
+
+//
+// Sections
+// -----------------------------------------
+//
+#kss-node .kss-modifier__wrapper {
+  border-color: #ECEFF1;
+}
+#kss-node .kss-modifier__heading {
+  background-color: #ECEFF1;
+  border-color: #ECEFF1;
+}
+#kss-node .kss-markup {
+  border-color: #ECEFF1;
+}
+#kss-node span.kss-view-source {
+  display: block;
+  padding: 10px;
+}

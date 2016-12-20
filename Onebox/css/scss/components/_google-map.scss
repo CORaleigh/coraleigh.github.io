@@ -1,0 +1,26 @@
+.gsa-widget {	
+	.panel--google-map {
+		padding: 0;
+
+		.panel__content {
+			margin-top: 0;
+		}
+	}
+
+	.google-map-container {
+		height: 180px;
+		position: relative;
+		background-position: center center;
+	}
+
+
+	a[href^="http://maps.google.com/maps"]{display:none !important}
+	a[href^="https://maps.google.com/maps"]{display:none !important}
+
+	.gmnoprint a, .gmnoprint span, .gm-style-cc {
+	    display:none;
+	}
+	.gmnoprint div {
+	    background:none !important;
+	}
+}

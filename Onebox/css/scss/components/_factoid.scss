@@ -1,0 +1,45 @@
+.factoid {
+	background-color: $light-gray;
+	display: table;
+	margin: 0 0 rem(30) rem(5);
+}
+
+.factoid__icon {
+	padding: rem(25) 0;
+	display: table-cell;
+	width: rem(60);
+	vertical-align: top;
+	text-align: center;
+	color: $dark-blue;
+
+	@include media(">phablet"){
+		width: rem(90);
+	}
+
+	.gsa-icon-light:before {
+		font-size: rem(60);
+
+		@include media(">phablet"){
+			width: rem(90);
+		}
+	}
+}
+
+.factoid__title {
+	color: $dark-blue;
+	text-shadow: 0 0 0;
+	font-weight: 600;
+	line-height: 1.2;
+	text-shadow: 0 0 0;
+}
+
+.factoid__details {
+	display: table-cell;
+	vertical-align: top;
+	padding: rem(20) rem(20) rem(20) 0;
+	font-size: rem(14);
+
+	*:last-child {
+		margin-bottom: 0;
+	}
+}

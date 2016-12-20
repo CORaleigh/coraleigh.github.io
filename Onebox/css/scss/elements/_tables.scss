@@ -1,0 +1,109 @@
+// Tables
+// 
+// A majority of buttons in the site are built from the same base class.
+//
+// Markup:
+// <table class="{{modifier_class}}">
+//     <caption>Shelly's Daughters</caption>
+//     <thead>
+//         <tr>
+//             <th scope="col">Name</th>
+//             <th scope="col">Age</th>
+//             <th scope="col">Birthday</th>
+//         </tr>
+//     </thead>
+//     <tbody>
+//         <tr>
+//             <th scope="row">Jackie</th>
+//             <td>5</td>
+//             <td>April 5</td>
+//         </tr>
+//         <tr>
+//             <th scope="row">Beth</th>
+//             <td>8</td>
+//             <td>January 14</td>
+//         </tr>
+//     </tbody>
+// </table>
+//
+// Styleguide Elements - Tables
+
+
+table.gsa-table {
+  border-collapse: collapse;
+  font-feature-settings: "kern", "liga", "tnum";
+  margin: $small-spacing 0;
+  table-layout: fixed;
+  width: 100%;
+
+  th {
+    border-bottom: 1px solid shade($base-border-color, 25%);
+    font-weight: 600;
+    padding: $small-spacing 0;
+    text-align: left;
+    background: none;
+    text-shadow: 0 0 0 transparent;
+    color: #787777;
+    text-transform: uppercase;
+    font-size: rem(12);
+  }
+
+  td {
+    border-bottom: $base-border;
+    padding: $small-spacing 0;
+    background: none;
+    font-weight: 500;
+    font-size: rem(14);
+
+    a {
+      text-decoration: none;
+
+      &:link {
+        border: 0;
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+    th, td {
+    //&:first-child {
+      @include media(">phablet_640"){
+        padding-left: rem(10);
+      }
+    //}
+  }
+
+  @include media("<phablet_640"){
+    td {
+      text-align: left;
+      border: 0;
+      padding-top: 2px;
+      padding-bottom: 2px;
+    }
+    tr {
+      border-bottom: $base-border;
+
+      td:first-child {
+        padding-top: 10px;
+      }
+      td:last-child {
+        padding-bottom: 10px;
+      }
+    }
+  }
+}
+
+.gsa-table--open-jobs {
+  tbody tr:nth-child(n+6) {
+    display: none;
+  }
+
+  tbody tr.row-open {
+    // @include media("<phablet_640"){
+      display: table-row;
+    // }
+  }
+}

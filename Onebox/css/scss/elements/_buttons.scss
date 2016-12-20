@@ -1,0 +1,118 @@
+// Buttons
+//
+// A majority of buttons in the site are built from the same base class.
+//
+// Markup:
+// <a class="button {{modifier_class}}" href="#">Link Button</a>
+// <button class="button {{modifier_class}}">Button Element</button>
+// <input class="button {{modifier_class}}" type="submit" value="Input Button"/>
+//
+// Styleguide Elements - Buttons
+
+.gsa-widget {
+  .button,
+  #{$all-buttons} {
+    appearance: none;
+    background-color: $action-color;
+    border: 0;
+    border-radius: 0;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 600;
+    line-height: 1;
+    padding: $small-spacing $base-spacing;
+    text-decoration: none;
+    transition: background-color $base-duration $base-timing;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    height: 43px;
+
+    &:hover,
+    &:focus {
+      background-color: shade($action-color, 20%);
+      color: #fff;
+      text-decoration: none;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+
+      &:hover {
+        background-color: $action-color;
+      }
+    }
+
+    + .button {
+      margin-top: rem(15);
+    }
+  }
+
+  // button modifiers
+  .button--text {
+    background-color: transparent;
+    color: $action-color;
+    padding: 0;
+    height: auto;
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+      color: shade($action-color, 30%);
+      text-decoration: underline;
+    }
+  }
+
+  .button--text-dark {
+    color: $base-font-color;
+  }
+
+  .button--primary {
+    @extend .button;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: rem(15);
+    line-height: 18px;
+    background-color: rgba($action-color, .90);
+
+    &:hover, &:active, &:visited {
+      color: #ffffff;
+      background-color: rgba($dark-blue, 1);
+      text-decoration: none;
+    }
+  }
+
+  .button--secondary {
+    @extend .button;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: rem(15);
+    line-height: 18px;
+    background-color: rgba($medium-gray, .90);
+
+    &:hover, &:active, &:visited {
+      color: #ffffff;
+      background-color: rgba($medium-gray, 1);
+      text-decoration: none;
+    }
+  }
+
+  .button--lrg {
+    font-size: rem(18);
+    font-weight: 500;
+    min-width: rem(130);
+    line-height: .75;
+  }
+
+  .button--overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10000;
+  }
+}

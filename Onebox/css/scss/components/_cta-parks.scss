@@ -1,0 +1,45 @@
+.gsa-widget {
+	.cta-parks {
+		background-color: $dark-blue;
+		// display: flex;
+		// flex-direction: row;
+		display: table;
+	    width: 100%;
+	    //table-layout: fixed;
+	    border-collapse: collapse;
+		padding: rem(20) 0 rem(20) rem(20);
+		margin-top: rem(10);
+
+		&:hover, &:focus {
+			text-decoration: none;
+			color: #ffffff;
+			background-color: $blue;
+		}
+
+		> * {
+			color: #ffffff;
+		}
+	}
+
+	.cta-parks__desc {
+		padding: rem(20) rem(20) rem(10) rem(20);
+		font-size: rem(14);
+		display: table-cell;
+	    vertical-align: top;
+
+	    @include media(">phablet"){
+	    	padding-right: rem(30);
+	    }
+	}
+
+	.cta-parks__title {
+		color: #ffffff;
+		margin-bottom: rem(10);
+	}
+
+	.cta-parks__img {
+		 display: table-cell;
+	    vertical-align: middle;
+	    width: 100px;
+	}
+}

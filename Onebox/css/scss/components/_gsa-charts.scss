@@ -1,0 +1,29 @@
+.gsa-widget {
+	.gsa-chart {
+		width: 100%; 
+	  	min-height: 300px;
+	}
+
+	.gsa-chart__title {
+		font-size: 13px;
+		text-transform: uppercase;
+		text-align: center;
+		padding: rem(10) 0 0;
+	}
+
+	.gsa-chart--short {
+		min-height: 166px;
+	}
+
+	// fix for contrast issue in charts
+	[aria-label="A tabular representation of the data in the chart."] {
+		table {
+			background-color: #fff;
+			color: #000;
+		}
+		th {
+			background-color: #000;
+			color: #fff;
+		}
+	}
+}

@@ -1,0 +1,262 @@
+// Forms
+// 
+// Common form elements that allows users to enter data.
+//
+// Styleguide Elements - Forms
+.gsa-widget {
+  #{$all-text-inputs},
+  select[multiple=multiple] {
+    background-color: $light-gray;
+    border: $base-border;
+    border-radius: $base-border-radius;
+    box-shadow: $form-box-shadow;
+    box-sizing: border-box;
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    margin-bottom: $small-spacing;
+    padding: $base-spacing / 3;
+    padding-left: rem(15);
+    transition: border-color $base-duration $base-timing;
+    width: 100%;
+    height: 43px;
+
+    &:hover {
+      border-color: shade($base-border-color, 20%);
+    }
+
+    &:focus {
+      border-color: $action-color;
+      box-shadow: $form-box-shadow-focus;
+      outline: none;
+    }
+
+    &:disabled {
+      background-color: shade($base-background-color, 5%);
+      cursor: not-allowed;
+
+      &:hover {
+        border: $base-border;
+      }
+    }
+  }
+
+  fieldset {
+    //background-color: $secondary-background-color;
+    border: none;
+    margin: 0 0 $small-spacing;
+    padding: $base-spacing;
+  }
+
+  input,
+  label,
+  select {
+    display: block;
+    font-family: $base-font-family;
+    font-size: rem(14);
+
+  }
+
+  label {
+    font-weight: 500;
+    margin-bottom: $small-spacing / 2;
+
+    &.required::after {
+      content: "*";
+    }
+
+    abbr {
+      display: none;
+    }
+  }
+
+  .select--wide {
+    select, .selectboxit, .selectboxit-container {
+      width: 100%;
+    }
+  }
+
+  // Inputs
+  // 
+  // Markup:
+  // <div class="field {{modifier_class}}">
+  //     <label for="text-name">Input Label</label>
+  //     <input id="text-name" type="text" placeholder="Placeholder..." />
+  // </div>
+  // <div class="field {{modifier_class}}">
+  //     <label for="email-name">Email Label</label>
+  //     <input id="email-name" type="email" placeholder="someone@example.com" autocapitalize="off" />
+  // </div>
+  // <div class="field {{modifier_class}}">
+  //     <label for="password-name">Password Label</label>
+  //     <input id="password-name" type="password" placeholder="Password" autocapitalize="off" />
+  // </div>
+  // <div class="field {{modifier_class}}">
+  //     <label for="phone-name">Telephone Label</label>
+  //     <input id="phone-name" type="tel" placeholder="(###) ###-####" />
+  // </div>
+  // <div class="field {{modifier_class}}">
+  //     <label for="file-name">File Label</label>
+  //     <input id="file-name" type="file" />
+  // </div>
+  //
+  // Styleguide Elements - Forms - Inputs
+
+  input[type='text'] {
+
+  }
+  input[type='email'] {
+
+  }
+  input[type='password'] {
+
+  }
+  input[type='tel'] {
+
+  }
+  input[type="file"] {
+    margin-bottom: $small-spacing;
+    width: 100%;
+  }
+  input[type="search"] {
+    appearance: none;
+  }
+
+
+
+
+
+  // Textarea
+  // 
+  // Markup:
+  // <div class="field {{modifier_class}}">
+  //     <label for="textarea-name">Textarea:</label>
+  //     <textarea id="textarea-name"></textarea>
+  // </div>
+  //
+  // Styleguide Elements - Forms - Textarea
+
+  textarea {
+    resize: vertical;
+  }
+
+  // Selects
+  // 
+  // Markup:
+  // <div class="field select">
+  //     <label for="select-choice">Select an option:</label>
+  //     <select id="select-choice" name="select-choice">
+  //         <option value="Choice 1">Choice 1</option>
+  //         <option value="Choice 2">Choice 2</option>
+  //         <option value="Choice 3">Choice 3</option>
+  //     </select>
+  // </div>
+  //
+  // Styleguide Elements - Forms - Selects
+
+  select {
+    margin-bottom: $base-spacing;
+    max-width: 100%;
+    width: auto;
+  }
+  option {}
+
+
+  // Radios
+  // 
+  // Markup:
+  // <div class="fieldset radios">
+  //     <fieldset>
+  //         <legend><span>Select an option:</span></legend>
+  //         <ul>
+  //             <li class="field">
+  //                 <input id="single-option1" type="radio" class="radio" name="options" />
+  //                 <label for="single-option1">Option 1</label>
+  //             </li>
+  //             <li class="field">
+  //                 <input id="single-option2" type="radio" class="radio" name="options" />
+  //                 <label for="single-option2">Option 2</label>
+  //             </li>
+  //         </ul>
+  //     </fieldset>
+  // </div>
+  //
+  // Styleguide Elements - Forms - Radios
+
+  .radios {
+    fieldset {
+      padding-left: rem(5);
+      padding-top: rem(10);
+      padding-bottom: 0;
+    }
+  }
+
+  input[type="radio"] {
+    display: inline;
+    margin-right: $small-spacing / 2;
+
+    + label {
+      display: inline-block;
+    }
+  }
+
+
+  // Checkboxes
+  // 
+  // Markup:
+  // <div class="fieldset checkboxes">
+  //     <fieldset>
+  //         <legend><span>Checkboxes</span></legend>
+  //         <ul>
+  //             <li class="field">
+  //                 <input id="option1" type="checkbox" class="checkbox" name="option" value="option1" />
+  //                 <label for="option1">Option 1</label>
+  //             </li>
+  //             <li class="field">
+  //                 <input id="option2" type="checkbox" class="checkbox" name="option" value="option2" />
+  //                 <label for="option2">Option 2</label>
+  //             </li>
+  //             <li class="field">
+  //                 <input id="option3" type="checkbox" class="checkbox" name="option" value="option3" />
+  //                 <label for="option3">Option 3</label>
+  //             </li>
+  //         </ul>
+  //     </fieldset>
+  // </div>
+  //
+  // Styleguide Elements - Forms - Checkboxes
+
+  .checkboxes {
+    fieldset {
+      padding-left: rem(5);
+      padding-top: rem(10);
+      padding-bottom: 0;
+    }
+  }
+  input[type="checkbox"] {
+    display: inline;
+    margin-right: $small-spacing / 2;
+
+    + label {
+      display: inline-block;
+    }
+  }
+
+  .field {
+    margin-bottom: rem(18);
+  }
+
+  .field--append-submit {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    input {
+      margin-right: rem(10);
+      flex: 2;
+    }
+
+    [type="submit"] {
+      flex: .7;
+    }
+  }
+}

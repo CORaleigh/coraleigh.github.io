@@ -1,0 +1,88 @@
+// Lists
+//
+// Element that groups related content together. They're part of everyday life and come in multiple formats.
+// 
+// Styleguide Elements - Lists
+.gsa-widget {
+ul,
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  &%default-ul {
+    list-style-type: disc;
+    margin-bottom: $small-spacing;
+    padding-left: $base-spacing;
+  }
+
+  &%default-ol {
+    list-style-type: decimal;
+    margin-bottom: $small-spacing;
+    padding-left: $base-spacing;
+  }
+}
+
+// Unordered Lists
+// 
+// The ul element, the name for which is an abbreviation of unordered list, is used to group a collection of items together in a list, but in a way that doesn’t suggest an order of precedence or importance.
+//
+// Markup:
+// <ul>
+//     <li>Lorem ipsum dolor sit amet</li>
+//     <li>Consectetur adipiscing elit</li>
+//     <li>Integer molestie lorem at massa</li>
+// </ul>
+//
+// Styleguide Elements - Lists - Unordered Lists
+
+ul {}
+
+
+// Ordered Lists
+// 
+// The ol element is similar to the ul element in that it’s used to group a collection of items together in a list.
+//
+// Markup:
+// <ol>
+//     <li>Lorem ipsum dolor sit amet</li>
+//     <li>Consectetur adipiscing elit</li>
+//     <li>Integer molestie lorem at massa</li>
+// </ol>
+//
+// Styleguide Elements - Lists - Ordered Lists
+
+ol {}
+
+
+// Definition Lists
+// 
+// If you want to list a series of items that essentially have a title and a description of some kind (that is, each item has two parts), use the definition list dl element.
+//
+// Markup:
+// <dl>
+//     <dt>Definition List</dt>
+//     <dd>A number of connected items or names written or printed consecutively, typically one below the other.</dd>
+//     <dt>This is a term.</dt>
+//     <dd>This is the definition of that term, which both live in a dl.</dd>
+//     <dt>Here is another term.</dt>
+//     <dd>And it gets a definition too, which is this line.</dd>
+//     <dt>Here is term that shares a definition with the term below.</dt>
+//     <dd>And it gets a definition too, which is this line.</dd>
+// </dl>
+//
+// Styleguide Elements - Lists - Definition Lists
+
+dl {
+  margin-bottom: $small-spacing;
+
+  dt {
+    font-weight: bold;
+    margin-top: $small-spacing;
+  }
+
+  dd {
+    margin: 0;
+  }
+}
+}
