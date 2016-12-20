@@ -218,6 +218,15 @@ jobsWidget = {
 					console.log("sending event DDSel - " + newDropDownVal);
 				});
 
+				$(".cor-gsa-onebox-job-link").hover(
+					function(){ //entry function
+						console.log("hovering!");
+						ga("send","event","Link","hover","Individual Job Listing");
+					},
+					function(){ //exit function
+						//intentionally empty
+					})
+
 				$(".result-item").children().first().children().first().children('a');
 			});
 			
