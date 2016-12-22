@@ -25,8 +25,8 @@
 }
 
 #col3{
-	float:none;
-	width: 62.5%;
+	float:none !important;
+	width: 62.5% !important;
 }
 
 @media (max-width: 1519px){
