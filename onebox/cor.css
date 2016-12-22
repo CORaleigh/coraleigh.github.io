@@ -24,6 +24,11 @@
 	
 }
 
+#col3{
+	float:none;
+	width: 62.5%;
+}
+
 @media (max-width: 1519px){
 	#obr{
 		width: 40%;
