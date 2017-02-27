@@ -6,5 +6,7 @@
 $.ajax({
 	url : "https://data.raleighnc.gov/resource/3nnh-j2uc.json",
 }).done(function(topFormDownloads){
-	console.log(topFormDownloads);
+	topFormDownloads.forEach(function(topFormDownload){
+		$(".cor-form-download-link-unset").text(topFormDownload.name).attr("href", topFormDownload.formurl.url);
+	});
 });
