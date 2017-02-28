@@ -45,6 +45,16 @@ $.ajax({
 	    	
 	    });
 	    console.log(workTypeCount);
+
+	    var arr = [];
+	    var obj = workTypeCount;
+	    for (var key in obj) {
+	        if (obj.hasOwnProperty(key)) {
+	            arr.push(key + '=' + obj[key]);
+	        }
+	    };
+	    var result = arr.join(',');
+	    console.log(result);
 	    var dataCommonPermits = new google.visualization.DataTable();
 	    dataCommonPermits.addColumn('string', 'Item');
 	    dataCommonPermits.addColumn('number', 'Amount');
