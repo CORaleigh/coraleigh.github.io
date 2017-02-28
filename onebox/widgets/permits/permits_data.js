@@ -54,13 +54,13 @@ $.ajax({
 	        }
 	    };
 	    // var result = arr.join(',');
-	    console.log(arr);
+	    var googleChartWorkTypeCount = arr;
 	    var dataCommonPermits = new google.visualization.DataTable();
 	    dataCommonPermits.addColumn('string', 'Item');
 	    dataCommonPermits.addColumn('number', 'Amount');
 
 	    //convert the array into something gcharts can digest
-	    var googleChartWorkTypeCount = [];
+	    // var googleChartWorkTypeCount = [];
 	    workTypeCount.forEach(function(key){
 	    	console.log(key);
 	    	console.log(value);
