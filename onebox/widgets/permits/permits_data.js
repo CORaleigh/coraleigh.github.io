@@ -37,7 +37,12 @@ $.ajax({
 	    
 	    var workTypeCount = []; 
 	    recentPermits.forEach(function(recentPermit){
-	    	workTypeCount[recentPermit.workclass]++;
+	    	if(workTypeCount[recentPermit.workclass]){
+	    		workTypeCount[recentPermit.workclass]++;
+	    	}else{
+	    		workTypeCount[recentPermit.workclass] = 1;
+	    	}
+	    	
 	    });
 	    console.log(workTypeCount);
 	    var dataCommonPermits = new google.visualization.DataTable();
