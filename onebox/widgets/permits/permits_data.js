@@ -53,8 +53,8 @@ $.ajax({
 	            arr.push([String(key),obj[key]]);
 	        }
 	    };
-	    var result = arr.join(',');
-	    console.log(result);
+	    // var result = arr.join(',');
+	    console.log(arr);
 	    var dataCommonPermits = new google.visualization.DataTable();
 	    dataCommonPermits.addColumn('string', 'Item');
 	    dataCommonPermits.addColumn('number', 'Amount');
