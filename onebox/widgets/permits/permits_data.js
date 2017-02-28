@@ -20,3 +20,51 @@ $.ajax({
 	//delete the remaning li items that dont have top form download links
 	$(".cor-form-download-link-unset").remove();
 });
+
+//get the recent permits granted
+
+
+$.ajax({
+	url : "https://data.raleighnc.gov/resource/32wj-c4mi.json",
+}).done(function(recentPermits){
+	var numberOfGlobalPermits = recentPermits.length; //the number for permits
+
+	//get the types of each permit
+
+
+	//set up the permits chart
+	if ( $('#' + $chartCommonPermitsContainer).length > 0 ) {
+	        
+	    var dataCommonPermits = new google.visualization.DataTable();
+	    dataCommonPermits.addColumn('string', 'Item');
+	    dataCommonPermits.addColumn('number', 'Amount');
+	    dataCommonPermits.addRows([
+	        ['Home Additions', 500],
+	        ['Sidewalks', 125],
+	        ['Pools', 250]
+	    ]);
+
+	    
+	    var optionsCommonPermits = {
+	        colors: ['#477dca', '#efb505', '#ffffff'], // blue | gold | white
+	        fontSize: 13,
+	        chartArea:{
+	            left: '5%',
+	            top: 20,
+	            width: '90%',
+	            height: '165',
+	        },
+	        legend: {
+	            'position':'right',
+	            textStyle: {
+	                color: "fff"
+	            }
+	        },
+	        backgroundColor: { fill:'3c61a5' }
+	    };
+
+	    
+	    var chartCommonPermits = new google.visualization.PieChart(document.getElementById('chart-common-permits'));
+	        chartCommonPermits.draw(dataCommonPermits, optionsCommonPermits);
+	}
+});

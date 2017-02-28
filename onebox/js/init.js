@@ -236,40 +236,40 @@ var gsa = {
 
         drawCommonPermits: function () {
 
-            if ( $('#' + $chartCommonPermitsContainer).length > 0 ) {
+            // if ( $('#' + $chartCommonPermitsContainer).length > 0 ) {
                     
-                var dataCommonPermits = new google.visualization.DataTable();
-                dataCommonPermits.addColumn('string', 'Item');
-                dataCommonPermits.addColumn('number', 'Amount');
-                dataCommonPermits.addRows([
-                    ['Home Additions', 500],
-                    ['Sidewalks', 125],
-                    ['Pools', 250]
-                ]);
+            //     var dataCommonPermits = new google.visualization.DataTable();
+            //     dataCommonPermits.addColumn('string', 'Item');
+            //     dataCommonPermits.addColumn('number', 'Amount');
+            //     dataCommonPermits.addRows([
+            //         ['Home Additions', 500],
+            //         ['Sidewalks', 125],
+            //         ['Pools', 250]
+            //     ]);
 
                 
-                var optionsCommonPermits = {
-                    colors: ['#477dca', '#efb505', '#ffffff'], // blue | gold | white
-                    fontSize: 13,
-                    chartArea:{
-                        left: '5%',
-                        top: 20,
-                        width: '90%',
-                        height: '165',
-                    },
-                    legend: {
-                        'position':'right',
-                        textStyle: {
-                            color: "fff"
-                        }
-                    },
-                    backgroundColor: { fill:'3c61a5' }
-                };
+            //     var optionsCommonPermits = {
+            //         colors: ['#477dca', '#efb505', '#ffffff'], // blue | gold | white
+            //         fontSize: 13,
+            //         chartArea:{
+            //             left: '5%',
+            //             top: 20,
+            //             width: '90%',
+            //             height: '165',
+            //         },
+            //         legend: {
+            //             'position':'right',
+            //             textStyle: {
+            //                 color: "fff"
+            //             }
+            //         },
+            //         backgroundColor: { fill:'3c61a5' }
+            //     };
 
                 
-                var chartCommonPermits = new google.visualization.PieChart(document.getElementById('chart-common-permits'));
-                    chartCommonPermits.draw(dataCommonPermits, optionsCommonPermits);
-            }
+            //     var chartCommonPermits = new google.visualization.PieChart(document.getElementById('chart-common-permits'));
+            //         chartCommonPermits.draw(dataCommonPermits, optionsCommonPermits);
+            // }
         },
 
         drawNearbyCrimes: function () {
