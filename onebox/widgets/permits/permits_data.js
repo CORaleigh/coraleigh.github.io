@@ -51,7 +51,7 @@ $.ajax({
 
 	    //convert the array into something gcharts can digest
 	    var googleChartWorkTypeCount = [];
-	    workTypeCount.forEach(function(key,value){
+	    workTypeCount.forEach(function(key){
 	    	console.log(key);
 	    	console.log(value);
 	    	googleChartWorkTypeCount.push([String(key),value]);
