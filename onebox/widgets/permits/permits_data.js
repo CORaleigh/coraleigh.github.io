@@ -50,7 +50,7 @@ $.ajax({
 	    var obj = workTypeCount;
 	    for (var key in obj) {
 	        if (obj.hasOwnProperty(key)) {
-	            arr.push([Sting(key),obj[key]]);
+	            arr.push([String(key),obj[key]]);
 	        }
 	    };
 	    var result = arr.join(',');
