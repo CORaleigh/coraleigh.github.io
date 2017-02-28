@@ -48,6 +48,13 @@ $.ajax({
 	    var dataCommonPermits = new google.visualization.DataTable();
 	    dataCommonPermits.addColumn('string', 'Item');
 	    dataCommonPermits.addColumn('number', 'Amount');
+
+	    //convert the array into something gcharts can digest
+	    var googleChartWorkTypeCount = [];
+	    workTypeCount.forEach(function(key,value){
+	    	googleChartWorkTypeCount.push([String(key),value]);
+	    });
+	    console.log(googleChartWorkTypeCount);
 	    dataCommonPermits.addRows(workTypeCount);
 	    // dataCommonPermits.addRows([
 	    //     ['Home Additions', 500],
