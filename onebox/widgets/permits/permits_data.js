@@ -48,11 +48,12 @@ $.ajax({
 	    var dataCommonPermits = new google.visualization.DataTable();
 	    dataCommonPermits.addColumn('string', 'Item');
 	    dataCommonPermits.addColumn('number', 'Amount');
-	    dataCommonPermits.addRows([
-	        ['Home Additions', 500],
-	        ['Sidewalks', 125],
-	        ['Pools', 250]
-	    ]);
+	    dataCommonPermits.addRows(workTypeCount);
+	    // dataCommonPermits.addRows([
+	    //     ['Home Additions', 500],
+	    //     ['Sidewalks', 125],
+	    //     ['Pools', 250]
+	    // ]);
 
 	    
 	    var optionsCommonPermits = {
