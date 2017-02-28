@@ -34,7 +34,12 @@ $.ajax({
 
 	//set up the permits chart
 	if ( $('#' + $chartCommonPermitsContainer).length > 0 ) {
-	        
+	    
+	    var workTypeCount = []; 
+	    recentPermits.forEach(function(recentPermit){
+	    	workTypeCount[recentPermit.workclass]++;
+	    });
+	    console.log(workTypeCount);
 	    var dataCommonPermits = new google.visualization.DataTable();
 	    dataCommonPermits.addColumn('string', 'Item');
 	    dataCommonPermits.addColumn('number', 'Amount');
