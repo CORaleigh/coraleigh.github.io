@@ -10,7 +10,7 @@ $.ajax({
 		var permitRowText = '<li class="file-downloads__item"><a class="cor-form-download-link-unset" href="#" target="_blank"><span class="file-downloads__icon"><span class="file-downloads__icon-text">Download</span><span class="gsa-icon-download gsa-icon--lrg"></span></span><span class="cor-form-download-title">Standard Residentail Review</span></a></li>';
 		var permittingLinkItems = $(".cor-form-download-link-unset");
 		if(permittingLinkItems.length === 0){
-			$("file-downloads").append(permitRowText);
+			$(".file-downloads").append(permitRowText);
 		}
 		$(".cor-form-download-link-unset").first().attr("href", topFormDownload.formurl.url);
 		$(".cor-form-download-link-unset").first().children(".cor-form-download-title").text(topFormDownload.name);
