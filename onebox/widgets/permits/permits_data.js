@@ -14,7 +14,7 @@ $.ajax({
 			$(".file-downloads").append(permitRowText); //add li item if there isn't
 		}
 		$(".cor-form-download-link-unset").first().attr("href", topFormDownload.formurl.url);
-		$(".cor-form-download-link-unset").first().children(".cor-form-download-title").text(topFormDownload.name);
+		$(".cor-form-download-link-unset").first().children(".cor-form-download-title").text(topFormDownload.name).removeClass("cor-blurred-text");
 		$(".cor-form-download-link-unset").first().removeClass("cor-form-download-link-unset");
 	});
 	//delete the remaning li items that dont have top form download links
