@@ -67,7 +67,7 @@ $.ajax({
 	    	googleChartWorkTypeCount.push([String(key),value]);
 	    });
 	    console.log(googleChartWorkTypeCount);
-	    dataCommonPermits.addRows(workTypeCount);
+	    dataCommonPermits.addRows(googleChartWorkTypeCount);
 	    // dataCommonPermits.addRows([
 	    //     ['Home Additions', 500],
 	    //     ['Sidewalks', 125],
