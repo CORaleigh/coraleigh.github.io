@@ -76,7 +76,7 @@ $.ajax({
 
 	    
 	    var optionsCommonPermits = {
-	        colors: ['#477dca', '#efb505', '#ffffff'], // blue | gold | white
+	        // colors: ['#477dca', '#efb505', '#ffffff'], // blue | gold | white
 	        fontSize: 13,
 	        chartArea:{
 	            left: '5%',
