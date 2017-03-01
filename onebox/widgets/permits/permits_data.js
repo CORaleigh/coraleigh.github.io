@@ -31,7 +31,7 @@ $.ajax({
 
 	//get the types of each permit
 
-
+	$(".cta-stats__item-count").text(numberOfGlobalPermits);
 	//set up the permits chart
 	if ( $('#' + $chartCommonPermitsContainer).length > 0 ) {
 	    
