@@ -54,8 +54,8 @@ $.ajax({
 	        }
 	    };
 	    // var result = arr.join(',');
-	    var googleChartWorkTypeCount = arr;
-	    var dataCommonPermits = new google.visualization.DataTable();
+	     googleChartWorkTypeCount = arr;
+	     dataCommonPermits = new google.visualization.DataTable();
 	    dataCommonPermits.addColumn('string', 'Item');
 	    dataCommonPermits.addColumn('number', 'Amount');
 
