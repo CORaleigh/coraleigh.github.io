@@ -64,13 +64,18 @@ $.ajax({
 	    var consolidationNumber = numberOfGlobalPermits * consolidationFactor; //if there are less than this number, then consolidate the section.
 	    console.log(consolidationNumber);
 	    var numberOfConsolidatedPermits = 0;
+	    var elementsToSplice = []
 	    for(x = 0; x < googleChartWorkTypeCount.length; x++){
 	    	if(googleChartWorkTypeCount[x][1] < consolidationNumber){
 	    		//consolidate
 	    		numberOfConsolidatedPermits = numberOfConsolidatedPermits + googleChartWorkTypeCount[x][1];
-	    		googleChartWorkTypeCount.splice(x,1) //remove the element that's consolidated.
+	    		elementsToSplice.push(x);
 	    		console.log("consolidate");
 	    	}
+	    }
+	    while(elementsToSplice.length > 0){
+	    	googleChartWorkTypeCount.splice(elementsToSplice[0],1);
+	    	elementsToSplice(0,1);
 	    }
 
 	    if(numberOfConsolidatedPermits > 0){
