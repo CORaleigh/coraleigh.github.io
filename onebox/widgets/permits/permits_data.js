@@ -62,6 +62,7 @@ $.ajax({
 	    //sort the smaller types into a "remaining types" category
 	    var consolidationFactor = 0.10 //anything under 10% gets moved to "remaining types"
 	    var consolidationNumber = numberOfGlobalPermits * consolidationFactor; //if there are less than this number, then consolidate the section.
+	    console.log(consolidationNumber);
 	    var numberOfConsolidatedPermits = 0;
 	    for(x = 0; x < googleChartWorkTypeCount.length; x++){
 	    	if(googleChartWorkTypeCount[x][1] < consolidationNumber){
