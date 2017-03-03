@@ -73,7 +73,7 @@ $.ajax({
 	    		console.log("consolidating " + googleChartWorkTypeCount[x][0] + " for value of  " + googleChartWorkTypeCount[x][1]);
 	    	}
 	    }
-	    elementsToSplice.sort(functoin(a,b){return b-a)});
+	    elementsToSplice.sort(function(a,b){return b-a});
 	    while(elementsToSplice.length > 0){
 	    	console.log("removing" + googleChartWorkTypeCount[elementsToSplice[0]][0]);
 	    	googleChartWorkTypeCount.splice(elementsToSplice[0],1);
