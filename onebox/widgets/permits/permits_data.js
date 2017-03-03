@@ -25,7 +25,7 @@ $.ajax({
 
 
 $.ajax({
-	url : "https://data.raleighnc.gov/resource/32wj-c4mi.json",
+	url : "https://data.raleighnc.gov/resource/32wj-c4mi.json?$where=issueddate%20IS%20NOT%20NULL&$limit=50000",
 }).done(function(recentPermits){
 	var numberOfGlobalPermits = recentPermits.length; //the number for permits
 
