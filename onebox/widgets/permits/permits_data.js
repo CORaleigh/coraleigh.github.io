@@ -59,6 +59,22 @@ $.ajax({
 	    dataCommonPermits.addColumn('string', 'Item');
 	    dataCommonPermits.addColumn('number', 'Amount');
 
+	    //sort the smaller types into a "remaining types" category
+	    var consolidationFactor = 0.10 //anything under 10% gets moved to "remaining types"
+	    var consolidationNumber = numberOfGlobalPermits * consolidationFactor; //if there are less than this number, then consolidate the section.
+	    var numberOfConsolidatedPermits = 0;
+	    for(x = 0; x < googleChartWorkTypeCount.length; x++){
+	    	if(googleChartWorkTypeCount[x][1] < consolidationNumber){
+	    		//consolidate
+	    		numberOfConsolidatedPermits = numberOfConsolidatedPermits + googleChartWorkTypeCount[x][1];
+	    		googleChartWorkTypeCount.splice(x,1) //remove the element that's consolidated.
+	    	}
+	    }
+
+	    if(numberOfConsolidatedPermits > 0){
+	    	googleChartWorkTypeCount.push(['Remaining Types',numberOfConsolidatedPermits]);
+	    }
+
 	    //convert the array into something gcharts can digest
 	    // var googleChartWorkTypeCount = [];
 	    workTypeCount.forEach(function(key){
