@@ -75,7 +75,7 @@ $.ajax({
 	    }
 	    while(elementsToSplice.length > 0){
 	    	googleChartWorkTypeCount.splice(elementsToSplice[0],1);
-	    	elementsToSplice(0,1);
+	    	elementsToSplice.splice(0,1);
 	    }
 
 	    if(numberOfConsolidatedPermits > 0){
