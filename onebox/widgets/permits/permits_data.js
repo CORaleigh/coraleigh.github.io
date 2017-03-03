@@ -70,10 +70,12 @@ $.ajax({
 	    		//consolidate
 	    		numberOfConsolidatedPermits = numberOfConsolidatedPermits + googleChartWorkTypeCount[x][1];
 	    		elementsToSplice.push(x);
-	    		console.log("consolidate");
+	    		console.log("consolidating " + googleChartWorkTypeCount[x][0] + " for value of  " + googleChartWorkTypeCount[x][1]);
 	    	}
 	    }
+	    elementsToSplice.sort(functoin(a,b){return b-a)});
 	    while(elementsToSplice.length > 0){
+	    	console.log("removing" + googleChartWorkTypeCount[elementsToSplice[0]][0]);
 	    	googleChartWorkTypeCount.splice(elementsToSplice[0],1);
 	    	elementsToSplice.splice(0,1);
 	    }
