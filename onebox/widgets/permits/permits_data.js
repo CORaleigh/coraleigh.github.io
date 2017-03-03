@@ -68,6 +68,7 @@ $.ajax({
 	    		//consolidate
 	    		numberOfConsolidatedPermits = numberOfConsolidatedPermits + googleChartWorkTypeCount[x][1];
 	    		googleChartWorkTypeCount.splice(x,1) //remove the element that's consolidated.
+	    		console.log("consolidate");
 	    	}
 	    }
 
