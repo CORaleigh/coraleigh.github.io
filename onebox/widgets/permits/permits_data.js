@@ -140,11 +140,11 @@ google.charts.load('current', {'packages':['corechart']});
 	      "esri/dijit/Legend",
 	      "esri/geometry/Point",
 	      "esri/InfoTemplate",
-	      "dojo/dom",      
-	      "dojo/dom-construct",
+	      // "dojo/dom",      
+	      // "dojo/dom-construct",
 	      "dojo/domReady!"
 	    ], function(Map, FeatureLayer, smartMapping, SimpleRenderer, Color, 
-	        SimpleFillSymbol, SimpleLineSymbol, Query, Legend, Point, InfoTemplate, dom, domConstruct) {
+	        SimpleFillSymbol, SimpleLineSymbol, Query, Legend, Point, InfoTemplate) {
     	debugger;
 	      var map = new Map("arcgis-map", {
 	        basemap: 'dark-gray',
