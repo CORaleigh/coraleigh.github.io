@@ -1,5 +1,5 @@
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"/> -->
-<link rel="stylesheet" href="https://js.arcgis.com/3.18/esri/css/esri.css"/> 
+<link rel="stylesheet" href="https://js.arcgis.com/3.18/esri/css/esri.css"/>
 <link rel="stylesheet" href="https://js.arcgis.com/3.18/dijit/themes/tundra/tundra.css"/>
 
 <!-- <script src="https://js.arcgis.com/3.18/"></script> -->
@@ -14,10 +14,10 @@
   }
   .gsa-widget .arcgis-map {
       min-height: 380px;
-  }      
+  }
   div.esriPopupWrapper .zoomTo {
     display: none;
-  }    
+  }
   .esriPopup .content {
     padding: 0;
   }
@@ -105,7 +105,7 @@
 						</span>
 					</a>
 				</li>
-				
+
 			</ul>
 		</div>
 		<div class="panel__foot text-right">
@@ -130,7 +130,7 @@
 		</div>
 		<div class="panel__foot panel__foot--border-bottom text-right">
 		<!--	<a href="https://data.raleighnc.gov/" class=""><strong>View More Data at data.raleighnc.gov</strong> <span class="gsa-icon--sm gsa-icon-arrow-right gsa-icon--sm"></span></a>-->
-		</div> 
+		</div>
 		<!-- Common Permits Chart -->
 		<div class="panel__content panel__content--dark-blue">
 			<div class="gsa-chart__title">Most Common Permits</div>
@@ -233,18 +233,18 @@
 		<header>
 			<h2 class="panel__title">$ Amount of Construction Planned in Past One Year</h2>
 		</header>
-		<div class="panel__content panel__content--dark-blue"> 
+		<div class="panel__content panel__content--dark-blue">
 			<!-- Census Map -->
 			<div id="arcgis-map" class="arcgis-map">
 
-			
+
 				<!--
 					colors from design:
 					dark blue: #3e63a3
 					medium blue: #5986d3
 					light blue: #80adfc
 				-->
-				
+
 			</div>
 			<!-- End Census Map-->
 		</div>
@@ -252,7 +252,7 @@
 			<a href="#"><strong>View More Data at data.raleighnc.gov</strong>&nbsp;<span class="gsa-icon-arrow-right gsa-icon--sm gsa-icon--sm"></span></a>
 		</div>
 	</div>
-</div>	
+</div>
 
 <style>
 	.icon-file-pdf:after, a:not(.imglink)[href$='.pdf']:after{
@@ -269,7 +269,7 @@
 	}
 </style>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 var setUpMapInterval = setInterval(function(){
 	console.log("checking for map div...");
 	if($("#arcgis-map").length > 0){
@@ -281,16 +281,16 @@ var setUpMapInterval = setInterval(function(){
 		      "esri/map",
 		      "esri/layers/FeatureLayer",
 		      "esri/renderers/smartMapping",
-		      "esri/renderers/SimpleRenderer", "esri/Color", 
-		      "esri/symbols/SimpleFillSymbol", "esri/symbols/SimpleLineSymbol", 
+		      "esri/renderers/SimpleRenderer", "esri/Color",
+		      "esri/symbols/SimpleFillSymbol", "esri/symbols/SimpleLineSymbol",
 		      "esri/tasks/query",
 		      "esri/dijit/Legend",
 		      "esri/geometry/Point",
 		      "esri/InfoTemplate",
-		      "dojo/dom",      
+		      "dojo/dom",
 		      "dojo/dom-construct",
 		      "dojo/domReady!"
-		    ], function(Map, FeatureLayer, smartMapping, SimpleRenderer, Color, 
+		    ], function(Map, FeatureLayer, smartMapping, SimpleRenderer, Color,
 		        SimpleFillSymbol, SimpleLineSymbol, Query, Legend, Point, InfoTemplate, dom, domConstruct) {
 	    	debugger;
 		      var map = new Map("arcgis-map", {
@@ -314,10 +314,10 @@ var setUpMapInterval = setInterval(function(){
 		          });
 
 		          where += geoids.toString() + ")";
-		        var featureLayer = new FeatureLayer("https://services1.arcgis.com/a7CWfuGP5ZnLYE7I/arcgis/rest/services/CensusBlockGroups2010/FeatureServer/0", 
+		        var featureLayer = new FeatureLayer("https://services1.arcgis.com/a7CWfuGP5ZnLYE7I/arcgis/rest/services/CensusBlockGroups2010/FeatureServer/0",
 		          {
-		            definitionExpression: where, 
-		            outFields: ['*'], 
+		            definitionExpression: where,
+		            outFields: ['*'],
 		            mode: FeatureLayer.MODE_SNAPSHOT,
 		            minZoom: 8,
 		            opacity: 0.6
@@ -370,8 +370,8 @@ var setUpMapInterval = setInterval(function(){
 		    function setInfoTemplate (featureLayer) {
 		      var infoTemplate = new InfoTemplate();
 		      infoTemplate.setTitle("${GEOID10}<br/>");
-		      infoTemplate.setContent("<b>Estimated Total Project Cost</b><br/>$${sum_estprojectcost}"); 
-		      featureLayer.setInfoTemplate(infoTemplate);  
+		      infoTemplate.setContent("<b>Estimated Total Project Cost</b><br/>$${sum_estprojectcost}");
+		      featureLayer.setInfoTemplate(infoTemplate);
 		    }
 
 		    function setRenderer (featureLayer, smartMapping) {
@@ -388,7 +388,7 @@ var setUpMapInterval = setInterval(function(){
 		          name: 'Permits',
 		          nullable: true,
 		          type: 'esriFieldTypeDouble'
-		        });        
+		        });
 		            //smart mapping functionality begins
 		            smartMapping.createClassedColorRenderer({
 		               layer: featureLayer,
@@ -418,11 +418,11 @@ var setUpMapInterval = setInterval(function(){
 		            }]
 		            }, 'legendDiv');
 		            legend.startup();
-		         };      
+		         };
 		    });
 		});
 		clearInterval(setUpMapInterval);
 	}
 },500);
 
-</script>
+</script> -->
