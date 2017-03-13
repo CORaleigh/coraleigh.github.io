@@ -3,10 +3,12 @@
 <link rel="stylesheet" href="https://js.arcgis.com/3.18/esri/css/esri.css"/> 
 <link rel="stylesheet" href="https://js.arcgis.com/3.18/dijit/themes/tundra/tundra.css"/>
 
-<script>
-
-require([
+<script src="https://js.arcgis.com/3.18/"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript">
+    require([
       "esri/map",
+      "esri/layers/VectorTileLayer",
       "esri/layers/FeatureLayer",
       "esri/renderers/smartMapping",
       "esri/renderers/SimpleRenderer", "esri/Color", 
@@ -14,20 +16,19 @@ require([
       "esri/tasks/query",
       "esri/dijit/Legend",
       "esri/geometry/Point",
-      "esri/InfoTemplate",
       "dojo/dom",      
       "dojo/dom-construct",
       "dojo/domReady!"
-    ], function(Map, FeatureLayer, smartMapping, SimpleRenderer, Color, 
-        SimpleFillSymbol, SimpleLineSymbol, Query, Legend, Point, InfoTemplate, dom, domConstruct) {
+    ], function(Map, VectorTileLayer, FeatureLayer, smartMapping, SimpleRenderer, Color, 
+        SimpleFillSymbol, SimpleLineSymbol, Query, Legend, Point, dom, domConstruct) {
 
-      var map = new Map("arcgis-map", {
-        basemap: 'dark-gray',
+      var map = new Map("map", {
         center: [-78.65, 35.85], // longitude, latitude
-        zoom: 10
+        zoom: 9
       });
       var legend = null;
-
+      var vtlayer = new VectorTileLayer("https://www.arcgis.com/sharing/rest/content/items/850db44b9eb845d3bd42b19e8aa7a024/resources/styles/root.json");
+      map.addLayer(vtlayer);
 
       $.ajax({
         url: 'https://raw.githubusercontent.com/CORaleigh/dataviz_search/censusmap/data/construction-permitting.json',
@@ -75,16 +76,7 @@ require([
         map.addLayer(featureLayer);
         featureLayer.on("load", function(){
           navigator.geolocation.getCurrentPosition(function (position) {
-            var point = new Point(position.coords.longitude, position.coords.latitude)
-            map.centerAndZoom(point, 15);
-            var q = new Query();
-            q.geometry = point;
-            featureLayer.queryFeatures(q, function (results) {
-              if (results.features.length > 0) {
-                map.infoWindow.setFeatures(results.features);
-                map.infoWindow.show(point);
-              }
-            });
+            map.centerAndZoom(new Point(position.coords.longitude, position.coords.latitude), 12)
           })
         });
       })
@@ -94,13 +86,6 @@ require([
       .always(function() {
         console.log("complete");
       });
-
-    function setInfoTemplate (featureLayer) {
-      var infoTemplate = new InfoTemplate();
-      infoTemplate.setTitle("${GEOID10}<br/>");
-      infoTemplate.setContent("<b>Estimated Total Project Cost</b><br/>$${sum_estprojectcost}"); 
-      featureLayer.setInfoTemplate(infoTemplate);  
-    }
 
     function setRenderer (featureLayer, smartMapping) {
         featureLayer.fields.push({
@@ -128,7 +113,6 @@ require([
                featureLayer.redraw();
                createLegend(map, featureLayer, 'sum_estprojectcost');
             });
-        setInfoTemplate(featureLayer);
     }
          //Create a legend
          function createLegend(map, layer, field) {
@@ -138,18 +122,24 @@ require([
                domConstruct.destroy(dom.byId("legendDiv"));
             }
 
+           // create a new div for the legend
+            var legendDiv = domConstruct.create("div", {
+               id: "legendDiv"
+            }, dom.byId("legendWrapper"));
+
             legend = new Legend({
                map: map,
                layerInfos: [{
                   layer: layer,
                   title: " "
             }]
-            }, 'legendDiv');
+            }, legendDiv);
             legend.startup();
          };      
     });
 
-</script>
+
+  </script>
 
 <div class="gsa-widget">
 <style>
@@ -353,6 +343,8 @@ require([
 			</table>
 		</div>
 	</div> -->
+
+	<div id="map"><div id="legendWrapper"></div></div>
 
 
 	<div class="panel">
