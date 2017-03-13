@@ -34,15 +34,15 @@ $.ajax({
 	$(".cta-stats__item-count").text(numberOfGlobalPermits);
 	//set up the permits chart
 	if ( $('#' + $chartCommonPermitsContainer).length > 0 ) {
-	    
-	    var workTypeCount = []; 
+
+	    var workTypeCount = [];
 	    recentPermits.forEach(function(recentPermit){
 	    	if(workTypeCount[recentPermit.workclass]){
 	    		workTypeCount[recentPermit.workclass]++;
 	    	}else{
 	    		workTypeCount[recentPermit.workclass] = 1;
 	    	}
-	    	
+
 	    });
 	    console.log(workTypeCount);
 
@@ -99,7 +99,7 @@ $.ajax({
 	    //     ['Pools', 250]
 	    // ]);
 
-	    
+
 	    var optionsCommonPermits = {
 	        // colors: ['#477dca', '#efb505', '#ffffff'], // blue | gold | white
 	        fontSize: 13,
@@ -118,7 +118,7 @@ $.ajax({
 	        backgroundColor: { fill:'3c61a5' }
 	    };
 
-	    
+
 	    var chartCommonPermits = new google.visualization.PieChart(document.getElementById('chart-common-permits'));
 	        chartCommonPermits.draw(dataCommonPermits, optionsCommonPermits);
 	}
@@ -127,5 +127,3 @@ $.ajax({
 //Chlorepleth Map CODE
 
 google.charts.load('current', {'packages':['corechart']});
-
-    
