@@ -273,6 +273,7 @@
 var setUpMapInterval = setInterval(function(){
 	console.log("checking for map div...");
 	if($("#arcgis-map").length){
+		console.log("map div exists!");
 		jQuery.getScript("https://js.arcgis.com/3.18/").done(function(){
 			require([
 		      "esri/map",
