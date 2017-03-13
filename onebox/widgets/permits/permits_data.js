@@ -125,6 +125,9 @@ $.ajax({
 });
 
 //Chlorepleth Map CODE
+
+google.charts.load('current', {'packages':['corechart']});
+
     require([
       "esri/map",
       "esri/layers/FeatureLayer",
