@@ -152,7 +152,8 @@ google.charts.load('current', {'packages':['corechart']});
 	        zoom: 10
 	      });
 	      var legend = null;
-
+	      var vtlayer = new VectorTileLayer("https://www.arcgis.com/sharing/rest/content/items/850db44b9eb845d3bd42b19e8aa7a024/resources/styles/root.json");
+      map.addLayer(vtlayer);
 
 	      $.ajax({
 	        url: 'https://raw.githubusercontent.com/CORaleigh/dataviz_search/censusmap/data/construction-permitting.json',
