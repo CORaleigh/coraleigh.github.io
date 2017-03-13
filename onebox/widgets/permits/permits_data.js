@@ -142,7 +142,7 @@ google.charts.load('current', {'packages':['corechart']});
 	      "esri/InfoTemplate",
 	      // "dojo/dom",      
 	      // "dojo/dom-construct",
-	      "dojo/domReady!"
+	      // "dojo/domReady!"
 	    ], function(Map, FeatureLayer, smartMapping, SimpleRenderer, Color, 
 	        SimpleFillSymbol, SimpleLineSymbol, Query, Legend, Point, InfoTemplate) {
     	debugger;
