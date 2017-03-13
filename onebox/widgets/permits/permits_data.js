@@ -147,7 +147,7 @@ google.charts.load('current', {'packages':['corechart']});
 	        SimpleFillSymbol, SimpleLineSymbol, Query, Legend, Point, InfoTemplate,dom, domConstruct) {
     	debugger;
 	      var map = new Map("arcgis-map", {
-	        basemap: 'dark-gray',
+	        basemap: 'dark-gray-vector',
 	        center: [-78.65, 35.85], // longitude, latitude
 	        zoom: 10
 	      });
