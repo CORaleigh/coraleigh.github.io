@@ -274,8 +274,9 @@ var setUpMapInterval = setInterval(function(){
 	console.log("checking for map div...");
 	if($("#arcgis-map").length > 0){
 		console.log("map div exists!");
+		debugger;
 		jQuery.getScript("https://js.arcgis.com/3.18/").done(function(){
-			
+			debugger;
 			require([
 		      "esri/map",
 		      "esri/layers/FeatureLayer",
