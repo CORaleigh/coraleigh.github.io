@@ -125,29 +125,6 @@ $.ajax({
 });
 
 //Chlorepleth Map CODE
-
-<style>
-      #legendDiv {
-        color: black;
-        background-color: white;
-      }
-      .gsa-widget .arcgis-map {
-          min-height: 380px;
-      }      
-      div.esriPopupWrapper .zoomTo {
-        display: none;
-      }    
-      .esriPopup .content {
-        padding: 0;
-      }
-      .esriPopup .contentPane {
-        margin-bottom: 0;
-      }
-      .esriPopup .sizer {
-        width: 180px;
-      }
-    </style>
-  <script type="text/javascript">
     require([
       "esri/map",
       "esri/layers/FeatureLayer",
@@ -291,4 +268,3 @@ $.ajax({
             legend.startup();
          };      
     });
-</script>      
