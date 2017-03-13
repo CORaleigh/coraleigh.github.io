@@ -9,7 +9,6 @@
 jQuery.getScript("https://js.arcgis.com/3.18/").done(function(){
 	require([
       "esri/map",
-      "esri/layers/VectorTileLayer",
       "esri/layers/FeatureLayer",
       "esri/renderers/smartMapping",
       "esri/renderers/SimpleRenderer", "esri/Color", 
@@ -17,19 +16,20 @@ jQuery.getScript("https://js.arcgis.com/3.18/").done(function(){
       "esri/tasks/query",
       "esri/dijit/Legend",
       "esri/geometry/Point",
+      "esri/InfoTemplate",
       "dojo/dom",      
       "dojo/dom-construct",
       "dojo/domReady!"
-    ], function(Map, VectorTileLayer, FeatureLayer, smartMapping, SimpleRenderer, Color, 
-        SimpleFillSymbol, SimpleLineSymbol, Query, Legend, Point, dom, domConstruct) {
+    ], function(Map, FeatureLayer, smartMapping, SimpleRenderer, Color, 
+        SimpleFillSymbol, SimpleLineSymbol, Query, Legend, Point, InfoTemplate, dom, domConstruct) {
 
-      var map = new Map("map", {
+      var map = new Map("arcgis-map", {
+        basemap: 'dark-gray',
         center: [-78.65, 35.85], // longitude, latitude
-        zoom: 9
+        zoom: 10
       });
       var legend = null;
-      var vtlayer = new VectorTileLayer("https://www.arcgis.com/sharing/rest/content/items/850db44b9eb845d3bd42b19e8aa7a024/resources/styles/root.json");
-      map.addLayer(vtlayer);
+
 
       $.ajax({
         url: 'https://raw.githubusercontent.com/CORaleigh/dataviz_search/censusmap/data/construction-permitting.json',
@@ -77,7 +77,16 @@ jQuery.getScript("https://js.arcgis.com/3.18/").done(function(){
         map.addLayer(featureLayer);
         featureLayer.on("load", function(){
           navigator.geolocation.getCurrentPosition(function (position) {
-            map.centerAndZoom(new Point(position.coords.longitude, position.coords.latitude), 12)
+            var point = new Point(position.coords.longitude, position.coords.latitude)
+            map.centerAndZoom(point, 15);
+            var q = new Query();
+            q.geometry = point;
+            featureLayer.queryFeatures(q, function (results) {
+              if (results.features.length > 0) {
+                map.infoWindow.setFeatures(results.features);
+                map.infoWindow.show(point);
+              }
+            });
           })
         });
       })
@@ -87,6 +96,13 @@ jQuery.getScript("https://js.arcgis.com/3.18/").done(function(){
       .always(function() {
         console.log("complete");
       });
+
+    function setInfoTemplate (featureLayer) {
+      var infoTemplate = new InfoTemplate();
+      infoTemplate.setTitle("${GEOID10}<br/>");
+      infoTemplate.setContent("<b>Estimated Total Project Cost</b><br/>$${sum_estprojectcost}"); 
+      featureLayer.setInfoTemplate(infoTemplate);  
+    }
 
     function setRenderer (featureLayer, smartMapping) {
         featureLayer.fields.push({
@@ -114,6 +130,7 @@ jQuery.getScript("https://js.arcgis.com/3.18/").done(function(){
                featureLayer.redraw();
                createLegend(map, featureLayer, 'sum_estprojectcost');
             });
+        setInfoTemplate(featureLayer);
     }
          //Create a legend
          function createLegend(map, layer, field) {
@@ -123,18 +140,13 @@ jQuery.getScript("https://js.arcgis.com/3.18/").done(function(){
                domConstruct.destroy(dom.byId("legendDiv"));
             }
 
-           // create a new div for the legend
-            var legendDiv = domConstruct.create("div", {
-               id: "legendDiv"
-            }, dom.byId("legendWrapper"));
-
             legend = new Legend({
                map: map,
                layerInfos: [{
                   layer: layer,
                   title: " "
             }]
-            }, legendDiv);
+            }, 'legendDiv');
             legend.startup();
          };      
     });
