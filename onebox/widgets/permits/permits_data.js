@@ -274,6 +274,6 @@ google.charts.load('current', {'packages':['corechart']});
 	    //         }]
 	    //         }, 'legendDiv');
 	    //         legend.startup();
-	         };      
+	         // };      
 	    });
 	});
