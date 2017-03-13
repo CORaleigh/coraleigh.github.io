@@ -128,7 +128,7 @@ $.ajax({
 
 google.charts.load('current', {'packages':['corechart']});
 
-	jQuery.getScript("https://js.arcgis.com/3.18/").done(function(){
+	jQuery.getScript("https://js.arcgis.com/3.20/").done(function(){
 		debugger;
 		require([
 	      "esri/map",
