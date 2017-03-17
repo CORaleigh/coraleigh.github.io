@@ -9,3 +9,9 @@ https://maps.raleighnc.gov/arcgis/rest/services/SpecialEvents/SpecialEventsView/
 * where=NAME='Pullen Park' -> get by park name
 * outFields=* -> get all fields
 * outSR=4326 -> get lat/lng coordinates
+
+## Classes
+### PHP Web Service
+https://maps.raleighnc.gov/class/class.php?&ids=15
+### Reference for Facility IDs for Each Park
+https://github.com/CORaleigh/parklocator/blob/master/app/scripts/services/classesService.js
