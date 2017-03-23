@@ -6,6 +6,6 @@ if(navigator.geolocation){
 }
 
 function showPosition(pos){
-	console.log(position.coords.latitude);
-	console.log(position.coords.longitude)
+	console.log(pos.coords.latitude);
+	console.log(pos.coords.longitude)
 }
