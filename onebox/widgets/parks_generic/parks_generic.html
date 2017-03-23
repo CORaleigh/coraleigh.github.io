@@ -1,0 +1,413 @@
+@@include('../inc/head.html')
+
+
+<div class="gsa-widget">
+	<!-- Widget Header -->
+	<header class="gsa-widget__header">
+		<h2 id="park-name" class="gsa-widget__title">Parks</h2>
+		<div class="gsa-widget__location">
+			<span class="gsa-icon-location gsa-icon--lrg"></span> 
+			<span class="label">Your Location: </span>
+			<span id="gsa-widget-current-location">Raleigh, NC</span>
+			<button class="button button--text toggle-content" data-target="location-change">
+				Change Location <span class="gsa-icon-arrow-right gsa-icon--right gsa-icon--sm"></span>
+			</button>
+			<div id="location-change" class="gsa-widget__location-change hidden">
+				<form action="">
+					<div class="field field--append-submit">
+						<label for="location-name" class="visuallyhidden">Update Location</label>
+						<input id="location-name" type="text" placeholder="Enter Location">
+						<button type="submit">Update</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</header>
+
+
+
+
+
+	<!-- Google Parks Map -->
+	<div class="panel panel--google-map">
+		<div class="panel__content">
+			<div id="google-map-container" class="google-map-container"></div>
+		</div>
+		<!-- TODO: city of raleigh to wire up dynamic url based on location/search term -->
+		<a href="https://www.google.com/maps/search/park+near+Raleigh,+NC" target="_blank" class="button button--overlay button--primary">See Map</a>
+	</div>
+
+	<script>
+
+      var map;
+      var infowindow;
+
+      function initMap() {
+
+        var currentLocation = {lat: 35.787743, lng: -78.644257};
+
+        map = new google.maps.Map(document.getElementById('google-map-container'), {
+          center: currentLocation,
+          zoom: 12
+        });
+
+        infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+          location: currentLocation,
+          radius: 6000,
+          type: ['park']
+        }, callback);
+      }
+
+      function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+          }
+        }
+      }
+
+      function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
+        });
+      }
+
+
+      $(document).ready(function() {
+			if ("geolocation" in navigator){	           
+           		navigator.geolocation.getCurrentPosition(show_location, show_error, {timeout:1000, enableHighAccuracy: true}); 
+		    } else {
+		    	alert("Browser doesn't support geolocation!");
+		    }
+
+			function show_location(position){
+			    infoWindow = new google.maps.InfoWindow({map: map});
+			    var pos = {lat: position.coords.latitude, lng: position.coords.longitude};
+			    var service = new google.maps.places.PlacesService(map);
+	                service.nearbySearch({
+			          location: pos,
+			          radius: 6000,
+			          type: ['park']
+			        }, callback);
+			    infoWindow.setPosition(pos);
+			    infoWindow.setContent('User Location found.');
+			    map.setCenter(pos);
+			}
+
+			function show_error(error){
+			   switch(error.code) {
+			        case error.PERMISSION_DENIED:
+			            alert("Permission denied by user.");
+			            break;
+			        case error.POSITION_UNAVAILABLE:
+			            alert("Location position unavailable.");
+			            break;
+			        case error.TIMEOUT:
+			            alert("Request timeout.");
+			            break;
+			        case error.UNKNOWN_ERROR:
+			            alert("Unknown error.");
+			            break;
+			    }
+			}
+		});
+
+	</script>
+	<!--
+	This example requires the Places library. Include the libraries=places
+	parameter when you first load the API. For example:
+	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+	Key in script below is restricted to local & dev server IP addresses. Visit https://developers.google.com/maps/web/ to set up a key or manage existing key set up in your account.
+	-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfRKY84n9eHnjRRjEITTT1_gb-RaOQtIg&libraries=places&callback=initMap" async defer></script>
+
+
+
+
+
+
+	<!-- Parks Near Me With: -->
+	<div class="panel">
+		<header class="panel__header">
+			<div class="filter push-right">
+				<label for="filter-parks" class="visuallyhidden">Filter Parks</label>
+				<span class="filter__icon gsa-icon-filter gsa-icon--lrg"></span>
+				<select name="filter-parks" id="filter-parks" class="select-boxit">
+					<option value="all">All</option>
+					<option value="basktetball">Basketball</option>
+					<option value="tennis">Tennis</option>
+					<option value="baseball">Baseball</option>
+				</select>
+			</div>
+			<h3 class="panel__title">Parks Near Me With:</h3>
+		</header>
+		<div class="panel__content">
+			<table id="open-jobs" class="gsa-table gsa-table--open-jobs">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Distance</th>
+						<th>Travel Time</th>
+					</tr>
+				</thead>
+				<!-- TODO: city of raleigh to set up dynamic results (5) based on location and dynamic URLs to directtions for miles and minute links -->
+				<tbody>
+					<tr class="gsa-table__row">
+						<td>Pullen Park</td>
+						<td><a href="#">1.2 mi</a></td>
+						<td><a href="#">4 mins</a></td>
+					</tr>
+					<tr class="gsa-table__row">
+						<td>Brookhaven Nature Park</td>
+						<td><a href="#">3.0 mi</a></td>
+						<td><a href="#">4 mins</a></td>
+					</tr>
+					<tr class="gsa-table__row">
+						<td>Varnell Park</td>
+						<td><a href="#">3.0 mi</a></td>
+						<td><a href="#">4 mins</a></td>
+					</tr>
+					<tr class="gsa-table__row">
+						<td>Glen Eden Pilot Park</td>
+						<td><a href="#">6.0 mi</a></td>
+						<td><a href="#">14 mins</a></td>
+					</tr>
+					<tr class="gsa-table__row">
+						<td>Laurel Hills</td>
+						<td><a href="#">7.6 mi</a></td>
+						<td><a href="#">15 mins</a></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="panel__foot">
+				<!-- TODO: city of raleigh to wire up dynamic url based on location setting -->
+				<a href="https://www.google.com/maps/search/raleigh,+nc+parks" class="push-right"><strong>View All Parks</strong> <span class="gsa-icon-arrow-right gsa-icon--sm"></span></a>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	<!-- Events -->
+	<div class="panel">
+		<header class="panel__header">
+			<div class="filter push-right">
+				<label for="filter-events" class="visuallyhidden">Filter Events</label>
+				<span class="filter__icon gsa-icon-filter gsa-icon--lrg"></span>
+				<select name="filter-events" id="filter-events" class="select-boxit">
+					<option value="all">All</option>
+					<option value="families">Families</option>
+					<option value="seniors">Seniors</option>
+					<option value="indoor">Indoor</option>
+				</select>
+			</div>
+			<h3 class="panel__title">Events</h3>
+		</header>
+		<div class="panel__content">
+			<table id="open-jobs" class="gsa-table gsa-table--open-jobs">
+				<thead>
+					<tr>
+						<th>Event Name</th>
+						<th>Time</th>
+						<th>Info</th>
+					</tr>
+				</thead>
+				<!-- TODO: city of raleigh to set up dynamic results and URLs for learn more links -->
+				<tbody>
+					<tr class="gsa-table__row">
+						<td>Fireworks</td>
+						<td>10:00 PM - 11:30PM</td>
+						<td><a href="#">Learn More</a></td>
+					</tr>
+					<tr class="gsa-table__row">
+						<td>Amazing Amphibians</td>
+						<td>9:00 AM</td>
+						<td><a href="#">Learn More</a></td>
+					</tr><tr class="gsa-table__row">
+						<td>Stories in the Park</td>
+						<td>11:00 AM</td>
+						<td><a href="#">Learn More</a></td>
+					</tr><tr class="gsa-table__row">
+						<td>Summer in the Park </td>
+						<td>11:00 AM</td>
+						<td><a href="#">Learn More</a></td>
+					</tr>
+					<tr class="gsa-table__row">
+						<td>Playdate @ Pullen</td>
+						<td>6:00 PM</td>
+						<td><a href="#">Learn More</a></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="panel__foot">
+				<!-- TODO: city of raleigh to wire up dynamic URL to view all events -->
+				<a href="#" class="push-right"><strong>View All Events</strong> <span class="gsa-icon-arrow-right gsa-icon--sm"></span></a>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<!-- Classes -->
+	<div class="panel">
+		<header class="panel__header">
+			<div class="filter push-right">
+				<label for="filter-classes" class="visuallyhidden">Filter Classes</label>
+				<span class="filter__icon gsa-icon-filter gsa-icon--lrg"></span>
+				<select name="filter-classes" id="filter-classes" class="select-boxit">
+					<option value="all">All</option>
+					<option value="families">Families</option>
+					<option value="senior">Seniors</option>
+					<option value="indoor">Indoor</option>
+				</select>
+			</div>
+			<h3 class="panel__title">Classes</h3>
+		</header>
+		<div class="panel__content">
+			<table id="open-jobs" class="gsa-table gsa-table--open-jobs">
+				<thead>
+					<tr>
+						<th>Class Name</th>
+						<th>Time</th>
+						<th>Cost</th>
+						<th>Info</th>
+					</tr>
+				</thead>
+				<!-- TODO: city of raleigh to set up dynamic results and URLs for learn more links -->
+				<tbody>
+					<tr class="gsa-table__row">
+						<td>Swimming I</td>
+						<td>8:00 AM</td>
+						<td>$100</td>
+						<td><a href="#">Learn More</a></td>
+					</tr>
+					<tr class="gsa-table__row">
+						<td>Aerobics</td>
+						<td>9:00 AM</td>
+						<td>$80</td>
+						<td><a href="#">Learn More</a></td>
+					</tr>
+					<tr class="gsa-table__row">
+						<td>Art I</td>
+						<td>10:00 AM</td>
+						<td>$90</td>
+						<td><a href="#">Learn More</a></td>
+					</tr>
+					<tr class="gsa-table__row">
+						<td>Art II</td>
+						<td>10:00 AM</td>
+						<td>$90</td>
+						<td><a href="#">Learn More</a></td>
+					</tr>
+					<tr class="gsa-table__row">
+						<td>Zumba</td>
+						<td>12:00 PM</td>
+						<td>$30</td>
+						<td><a href="#">Learn More</a></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="panel__foot">
+				<!-- TODO: city of raleigh to wire up dynamic URL to view all classes -->
+				<a href="#" class="push-right"><strong>View All Classes</strong> <span class="gsa-icon-arrow-right gsa-icon--sm"></span></a>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<!-- Weather -->
+	<div class="panel">
+		<header class="panel__header">
+			<h3 class="panel__title">Weather</h3>
+		</header>
+		<div class="panel__content panel__content--weather">
+
+			<h2 class="weather__location">Raleigh, NC 27656</h2>
+			<h3 class="weather__day-time">Wednesday 3:00 PM</h3>
+
+			<div class="weather__current">
+				<div class="row">
+					<div class="weather__current-temp col-xs-4">
+						<span>105 <sup><small>&#x2109;</small></sup></span>
+					</div>
+					<div class="weather__current-conditions col-xs-4">
+						<img src="/img/partly-cloudy.png" alt="Partly Cloudy">
+						Partly Cloudy
+					</div>
+					<div class="weather__current-chances col-xs-4">
+						<ul>
+							<li><img src="/img/precipitation.png" alt="Precipitation"> 0%</li>
+							<li><img src="/img/cloudy-rain.png" alt="Rain"> 44%</li>
+							<li><img src="/img/wind.png" alt="Wind"> 5 mph</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="row weather__more-data">
+				    <div class="col-xs-12 text-right">
+				    	<a href="#">View More Data at data.raleighnc.org <span class="gsa-icon-arrow-right gsa-icon--sm"></span></a>
+				    </div>
+				</div>
+			</div>
+
+			<div class="weather__forecast row">
+				<div class="weather__forecast-item col-xs-3">
+					<span class="weather__forecast-day">thr</span>
+					<img src="/img/partly-cloudy.png" alt="Partly Cloudy">
+					<span class="weather__forecast-degree">88°</span>
+				</div>
+				<div class="weather__forecast-item col-xs-3">
+					<span class="weather__forecast-day">fri</span>
+					<img src="/img/cloudy.png" alt="Cloudy">
+					<span class="weather__forecast-degree">86°</span>
+				</div>
+				<div class="weather__forecast-item col-xs-3">
+					<span class="weather__forecast-day">sat</span>
+					<img src="/img/sunny.png" alt="Sunny">
+					<span class="weather__forecast-degree">84°</span>
+				</div>
+				<div class="weather__forecast-item col-xs-3">
+					<span class="weather__forecast-day">sun</span>
+					<img src="/img/sunny.png" alt="Sunny">
+					<span class="weather__forecast-degree">82°</span>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+
+
+
+	<!-- Park CTA -->
+	<div class="panel">
+		<a href="#" class="panel__content cta-parks">
+			<div class="cta-parks__desc">
+				<h2 class="cta-parks__title">Raleigh Parks</h2>
+				<p>Find your closese park, see a full list of amenities, calsses and more.&nbsp;<span class="gsa-icon-arrow-right gsa-icon--sm"></span></p>
+			</div>
+			
+			<div class="cta-parks__img"><img src="/img/g_tree.png" alt=""></div>
+		</a>
+	</div>
+</div>
+
+
+@@include('../inc/footer.html')
+	
