@@ -16,7 +16,7 @@ function showPosition(pos){
 	}).done(function(parks){
 		
 		var parksJSON = JSON.parse(parks);
-		console.log(parks);
+		console.log(parksJSON);
 		parks.features.forEach(function(park){
 			console.log(park);
 		})
