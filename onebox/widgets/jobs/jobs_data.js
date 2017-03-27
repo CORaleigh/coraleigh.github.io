@@ -152,7 +152,7 @@ jobsWidget = {
 							salaryString = "$" + Number(jobSalaryMin).formatMoney(2) + "/hr - " + "$" + Number(jobSalaryMax).formatMoney(2) + "/hr";
 						}
 					}else{ //annual salary provided
-						salaryString = "$" + Number(jobSalaryMin).formatMoney(2) + "-" + "$" + Number(jobSalaryMax).formatMoney(2) + "</td>";
+						salaryString = "$" + Number(jobSalaryMin).formatMoney(2) + " - " + "$" + Number(jobSalaryMax).formatMoney(2) + "</td>";
 					}
 					jobTableMarkup = 
 						"<tr class='gsa-table__row'>" +
