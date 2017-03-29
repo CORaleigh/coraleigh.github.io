@@ -8,7 +8,7 @@ if(navigator.geolocation){
 }
 
 function distanceBetweenArrays(originArr, destArr){ //wrapper for the calculate distance function to make it easier to work w/ the arrays
-	return calculateDistance(originArr[0],originArr[1],destArr[0],destArr[1]);
+	return getDistanceFromLatLonInKm(originArr[0],originArr[1],destArr[0],destArr[1]);
 }
 
 function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
