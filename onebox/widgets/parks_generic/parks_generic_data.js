@@ -49,6 +49,7 @@ function showPosition(pos){
 
 			//get the distance from the user's location
 			var parkDistance = distanceBetweenArrays(originArr,destArr);
+			console.log(park);
 			parksJSONArray.push([park.attribues.NAME,parkDistance]);
 		});
 		console.log(parksJSONArray);
