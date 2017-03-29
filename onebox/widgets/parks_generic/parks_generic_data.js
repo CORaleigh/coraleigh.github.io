@@ -11,7 +11,7 @@ function distanceBetweenArrays(originArr, destArr){ //wrapper for the calculate 
 	return getDistanceFromLatLonInKm(originArr[0],originArr[1],destArr[0],destArr[1]);
 }
 
-function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) { //function from http://stackoverflow.com/questions/27928/calculate-distance-between-two-latitude-longitude-points-haversine-formula
   var R = 6371; // Radius of the earth in km
   var dLat = deg2rad(lat2-lat1);  // deg2rad below
   var dLon = deg2rad(lon2-lon1); 
@@ -27,6 +27,15 @@ function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
 
 function deg2rad(deg) {
   return deg * (Math.PI/180)
+}
+
+function compareSecondColumn(a, b) { //function from http://stackoverflow.com/questions/16096872/how-to-sort-2-dimensional-array-by-column-value
+    if (a[1] === b[1]) {
+        return 0;
+    }
+    else {
+        return (a[1] < b[1]) ? -1 : 1;
+    }
 }
 
 function showPosition(pos){
@@ -49,9 +58,9 @@ function showPosition(pos){
 
 			//get the distance from the user's location
 			var parkDistance = distanceBetweenArrays(originArr,destArr);
-			// console.log(park);
 			parksJSONArray.push([park.attributes.NAME,parkDistance]);
 		});
+		parksJSONArray.sort(compareSecondColumn);
 		console.log(parksJSONArray);
 	});
 }
