@@ -38,6 +38,16 @@ function compareSecondColumn(a, b) { //function from http://stackoverflow.com/qu
     }
 }
 
+function parksNearMeTableRow(parkInfo){
+	var output = "";
+	output += "<tr class='gsa-table__row'>";
+	output += "<td>" + parkInfo[0]; + "</td>"; //name
+	output += "<td>" + parkInfo[1].toFixed(1) + "</td>"; //distance
+	output += "<td></td>"; //dive time. Leaving blank for now. 
+	output += "</tr>";
+	return output;
+}
+
 function showPosition(pos){
 	console.log(pos.coords.latitude);
 	console.log(pos.coords.longitude);
@@ -61,7 +71,16 @@ function showPosition(pos){
 			parksJSONArray.push([park.attributes.NAME,parkDistance]);
 		});
 		parksJSONArray.sort(compareSecondColumn);
+
+		parksJSONArray = parksJSONArray.splice(0,5) //eliminate all but the 5 closet parks for display
 		console.log(parksJSONArray);
+
+		var parksNearMeHTML = "";
+		parksJSONArray.forEach(function(parkInfo){
+			parksNearMeHTML += parksNearMeTableRow(parkInfo);
+		});
+		jQuery("#cor-parks-near-me-tbody").empty();
+		jQuery("#cor-parks-near-me-tbody").append(parksNearMeHTML);
 	});
 }
 
