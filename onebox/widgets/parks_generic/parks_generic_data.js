@@ -92,9 +92,9 @@ jQuery.ajax({
 	url : "https://maps.raleighnc.gov/arcgis/rest/services/SpecialEvents/SpecialEventsView/MapServer/1/query?where=1%3D1&text=&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&outFields=*&returnGeometry=true&returnTrueCurves=false&maxAllowableOffset=&geometryPrecision=&outSR=&returnIdsOnly=false&returnCountOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&returnZ=false&returnM=false&gdbVersion=&returnDistinctValues=false&resultOffset=&resultRecordCount=&f=pjson"
 }).done(function(events){
 	var eventsJSON = JSON.parse(events);
-	debugger;
+	// debugger;
 	var eventsJSONArray = [];
-	eventsJSON.feature.forEach(function(event){
+	eventsJSON.features.forEach(function(event){
 		eventsJSONArray.push(
 			[
 				event.attributes.EVENT_STARTDATE,
