@@ -1,4 +1,3 @@
-console.log("running");
 if(navigator.geolocation){
 	navigator.geolocation.getCurrentPosition(showPosition);
 	//get the list of all of the parks
@@ -38,19 +37,26 @@ function compareSecondColumn(a, b) { //function from http://stackoverflow.com/qu
     }
 }
 
+function sortFunction(a, b) { //function from http://stackoverflow.com/questions/16096872/how-to-sort-2-dimensional-array-by-column-value
+    if (a[0] === b[0]) {
+        return 0;
+    }
+    else {
+        return (a[0] < b[0]) ? -1 : 1;
+    }
+}
+
 function parksNearMeTableRow(parkInfo){
 	var output = "";
 	output += "<tr class='gsa-table__row'>";
 	output += "<td>" + parkInfo[0]; + "</td>"; //name
-	output += "<td>" + parkInfo[1].toFixed(1) + "</td>"; //distance
+	output += "<td>" + parkInfo[1].toFixed(1) + "mi</td>"; //distance
 	output += "<td></td>"; //dive time. Leaving blank for now. 
 	output += "</tr>";
 	return output;
 }
 
 function showPosition(pos){
-	console.log(pos.coords.latitude);
-	console.log(pos.coords.longitude);
 
 	var originArr = [pos.coords.latitude,pos.coords.longitude];
 
@@ -59,10 +65,8 @@ function showPosition(pos){
 	}).done(function(parks){
 		
 		var parksJSON = JSON.parse(parks);
-		console.log(parksJSON);
 		var parksJSONArray = [];
 		parksJSON.features.forEach(function(park){
-			console.log(park);
 			//generate array form latlong
 			var destArr = [park.geometry.y,park.geometry.x];
 
@@ -73,7 +77,6 @@ function showPosition(pos){
 		parksJSONArray.sort(compareSecondColumn);
 
 		parksJSONArray = parksJSONArray.splice(0,5) //eliminate all but the 5 closet parks for display
-		console.log(parksJSONArray);
 
 		var parksNearMeHTML = "";
 		parksJSONArray.forEach(function(parkInfo){
@@ -83,4 +86,27 @@ function showPosition(pos){
 		jQuery("#cor-parks-near-me-tbody").append(parksNearMeHTML);
 	});
 }
+
+jQuery.ajax({
+	url : "https://maps.raleighnc.gov/arcgis/rest/services/SpecialEvents/SpecialEventsView/MapServer/1/query?where=1%3D1&text=&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&outFields=*&returnGeometry=true&returnTrueCurves=false&maxAllowableOffset=&geometryPrecision=&outSR=&returnIdsOnly=false&returnCountOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&returnZ=false&returnM=false&gdbVersion=&returnDistinctValues=false&resultOffset=&resultRecordCount=&f=pjson";
+}).done(function(events){
+	var eventsJSON = JSON.parse(events);
+
+	var eventsJSONArray = [];
+	eventsJSON.feature.forEach(event){
+		eventsJSONArray.push(
+			[
+				event.attributes.EVENT_STARTDATE,
+				{
+					"endDate" : event.attributes.EVENT_ENDDATE,
+					"name" : event.attributes.EVENT_NAME
+				}
+			]
+		);
+	}
+
+	eventsJSONArray.sort(sortFunction);
+	console.log(eventsJSONArray);
+
+});
 
