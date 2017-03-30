@@ -94,7 +94,7 @@ jQuery.ajax({
 	var eventsJSON = JSON.parse(events);
 
 	var eventsJSONArray = [];
-	eventsJSON.feature.forEach(event){
+	eventsJSON.feature.forEach(function(event){
 		eventsJSONArray.push(
 			[
 				event.attributes.EVENT_STARTDATE,
@@ -104,7 +104,7 @@ jQuery.ajax({
 				}
 			]
 		);
-	}
+	});
 
 	eventsJSONArray.sort(sortFunction);
 	console.log(eventsJSONArray);
