@@ -1,3 +1,4 @@
+console.log("running");
 if(navigator.geolocation){
 	navigator.geolocation.getCurrentPosition(showPosition);
 	//get the list of all of the parks
@@ -57,6 +58,8 @@ function parksNearMeTableRow(parkInfo){
 }
 
 function showPosition(pos){
+	console.log(pos.coords.latitude);
+	console.log(pos.coords.longitude);
 
 	var originArr = [pos.coords.latitude,pos.coords.longitude];
 
@@ -67,6 +70,7 @@ function showPosition(pos){
 		var parksJSON = JSON.parse(parks);
 		var parksJSONArray = [];
 		parksJSON.features.forEach(function(park){
+			console.log(park);
 			//generate array form latlong
 			var destArr = [park.geometry.y,park.geometry.x];
 
