@@ -56,6 +56,57 @@ function parksNearMeTableRow(parkInfo){
 	output += "</tr>";
 	return output;
 }
+function eventsTableRow(eventInfo){
+
+	function getDateString(date){
+
+		function getDayMonthYearTimeObjectFromDate(date){
+			var dateObject = new Date(date);
+			var dateObjectString = dateObject.toDateString();
+			var dateObjectArray = dateObjectString.split(" ");
+
+			var timeObjectString = dateObject.toTimeString();
+			var timeObjectArray = timeObjectString.split(" ");
+
+			var hourMinSecArray = timeObjectArray[0].split(":");
+
+			var hours = hourMinSecArray[0];
+			var minutes = hourMinSecArray[1];
+
+			//12 hour conversion taken from http://stackoverflow.com/questions/4898574/converting-24-hour-time-to-12-hour-time-w-am-pm-using-javascript			
+		    var suffix = (hours >= 12)? 'PM' : 'AM'; //it is pm if hours from 12 onwards
+    
+		    hours = (hours > 12)? hours -12 : hours; //only -12 from hours if it is greater than 12 (if not back at mid night)    
+		    hours = (hours == '00')? 12 : hours; //if 00 then it is 12 am
+
+		    var timeOutput = hours + ":" + minutes + " " + suffix
+			var suffix  = 
+			var outputObject = {
+				"time"      : timeOutput,
+				"dayOfWeek" : dateObjectArray[0],
+				"month"     : dateObjectArray[1],
+				"day"       : dateObjectArray[2],
+				"year"      : dateObjectArray[3]
+			}
+
+			return outputObject;
+		}
+		var dateObject = getDayMonthYearTimeObjectFromDate(date);
+		var outputString = "";
+		outputString += dateObject.month + " " dateObject.day + "<br>" + dateObject.time;
+		return outputString;
+	}
+	var startDateString = getDateString(parkInfo[0]);
+	var endDateString = getDateString(parkInfo[1].endDate);
+	var output = "";
+	output += "<tr class='gsa-table__row'>";
+	output += "<td>" + parkInfo[1].name + "</td>";
+	output += "<td>" + startDateString + "</td>";
+	output += "<td>" + endDateString + "</td>";
+	output += "</tr>";
+
+	return output;
+}
 
 function showPosition(pos){
 
@@ -109,5 +160,12 @@ jQuery.ajax({
 	eventsJSONArray.sort(sortFunction);
 	console.log(eventsJSONArray);
 
+	eventsJSONArray = eventsJSONArray.splice(0,6);
+	var eventsHTML = "";
+	eventsJSONArray.forEach(function(event){
+		eventsHTML += eventsTableRow(event);
+	});
+	jQuery("#cor-events-tbody").empty();
+	jQuery("#cor-events-tbody").append(eventsHTML);
 });
 
