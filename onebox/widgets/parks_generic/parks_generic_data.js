@@ -92,7 +92,7 @@ function eventsTableRow(eventInfo){
 		}
 		var dateObject = getDayMonthYearTimeObjectFromDate(date);
 		var outputString = "";
-		outputString += dateObject.month + " " dateObject.day + "<br>" + dateObject.time;
+		outputString += dateObject.month + " " + dateObject.day + "<br>" + dateObject.time;
 		return outputString;
 	}
 	var startDateString = getDateString(parkInfo[0]);
