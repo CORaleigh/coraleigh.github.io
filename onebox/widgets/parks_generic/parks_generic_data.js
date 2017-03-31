@@ -80,7 +80,6 @@ function eventsTableRow(eventInfo){
 		    hours = (hours == '00')? 12 : hours; //if 00 then it is 12 am
 
 		    var timeOutput = hours + ":" + minutes + " " + suffix
-			var suffix  = 
 			var outputObject = {
 				"time"      : timeOutput,
 				"dayOfWeek" : dateObjectArray[0],
