@@ -86,7 +86,7 @@ function eventsTableRow(eventInfo){
 				"month"     : dateObjectArray[1],
 				"day"       : dateObjectArray[2],
 				"year"      : dateObjectArray[3]
-			}
+			};
 
 			return outputObject;
 		}
