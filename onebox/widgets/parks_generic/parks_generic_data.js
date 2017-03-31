@@ -95,11 +95,11 @@ function eventsTableRow(eventInfo){
 		outputString += dateObject.month + " " + dateObject.day + "<br>" + dateObject.time;
 		return outputString;
 	}
-	var startDateString = getDateString(parkInfo[0]);
-	var endDateString = getDateString(parkInfo[1].endDate);
+	var startDateString = getDateString(eventInfo[0]);
+	var endDateString = getDateString(eventInfo[1].endDate);
 	var output = "";
 	output += "<tr class='gsa-table__row'>";
-	output += "<td>" + parkInfo[1].name + "</td>";
+	output += "<td>" + eventInfo[1].name + "</td>";
 	output += "<td>" + startDateString + "</td>";
 	output += "<td>" + endDateString + "</td>";
 	output += "</tr>";
