@@ -81,7 +81,7 @@
 
       $(document).ready(function() {
 			if ("geolocation" in navigator){	           
-           		navigator.geolocation.getCurrentPosition(show_location, show_error, {timeout:5000, enableHighAccuracy: true}); 
+           		navigator.geolocation.getCurrentPosition(show_location, show_error, {timeout:10000, enableHighAccuracy: true}); 
 		    } else {
 		    	alert("Browser doesn't support geolocation!");
 		    }

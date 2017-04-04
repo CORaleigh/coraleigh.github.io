@@ -108,6 +108,9 @@ function eventsTableRow(eventInfo){
 
 function showPosition(pos){
 
+	console.log(map);
+	debugger;
+
 	var originArr = [pos.coords.latitude,pos.coords.longitude];
 
 	$.ajax({
