@@ -55,7 +55,7 @@ function generateParksTable(parksInfo){
 
 	//populate the html table
 	jQuery("#cor-parks-near-me-tbody").empty();
-	jQuery("#cor-parks-near-me-tbody").append(parksNearMeHTML);
+	jQuery("#cor-parks-near-me-tbody").append(tableHTML);
 }
 
 function parksNearMeTableRow(parkInfo){
@@ -170,7 +170,7 @@ function showPosition(pos){
 				if(status == "OK"){
 					parkInfo[0].travelTime = response.rows[0].elements[0].duration.text;
 					parksTableRowsLeftToProcess -= 1;
-					debugger;
+					// debugger;
 
 					if(parksTableRowsLeftToProcess == 0){ //only if all the rows are done
 						generateParksTable(parksJSONArray); //generate and apply the html
