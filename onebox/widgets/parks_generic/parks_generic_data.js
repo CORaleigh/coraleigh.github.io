@@ -109,7 +109,7 @@ function eventsTableRow(eventInfo){
 function showPosition(pos){
 
 	console.log(map);
-	debugger;
+	// debugger;
 
 	var originArr = [pos.coords.latitude,pos.coords.longitude];
 
