@@ -101,7 +101,6 @@ function eventsTableRow(eventInfo){
 	output += "<tr class='gsa-table__row'>";
 	output += "<td>" + eventInfo[1].name + "</td>";
 	output += "<td>" + startDateString + "</td>";
-	output += "<td>" + endDateString + "</td>";
 	output += "</tr>";
 
 	return output;
