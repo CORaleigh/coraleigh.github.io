@@ -168,7 +168,7 @@ jQuery.ajax({
 
 	eventsJSONArray.sort(sortFunction);
 	console.log(eventsJSONArray);
-	debugger;
+	// debugger;
 	eventsJSONArray = eventsJSONArray.splice(0,6);
 	var eventsHTML = "";
 	eventsJSONArray.forEach(function(event){
