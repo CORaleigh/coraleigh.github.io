@@ -134,7 +134,8 @@ function showPosition(pos){
 			);
 		});
 		parksJSONArray.sort(compareSecondColumn);
-		parksMapJSONArray = parksJSONArray.splice(0,10); //get the 10 closest parks for the map 
+		parksMapJSONArray = parksJSONArray;
+		parksMapJSONArray = parksMapJSONArray.splice(0,10); //get the 10 closest parks for the map 
 		parksJSONArray = parksJSONArray.splice(0,5); //eliminate all but the 5 closest parks for table display
 
 		var parksNearMeHTML = "";
