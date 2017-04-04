@@ -137,12 +137,15 @@ function showPosition(pos){
 		});
 		parksJSONArray.sort(compareSecondColumn);
 		var parksMapJSONArray = parksJSONArray.slice();
-		parksMapJSONArray = parksMapJSONArray.splice(0,10); //get the 10 closest parks for the map 
+		parksMapJSONArray = parksMapJSONArray.splice(0,20); //get the 10 closest parks for the map 
 		// debugger;
 		parksJSONArray = parksJSONArray.splice(0,5); //eliminate all but the 5 closest parks for table display
 
 		var parksNearMeHTML = "";
 		parksJSONArray.forEach(function(parkInfo){
+			//get the travel time for the park
+			var travelTimeOrigin = new google.maps.LatLng(originArr[0],originArr[1]);
+			var travelTimeDest = new google.maps.LatLng(parkInfo[0].coord[0],parkInfo[0].coord[1]);
 			parksNearMeHTML += parksNearMeTableRow(parkInfo);
 		});
 
