@@ -52,7 +52,7 @@ function parksNearMeTableRow(parkInfo){
 	output += "<tr class='gsa-table__row'>";
 	output += "<td>" + parkInfo[0].name; + "</td>"; //name
 	output += "<td>" + parkInfo[1].toFixed(1) + "mi</td>"; //distance
-	output += "<td></td>"; //dive time. Leaving blank for now. 
+	output += "<td>" + parkInfo[0].travelTime + "</td>"; //dive time. Leaving blank for now. 
 	output += "</tr>";
 	return output;
 }
@@ -109,8 +109,6 @@ function eventsTableRow(eventInfo){
 function showPosition(pos){
 
 	console.log(map);
-	// debugger;
-
 	var originArr = [pos.coords.latitude,pos.coords.longitude];
 
 	$.ajax({
@@ -138,7 +136,6 @@ function showPosition(pos){
 		parksJSONArray.sort(compareSecondColumn);
 		var parksMapJSONArray = parksJSONArray.slice();
 		parksMapJSONArray = parksMapJSONArray.splice(0,20); //get the 10 closest parks for the map 
-		// debugger;
 		parksJSONArray = parksJSONArray.splice(0,5); //eliminate all but the 5 closest parks for table display
 
 		var parksNearMeHTML = "";
@@ -160,10 +157,10 @@ function showPosition(pos){
 
 				if(status == "OK"){
 					parkInfo[0].travelTime = response.rows[0].elements[0].duration.text;
-					debugger;
+					parksNearMeHTML += parksNearMeTableRow(parkInfo);
 				}
 			}
-			parksNearMeHTML += parksNearMeTableRow(parkInfo);
+			
 		});
 
 		//populate the html table
@@ -173,7 +170,6 @@ function showPosition(pos){
 		//populate the google map
 		parksMapJSONArray.forEach(function(park){
 			var parkLatLong = {"lat":park[0].coord[0],"lng":park[0].coord[1]};
-			// debugger;
 			var marker = new google.maps.Marker({
 				position : parkLatLong,
 				map : map,
