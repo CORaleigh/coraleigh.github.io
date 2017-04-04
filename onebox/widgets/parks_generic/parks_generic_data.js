@@ -145,8 +145,20 @@ function showPosition(pos){
 		parksJSONArray.forEach(function(parkInfo){
 			parksNearMeHTML += parksNearMeTableRow(parkInfo);
 		});
+
+		//populate the html table
 		jQuery("#cor-parks-near-me-tbody").empty();
 		jQuery("#cor-parks-near-me-tbody").append(parksNearMeHTML);
+
+		//populate the google map
+		parksMapJSONArray.forEach(function(park){
+			var parkLatLong = {"lat":park[0].coord[0],"long":park[0].coord[1]};
+			var marker = new google.maps.Marker({
+				position : parkLatLong,
+				map : map,
+				title : park[0].name
+			});
+		});
 	});
 }
 
