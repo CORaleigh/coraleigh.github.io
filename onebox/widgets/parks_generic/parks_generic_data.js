@@ -153,6 +153,7 @@ function showPosition(pos){
 		//populate the google map
 		parksMapJSONArray.forEach(function(park){
 			var parkLatLong = {"lat":park[0].coord[0],"long":park[0].coord[1]};
+			debugger;
 			var marker = new google.maps.Marker({
 				position : parkLatLong,
 				map : map,
