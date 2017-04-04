@@ -146,6 +146,19 @@ function showPosition(pos){
 			//get the travel time for the park
 			var travelTimeOrigin = new google.maps.LatLng(originArr[0],originArr[1]);
 			var travelTimeDest = new google.maps.LatLng(parkInfo[0].coord[0],parkInfo[0].coord[1]);
+
+			var service = new google.maps.DistanceMatrixService();
+			service.getDistanceMatrix(
+			  {
+			    origins: [travelTimeOrigin],
+			    destinations: [travelTimeDest],
+
+			  }, travelTimeCallback);
+			function travelTimeCallback(response,status){
+				console.log(response);
+				console.log(status);
+				debugger;
+			}
 			parksNearMeHTML += parksNearMeTableRow(parkInfo);
 		});
 
@@ -156,7 +169,7 @@ function showPosition(pos){
 		//populate the google map
 		parksMapJSONArray.forEach(function(park){
 			var parkLatLong = {"lat":park[0].coord[0],"lng":park[0].coord[1]};
-			debugger;
+			// debugger;
 			var marker = new google.maps.Marker({
 				position : parkLatLong,
 				map : map,
