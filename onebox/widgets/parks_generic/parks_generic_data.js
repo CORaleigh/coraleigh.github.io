@@ -47,6 +47,17 @@ function sortFunction(a, b) { //function from http://stackoverflow.com/questions
     }
 }
 
+function generateParksTable(parksInfo){
+	var tableHTML = "";
+	parksInfo.forEach(function(parkInfo){
+		tableHTML += parksNearMeTableRow(parkInfo);
+	});
+
+	//populate the html table
+	jQuery("#cor-parks-near-me-tbody").empty();
+	jQuery("#cor-parks-near-me-tbody").append(parksNearMeHTML);
+}
+
 function parksNearMeTableRow(parkInfo){
 	var output = "";
 	output += "<tr class='gsa-table__row'>";
@@ -139,6 +150,7 @@ function showPosition(pos){
 		parksJSONArray = parksJSONArray.splice(0,5); //eliminate all but the 5 closest parks for table display
 
 		var parksNearMeHTML = "";
+		var parksTableRowsLeftToProcess = parksJSONArray.length;
 		parksJSONArray.forEach(function(parkInfo){
 			//get the travel time for the park
 			var travelTimeOrigin = new google.maps.LatLng(originArr[0],originArr[1]);
@@ -157,15 +169,16 @@ function showPosition(pos){
 
 				if(status == "OK"){
 					parkInfo[0].travelTime = response.rows[0].elements[0].duration.text;
-					parksNearMeHTML += parksNearMeTableRow(parkInfo);
+					parksTableRowsLeftToProcess -= 1;
+					debugger;
+
+					if(parksTableRowsLeftToProcess == 0){ //only if all the rows are done
+						generateParksTable(parksJSONArray); //generate and apply the html
+					}
 				}
 			}
 			
 		});
-
-		//populate the html table
-		jQuery("#cor-parks-near-me-tbody").empty();
-		jQuery("#cor-parks-near-me-tbody").append(parksNearMeHTML);
 
 		//populate the google map
 		parksMapJSONArray.forEach(function(park){
