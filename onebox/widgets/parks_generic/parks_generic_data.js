@@ -50,7 +50,7 @@ function sortFunction(a, b) { //function from http://stackoverflow.com/questions
 function parksNearMeTableRow(parkInfo){
 	var output = "";
 	output += "<tr class='gsa-table__row'>";
-	output += "<td>" + parkInfo[0]; + "</td>"; //name
+	output += "<td>" + parkInfo[0].name; + "</td>"; //name
 	output += "<td>" + parkInfo[1].toFixed(1) + "mi</td>"; //distance
 	output += "<td></td>"; //dive time. Leaving blank for now. 
 	output += "</tr>";
@@ -123,11 +123,19 @@ function showPosition(pos){
 
 			//get the distance from the user's location
 			var parkDistance = distanceBetweenArrays(originArr,destArr);
-			parksJSONArray.push([park.attributes.NAME,parkDistance]);
+			parksJSONArray.push(
+				[
+					{
+						"name" : park.attributes.NAME,
+						"coord" : [park.geometry.y,park.geometry.x]
+					},
+					parkDistance
+				]
+			);
 		});
 		parksJSONArray.sort(compareSecondColumn);
-
-		parksJSONArray = parksJSONArray.splice(0,5) //eliminate all but the 5 closet parks for display
+		parksMapJSONArray = parksJSONArray.splice(0,10); //get the 10 closest parks for the map 
+		parksJSONArray = parksJSONArray.splice(0,5); //eliminate all but the 5 closest parks for table display
 
 		var parksNearMeHTML = "";
 		parksJSONArray.forEach(function(parkInfo){
