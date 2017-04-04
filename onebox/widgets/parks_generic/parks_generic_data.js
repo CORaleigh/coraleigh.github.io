@@ -152,7 +152,7 @@ function showPosition(pos){
 			  {
 			    origins: [travelTimeOrigin],
 			    destinations: [travelTimeDest],
-
+			    travelMode: 'DRIVING'
 			  }, travelTimeCallback);
 			function travelTimeCallback(response,status){
 				console.log(response);
