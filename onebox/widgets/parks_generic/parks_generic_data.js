@@ -136,6 +136,7 @@ function showPosition(pos){
 		parksJSONArray.sort(compareSecondColumn);
 		var parksMapJSONArray = parksJSONArray;
 		parksMapJSONArray = parksMapJSONArray.splice(0,10); //get the 10 closest parks for the map 
+		debugger;
 		parksJSONArray = parksJSONArray.splice(0,5); //eliminate all but the 5 closest parks for table display
 
 		var parksNearMeHTML = "";
