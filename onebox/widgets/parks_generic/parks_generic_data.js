@@ -92,7 +92,7 @@ function eventsTableRow(eventInfo){
 		}
 		var dateObject = getDayMonthYearTimeObjectFromDate(date);
 		var outputString = "";
-		outputString += dateObject.month + " " + dateObject.day + "<br>" + dateObject.time;
+		outputString += dateObject.month + " " + dateObject.day;
 		return outputString;
 	}
 	var startDateString = getDateString(eventInfo[0]);
