@@ -102,16 +102,16 @@
 			function show_error(error){
 			   switch(error.code) {
 			        case error.PERMISSION_DENIED:
-			            alert("Permission denied by user.");
+			            console.log("Permission denied by user.");
 			            break;
 			        case error.POSITION_UNAVAILABLE:
-			            alert("Location position unavailable.");
+			            console.log("Location position unavailable.");
 			            break;
 			        case error.TIMEOUT:
-			            alert("Request timeout.");
+			            console.log("Request timeout.");
 			            break;
 			        case error.UNKNOWN_ERROR:
-			            alert("Unknown error.");
+			            console.log("Unknown error.");
 			            break;
 			    }
 			}
