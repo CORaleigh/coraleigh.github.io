@@ -157,7 +157,11 @@ function showPosition(pos){
 			function travelTimeCallback(response,status){
 				console.log(response);
 				console.log(status);
-				debugger;
+
+				if(status == "OK"){
+					parkInfo[0].travelTime = response.rows[0].elements[0].duration.text;
+					debugger;
+				}
 			}
 			parksNearMeHTML += parksNearMeTableRow(parkInfo);
 		});
