@@ -315,8 +315,8 @@ jQuery.ajax({
 	var currentWeather = results.channel;
 
 	//current temp
-	var currentTemp = currentWeather.condition.temp;
 	debugger;
+	var currentTemp = currentWeather.condition.temp;
 	//weather status
 	var weatherStatus = {};
 	weatherStatus.text = currentWeather.condition.text;
