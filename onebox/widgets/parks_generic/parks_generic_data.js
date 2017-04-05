@@ -302,7 +302,6 @@ jQuery.ajax({
 	//set the date at the bottom
 
 	var rawDate = results.channel.lastBuildDate;
-	debugger;
 	var rawDateArray = rawDate.split(" ");
 	var processedDate = rawDateArray[0] + " " + rawDateArray[1] + " " + rawDateArray[2] + " " + rawDateArray[3];
 
@@ -317,6 +316,7 @@ jQuery.ajax({
 
 	//current temp
 	var currentTemp = currentWeather.condition.temp;
+	debugger;
 	//weather status
 	var weatherStatus = {};
 	weatherStatus.text = currentWeather.condition.text;
