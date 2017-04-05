@@ -321,7 +321,6 @@ jQuery.ajax({
 	var weatherStatus = {};
 	weatherStatus.text = currentWeather.condition.text;
 	weatherStatus.imageURL = getImageFromWeatherCode(currentWeather.condition.code);
-	debugger; //check and see if both weather status vars are set
 	//humidiy percentage
 	var currentHumidity = currentWeather.atmosphere.humidity + "%";
 	//rain percetnage
