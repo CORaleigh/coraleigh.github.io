@@ -347,12 +347,10 @@ jQuery.ajax({
 		var forecastTemp = forecast.high + "°";
 
 		//adjust the HTML
-		debugger;
 		jQuery(parentContainer).children(".weather__forecast-day").text(forecastDay);
 		// jQuery(parentContainer).children("img").attr("src",forecastImg);
 		// jQuery(parentContainer).children("img").attr("alt",forecastText);
 		jQuery(parentContainer).children(".weather__forecast-degree").text(forecastTemp);
-		debugger;
 	});
 
 
