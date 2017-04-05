@@ -328,6 +328,7 @@ jQuery.ajax({
 	var currentWindSpeed = currentWeather.wind.speed + " mph";
 
 	//update the HTML
+	debugger;
 	jQuery("#cor-parks-widget-weather-current-temp").text(currentTemp);
 	jQuery("#cor-parks-widget-weather-current-weather-img").attr("src",weatherStatus.imageURL);
 	jQuery("#cor-parks-widget-weather-current-weather-img").attr("alt",weatherStatus.text);
