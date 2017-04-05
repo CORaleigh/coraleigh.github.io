@@ -313,7 +313,7 @@ jQuery.ajax({
 
 	//get current weather
 
-	var currentWeather = resutls.channel;
+	var currentWeather = results.channel;
 
 	//current temp
 	var currentTemp = currentWeather.condition.temp;
