@@ -329,8 +329,8 @@ jQuery.ajax({
 
 	//update the HTML
 	jQuery("#cor-parks-widget-weather-current-temp").html(currentTemp + "<sup><small>&#x2109;</small></sup>");
-	jQuery("#cor-parks-widget-weather-current-weather-img").attr("src",weatherStatus.imageURL);
-	jQuery("#cor-parks-widget-weather-current-weather-img").attr("alt",weatherStatus.text);
+	// jQuery("#cor-parks-widget-weather-current-weather-iimgmg").attr("src",weatherStatus.imageURL);
+	// jQuery("#cor-parks-widget-weather-current-weather-").attr("alt",weatherStatus.text);
 	jQuery("#cor-parks-widget-weather-current-weather-text").text(weatherStatus.text);
 	jQuery("#cor-parks-widget-weather-current-humidity").text(currentHumidity);
 	jQuery("#cor-parks-widget-weather-current-windspeed").text(currentWindSpeed);
@@ -349,8 +349,8 @@ jQuery.ajax({
 		//adjust the HTML
 		debugger;
 		jQuery(parentContainer).children(".weather__forecast-day").text(forecastDay);
-		jQuery(parentContainer).children("img").attr("src",forecastImg);
-		jQuery(parentContainer).children("img").attr("alt",forecastText);
+		// jQuery(parentContainer).children("img").attr("src",forecastImg);
+		// jQuery(parentContainer).children("img").attr("alt",forecastText);
 		jQuery(parentContainer).children(".weather__forecast-degree").text(forecastTemp);
 		debugger;
 	});
