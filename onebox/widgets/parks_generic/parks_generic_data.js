@@ -301,7 +301,7 @@ jQuery.ajax({
 
 	//set the date at the bottom
 
-	var rawDate = results.channel.units.lastBuildDate;
+	var rawDate = results.channel.lastBuildDate;
 	debugger;
 	var rawDateArray = rawDate.split(" ");
 	var processedDate = rawDateArray[0] + " " + rawDateArray[1] + " " + rawDateArray[2] + " " + rawDateArray[3];
