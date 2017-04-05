@@ -319,7 +319,7 @@ jQuery.ajax({
 	//weather status
 	var weatherStatus = {};
 	weatherStatus.text = currentWeather.item.condition.text;
-	weatherStatus.imageURL = getImageFromWeatherCode(currentWeather.condition.code);
+	weatherStatus.imageURL = getImageFromWeatherCode(currentWeather.item.condition.code);
 	//humidiy percentage
 	var currentHumidity = currentWeather.atmosphere.humidity + "%";
 	//rain percetnage
