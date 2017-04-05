@@ -117,6 +117,77 @@ function eventsTableRow(eventInfo){
 	return output;
 }
 
+function getImageFromWeatherCode(code){
+	//this is to get an image from the weather code
+	//weather codes listed here: https://developer.yahoo.com/weather/documentation.html#channel
+
+	var srcDir = "https://coraleigh.github.com/static/img/"; //dir where the images are
+
+	var codeArray = []; 
+
+	codeArray[0] = "wind-cloudy-storms.jpg";
+	codeArray[1] = "wind-cloudy-storms.jpg";
+	codeArray[2] = "wind-cloudy-storms.jpg";
+	codeArray[3] = "wind-cloudy-storms.jpg";
+	codeArray[4] = "rain-lightening.png";
+	codeArray[5] = "snow-showers.png";
+	codeArray[6] = "snow-showers.png";
+	codeArray[7] = "snow-showers.png";
+	codeArray[8] = "snow-showers.png";
+	codeArray[9] = "rain.png"; //drizzle
+	codeArray[10] = "snow-showers.png";
+	codeArray[11] = "weather-rain.png";//showers
+	codeArray[12] = "weather-rain.png";//showers
+	codeArray[13] = "snow-showers.png";
+	codeArray[14] = "snow-showers.png";
+	codeArray[15] = "snow-showers.png";
+	codeArray[16] = "snow-showers.png";
+	codeArray[17] = "snow-showers.png";
+	codeArray[18] = "snow-showers.png";
+	//leaving the next 4 blank until a sutible replacement can be found
+	codeArray[19] = ""; //dust
+	codeArray[20] = ""; //foggy
+	codeArray[21] = ""; //hazy
+	codeArray[22] = ""; //smoky
+	codeArray[23] = ""; //blustery
+	codeArray[24] = ""; //windy
+	codeArray[25] = ""; //cold
+
+	codeArray[26] = "cloudy.png";
+	codeArray[27] = "night-cloudy.png";
+	codeArray[28] = "partly-cloudy.png";
+	codeArray[29] = "night-cloudy.png";
+	codeArray[30] = "partly-cloudy.png";
+
+	codeArray[31] = "night-clear.png";
+	codeArray[32] = "weather-sunny.png";
+
+	codeArray[33] = "night-clear.png";
+	codeArray[34] = "weather-sunny.png";
+
+	codeArray[35] = "weather-rain.png";
+	codeArray[36] = ""; //hot
+
+	codeArray[37] = "rain-lightening.png"; //iso thunder
+	codeArray[38] = "rain-lightening.png"; //scattered thunder
+	codeArray[39] = "rain-lightening.png"; //scattered thunder
+	codeArray[40] = "scattered-showers.png"; //scattered showers
+
+	codeArray[40] = "weather-snow.png"; //heavy snow
+	codeArray[41] = "weather-snow.png"; //scattered snow showers
+	codeArray[42] = "weather-snow.png";//heavy snow
+	codeArray[43] = "weather-snow.png"; //scattered snow showers
+	codeArray[44] = "partly-cloudy.png"; //partly clowdy
+
+	codeArray[44] = "partly-cloudy.png"; //thunder showers
+	codeArray[44] = "partly-cloudy.png"; // shnow showers
+	codeArray[44] = "partly-cloudy.png"; //isolated thundershowers
+
+	codeArray[3200] = ""; //not available;
+
+	return srcDir + codeArray[code];
+}
+
 function showPosition(pos){
 
 	console.log(map);
@@ -222,3 +293,50 @@ jQuery.ajax({
 	jQuery("#cor-events-tbody").append(eventsHTML);
 });
 
+
+jQuery.ajax({
+	url : "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22raleigh%2C%20nc%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"
+}).done(function(response){
+	var results = response.query.results;
+
+	//set the date at the bottom
+
+	var rawDate = results.channel.units.lastBuildDate;
+	var rawDateArray = rawDate.split(" ");
+	var processedDate = rawDateArray[0] + " " + rawDateArray[1] + " " + rawDateArray[2] + " " + rawDateArray[3];
+
+	//update the html
+
+	jQuery("#cor-parks-widget-weather-date").text(processedDate);
+
+
+	//get current weather
+
+	var currentWeather = resutls.channel;
+
+	//current temp
+	var currentTemp = currentWeather.condition.temp;
+	//weather status
+	var weatherStatus.text = currentWeather.condition.text;
+	var weatherStatus.imageURL = getImageFromWeatherCode(currentWeather.condition.code);
+	debugger; //check and see if both weather status vars are set
+	//humidiy percentage
+	var currentHumidity = currentWeather.atmosphere.humidity + "%";
+	//rain percetnage
+	var currentRainChancePercentage = 0 //dont use this. The yahoo api doesn't provide this data so it's 
+	//wind speed
+	var currentWindSpeed = currentWeather.wind.speed + " mph";
+
+	//update the HTML
+	jQuery("#cor-parks-widget-weather-current-temp").text(currentTemp);
+	jQuery("#cor-parks-widget-weather-current-weather-img").attr("src",weatherStatus.imageURL);
+	jQuery("#cor-parks-widget-weather-current-weather-img").attr("alt",weatherStatus.text);
+	jQuery("#cor-parks-widget-weather-current-weather-text").text(weatherStatus.text);
+	jQuery("#cor-parks-widget-weather-current-humidity").text(currentHumidity);
+	jQuery("#cor-parks-widget-weather-current-windspeed").text(currentWindSpeed);
+
+
+
+
+
+});
