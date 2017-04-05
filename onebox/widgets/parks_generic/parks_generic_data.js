@@ -317,8 +317,9 @@ jQuery.ajax({
 	//current temp
 	var currentTemp = currentWeather.condition.temp;
 	//weather status
-	var weatherStatus.text = currentWeather.condition.text;
-	var weatherStatus.imageURL = getImageFromWeatherCode(currentWeather.condition.code);
+	var weatherStatus = {};
+	weatherStatus.text = currentWeather.condition.text;
+	weatherStatus.imageURL = getImageFromWeatherCode(currentWeather.condition.code);
 	debugger; //check and see if both weather status vars are set
 	//humidiy percentage
 	var currentHumidity = currentWeather.atmosphere.humidity + "%";
