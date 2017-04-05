@@ -315,11 +315,10 @@ jQuery.ajax({
 	var currentWeather = results.channel;
 
 	//current temp
-	debugger;
-	var currentTemp = currentWeather.condition.temp;
+	var currentTemp = currentWeather.item.condition.temp;
 	//weather status
 	var weatherStatus = {};
-	weatherStatus.text = currentWeather.condition.text;
+	weatherStatus.text = currentWeather.item.condition.text;
 	weatherStatus.imageURL = getImageFromWeatherCode(currentWeather.condition.code);
 	//humidiy percentage
 	var currentHumidity = currentWeather.atmosphere.humidity + "%";
