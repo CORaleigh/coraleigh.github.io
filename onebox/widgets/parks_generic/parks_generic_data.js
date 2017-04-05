@@ -348,10 +348,10 @@ jQuery.ajax({
 
 		//adjust the HTML
 		debugger;
-		parentContainer.children(".weather__forecast-day").text(forecastDay);
-		parentContainer.children("img").attr("src",forecastImg);
-		parentContainer.children("img").attr("alt",forecastText);
-		parentContainer.children(".weather__forecast-degree").text(forecastTemp);
+		jQuery(parentContainer).children(".weather__forecast-day").text(forecastDay);
+		jQuery(parentContainer).children("img").attr("src",forecastImg);
+		jQuery(parentContainer).children("img").attr("alt",forecastText);
+		jQuery(parentContainer).children(".weather__forecast-degree").text(forecastTemp);
 		debugger;
 	});
 
