@@ -329,7 +329,7 @@ jQuery.ajax({
 
 	//update the HTML
 	debugger;
-	jQuery("#cor-parks-widget-weather-current-temp").text(currentTemp + "<sup><small>&#x2109;</small></sup>");
+	jQuery("#cor-parks-widget-weather-current-temp").html(currentTemp + "<sup><small>&#x2109;</small></sup>");
 	jQuery("#cor-parks-widget-weather-current-weather-img").attr("src",weatherStatus.imageURL);
 	jQuery("#cor-parks-widget-weather-current-weather-img").attr("alt",weatherStatus.text);
 	jQuery("#cor-parks-widget-weather-current-weather-text").text(weatherStatus.text);
