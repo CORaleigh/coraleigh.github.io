@@ -328,7 +328,6 @@ jQuery.ajax({
 	var currentWindSpeed = currentWeather.wind.speed + " mph";
 
 	//update the HTML
-	debugger;
 	jQuery("#cor-parks-widget-weather-current-temp").html(currentTemp + "<sup><small>&#x2109;</small></sup>");
 	jQuery("#cor-parks-widget-weather-current-weather-img").attr("src",weatherStatus.imageURL);
 	jQuery("#cor-parks-widget-weather-current-weather-img").attr("alt",weatherStatus.text);
@@ -336,7 +335,25 @@ jQuery.ajax({
 	jQuery("#cor-parks-widget-weather-current-humidity").text(currentHumidity);
 	jQuery("#cor-parks-widget-weather-current-windspeed").text(currentWindSpeed);
 
+	var currentForecast = currentWeather.item.forecast.splice(0,4);
 
+	currentForecast.forEach(function(forecast,index){
+		var parentContainerString = "#cor-parks-widget-weather-forecast-" + index;
+		var parentContainer = jQuery(parentContainerString);
+
+		var forecastImg = getImageFromWeatherCode(forecast.code);
+		var forecastText = forecast.text;
+		var forecastDay = forecast.day;
+		var forecastTemp = forecast.high + "°";
+
+		//adjust the HTML
+		debugger;
+		parentContainer.children(".weather__forecast-day").text(forecastDay);
+		parentContainer.children("img").attr("src",forecastImg);
+		parentContainer.children("img").attr("alt",forecastText);
+		parentContainer.children(".weather__forecast-degree").text(forecastTemp);
+		debugger;
+	});
 
 
 
