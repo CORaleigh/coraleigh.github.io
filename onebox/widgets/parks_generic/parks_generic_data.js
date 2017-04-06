@@ -188,6 +188,13 @@ function getImageFromWeatherCode(code){
 	return srcDir + codeArray[code];
 }
 
+function getImageHTMLFromWeatherCode(code,alt = 'weather'){
+	var imgURL = getImageFromWeatherCode(code);
+	var outputHTML = "";
+	outputHTML = "<img src='" + imgURL + "' alt='" + alt + "'>";
+	return outputHTML;
+}
+
 function showPosition(pos){
 
 	console.log(map);
@@ -320,6 +327,7 @@ jQuery.ajax({
 	var weatherStatus = {};
 	weatherStatus.text = currentWeather.item.condition.text;
 	weatherStatus.imageURL = getImageFromWeatherCode(currentWeather.item.condition.code);
+	weatherStatus.imageHTML = getImageHTMLFromWeatherCode(currentWeather.item.condition.code,currentWeather.item.condition.text);
 	//humidiy percentage
 	var currentHumidity = currentWeather.atmosphere.humidity + "%";
 	//rain percetnage
@@ -329,7 +337,7 @@ jQuery.ajax({
 
 	//update the HTML
 	jQuery("#cor-parks-widget-weather-current-temp").html(currentTemp + "<sup><small>&#x2109;</small></sup>");
-	// jQuery("#cor-parks-widget-weather-current-weather-iimgmg").attr("src",weatherStatus.imageURL);
+	jQuery("#cor-parks-widget-weather-current-weather-img").html(weatherStatus.imageHTML);
 	// jQuery("#cor-parks-widget-weather-current-weather-").attr("alt",weatherStatus.text);
 	jQuery("#cor-parks-widget-weather-current-weather-text").text(weatherStatus.text);
 	jQuery("#cor-parks-widget-weather-current-humidity").text(currentHumidity);
@@ -342,13 +350,14 @@ jQuery.ajax({
 		var parentContainer = jQuery(parentContainerString);
 
 		var forecastImg = getImageFromWeatherCode(forecast.code);
+		var forecastHTML = getImageHTMLFromWeatherCode(forecast.code,forecast.text);
 		var forecastText = forecast.text;
 		var forecastDay = forecast.day;
 		var forecastTemp = forecast.high + "°";
 
 		//adjust the HTML
 		jQuery(parentContainer).children(".weather__forecast-day").text(forecastDay);
-		// jQuery(parentContainer).children("img").attr("src",forecastImg);
+		jQuery(parentContainer).children("img").html(forecastHTML);
 		// jQuery(parentContainer).children("img").attr("alt",forecastText);
 		jQuery(parentContainer).children(".weather__forecast-degree").text(forecastTemp);
 	});
