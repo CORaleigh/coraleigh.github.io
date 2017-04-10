@@ -90,7 +90,7 @@ function getNamedParkInfo(devmode = false){
 var namedParkObject = getNamedParkInfo(true)
 
 namedParkObject.getInfo(function(parkInfo){
-	console.log(this.parkImageUrl);
+	namedParkObject.parkImageUrl;
 	console.log(parkInfo);
 });
 
