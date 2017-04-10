@@ -60,10 +60,11 @@ function getNamedParkInfo(devmode = false){
 
 	var matchingPark = false;
 	Object.keys(CORParks).forEach(function(corPark){
-		
+		debugger;
 		if(corPark.parkNameMatch){
 			matchingPark = corPark;
 		}
+		debugger;
 	});
 	debugger;
 	return matchingPark;
