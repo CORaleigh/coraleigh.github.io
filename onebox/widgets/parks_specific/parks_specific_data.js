@@ -29,7 +29,7 @@ function getNamedParkInfo(devmode = false){
 
 		this.parkNameMatch = function(parkName){
 			var returnVal = false;
-			this.parkNames.foreach(function(arrParkName){
+			this.parkNames.forEach(function(arrParkName){
 				if(arrParkName == parkName){
 					returnVal = true;
 				}
@@ -60,13 +60,10 @@ function getNamedParkInfo(devmode = false){
 
 	var matchingPark = false;
 	Object.keys(CORParks).forEach(function(corPark){
-		debugger;
 		if(CORParks[corPark].parkNameMatch(searchBoxString)){
 			matchingPark = corPark;
 		}
-		debugger;
 	});
-	debugger;
 	return matchingPark;
 
 }
