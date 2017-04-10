@@ -3,8 +3,7 @@ console.log("parks_specific widget");
 function getParkInfoFromObjectID(objectID,callback = false){
 	//add the object ID to the ajax string
 	var ajaxString = "https://maps.raleighnc.gov/arcgis/rest/services/Parks/ParkLocator/MapServer/0/query?where=OBJECTID%3D" + objectID + "&text=&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&outFields=*&returnGeometry=true&returnTrueCurves=false&maxAllowableOffset=&geometryPrecision=&outSR=&returnIdsOnly=false&returnCountOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&returnZ=false&returnM=false&gdbVersion=&returnDistinctValues=false&resultOffset=&resultRecordCount=&f=pjson";
-	console.log(ajaxString);
-	var newAjaxString = "https://maps.raleighnc.gov/arcgis/rest/services/Parks/ParkLocator/MapServer/0/query?where=OBJECTID%3D80&text=&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&outFields=*&returnGeometry=true&returnTrueCurves=false&maxAllowableOffset=&geometryPrecision=&outSR=&returnIdsOnly=false&returnCountOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&returnZ=false&returnM=false&gdbVersion=&returnDistinctValues=false&resultOffset=&resultRecordCount=&f=pjson";
+
 	console.log(newAjaxString);
 	jQuery.ajax({
 		url : ajaxString
@@ -67,9 +66,9 @@ function getNamedParkInfo(devmode = false){
 	CORParks.lakeJohnson = new CORPark(['lake johnson park'], 48);
 	CORParks.lakeLynn = new CORPark(['lake lynn park'], 50);
 	CORParks.lakeWheeler = new CORPark(['lake wheeler park'], 51);
-	CORParks.laurelHills = new CORPark(['laurel hills park'], 54); //check and make sure this is right
+	CORParks.laurelHills = new CORPark(['laurel hills park'], 54); 
 	CORParks.millbrookExchange = new CORPark(['millbrook exchange park'], 67);
-	CORParks.mordecai = new CORPark(['mordecai historic park',"mordecai park"], 54); //check and make sure this is right
+	CORParks.mordecai = new CORPark(['mordecai historic park',"mordecai park"], 70); 
 	CORParks.fredFletcher = new CORPark(['fred fletcher park'], 31);
 	CORParks.andersonPoint = new CORPark(['anderson point park'], 1);
 	CORParks.durantNaturePreserve = new CORPark(['durant nature preserve'], 25);
@@ -90,5 +89,12 @@ var namedParkObject = getNamedParkInfo(true)
 namedParkObject.getInfo(function(parkInfo){
 	console.log(namedParkObject.parkImageUrl());
 	console.log(parkInfo);
+
+	var parkAttributes = parkInfo.features[0].attributes;
+
+	//make the changes to the html
+
+	//title
+	jQuery("#park-name").text(parkAttributes.NAME);
 });
 
