@@ -1,6 +1,6 @@
 console.log("parks_specific widget");
 
-function getParkInfoFromObjectID(objectID){
+function getParkInfoFromObjectID(objectID,callback = false){
 	//add the object ID to the ajax string
 	var ajaxString = "https://maps.raleighnc.gov/arcgis/rest/services/Parks/Parklocator/MapServer/0/query?where=OBJECTID%3D" + objectID + "&text=&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&outFields=*&returnGeometry=true&returnTrueCurves=false&maxAllowableOffset=&geometryPrecision=&outSR=&returnIdsOnly=false&returnCountOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&returnZ=false&returnM=false&gdbVersion=&returnDistinctValues=false&resultOffset=&resultRecordCount=&f=pjson"
 
@@ -8,7 +8,11 @@ function getParkInfoFromObjectID(objectID){
 		url : ajaxString
 	}).done(function(parkInfo){
 		parkInfo = JSON.parse(parkInfo);
-		return parkInfo;
+		if(callback){
+			callback(parkInfo);
+		}else{
+			return parkInfo;
+		}
 	});
 }
 
@@ -37,10 +41,12 @@ function getNamedParkInfo(devmode = false){
 			});
 			return returnVal;
 		}
-
-		this.getInfo = function(){
-
-			 console.log(getParkInfoFromObjectID(this.parkID));
+		this.getInfo = function(callback=false){
+			if(callback){
+				getParkInfoFromObjectID(this.parkID,callback(parkInfo))
+			}else{
+				return getParkInfoFromObjectID(this.parkID);
+			}
 		}
 	}
 
@@ -70,5 +76,4 @@ function getNamedParkInfo(devmode = false){
 
 }
 
-var namedParkInfo = getNamedParkInfo(true).getInfo();
-console.log(namedParkInfo);
+getNamedParkInfo(true).getInfo(function(parkInfo){console.log(parkInfo)});
