@@ -39,7 +39,8 @@ function getNamedParkInfo(devmode = false){
 		}
 
 		this.getInfo = function(){
-			return getParkInfoFromObjectID(this.parkID);
+
+			 console.log(getParkInfoFromObjectID(this.parkID));
 		}
 	}
 
