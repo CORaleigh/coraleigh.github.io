@@ -57,7 +57,7 @@ function getNamedParkInfo(devmode = false){
 	CORParks.andersonPoint = new CORPark(['anderson point'], 1);
 	CORParks.durantNaturePreserve = new CORPark(['durant nature preserve'], 25);
 
-	Object.keys(CORParks)forEach(function(corPark){
+	Object.keys(CORParks).forEach(function(corPark){
 		var matchingPark = false;
 		if(corPark.parkNameMatch){
 			matchingPark = corPark;
