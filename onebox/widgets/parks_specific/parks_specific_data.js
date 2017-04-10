@@ -65,7 +65,7 @@ function getNamedParkInfo(devmode = false){
 			matchingPark = corPark;
 		}
 	});
-
+	debugger;
 	return matchingPark;
 
 }
