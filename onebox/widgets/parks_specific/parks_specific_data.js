@@ -64,12 +64,12 @@ function getNamedParkInfo(devmode = false){
 	//hard coded list of parks
 
 	CORParks.pullen = new CORPark(['pullen park'], 80);
-	CORParks.lakeJohnson = new CORPark(['lake johnson'], 48);
-	CORParks.lakeLynn = new CORPark(['lake lynn'], 50);
-	CORParks.lakeWheeler = new CORPark(['lake wheeler'], 51);
-	CORParks.laurelHills = new CORPark(['laurel hills'], 54);
-	CORParks.millbrookExchange = new CORPark(['millbrook exchange'], 67);
-	CORParks.mordecai = new CORPark(['mordecai historic park',"mordecai park"], 54);
+	CORParks.lakeJohnson = new CORPark(['lake johnson park'], 48);
+	CORParks.lakeLynn = new CORPark(['lake lynn park'], 50);
+	CORParks.lakeWheeler = new CORPark(['lake wheeler park'], 51);
+	CORParks.laurelHills = new CORPark(['laurel hills park'], 54); //check and make sure this is right
+	CORParks.millbrookExchange = new CORPark(['millbrook exchange park'], 67);
+	CORParks.mordecai = new CORPark(['mordecai historic park',"mordecai park"], 54); //check and make sure this is right
 	CORParks.fredFletcher = new CORPark(['fred fletcher park'], 31);
 	CORParks.andersonPoint = new CORPark(['anderson point park'], 1);
 	CORParks.durantNaturePreserve = new CORPark(['durant nature preserve'], 25);
