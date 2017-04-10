@@ -29,7 +29,7 @@ function getNamedParkInfo(devmode = false){
 
 		this.parkNameMatch = function(parkName){
 			var returnVal = false;
-			parkNames.foreach(function(arrParkName){
+			this.parkNames.foreach(function(arrParkName){
 				if(arrParkName == parkName){
 					returnVal = true;
 				}
