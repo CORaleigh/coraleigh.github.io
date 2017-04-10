@@ -51,6 +51,14 @@ function getNamedParkInfo(devmode = false){
 				return getParkInfoFromObjectID(this.parkID);
 			}
 		}
+
+		this.parkImageUrl = function(){
+			var baseURL = "https://maps.raleighnc.gov/parklocator/images/photos/";
+			var imgType = ".jpg";
+			var imgName = this.parkNames[0].replace(/\s+/g, '');
+
+			return baseURL + imgName + imgType;
+		}
 	}
 
 	var CORParks = {}
@@ -58,14 +66,14 @@ function getNamedParkInfo(devmode = false){
 	//hard coded list of parks
 
 	CORParks.pullen = new CORPark(['pullen park'], 80);
-	CORParks.lakeJohnston = new CORPark(['lake johnston'], 48);
+	CORParks.lakeJohnson = new CORPark(['lake johnson'], 48);
 	CORParks.lakeLynn = new CORPark(['lake lynn'], 50);
 	CORParks.lakeWheeler = new CORPark(['lake wheeler'], 51);
 	CORParks.laurelHills = new CORPark(['laurel hills'], 54);
 	CORParks.millbrookExchange = new CORPark(['millbrook exchange'], 67);
 	CORParks.mordecai = new CORPark(['mordecai historic park',"mordecai park"], 54);
-	CORParks.fredFletcher = new CORPark(['fred fletcher'], 31);
-	CORParks.andersonPoint = new CORPark(['anderson point'], 1);
+	CORParks.fredFletcher = new CORPark(['fred fletcher park'], 31);
+	CORParks.andersonPoint = new CORPark(['anderson point park'], 1);
 	CORParks.durantNaturePreserve = new CORPark(['durant nature preserve'], 25);
 
 
@@ -79,4 +87,10 @@ function getNamedParkInfo(devmode = false){
 
 }
 
-getNamedParkInfo(true).getInfo(function(parkInfo){debugger;console.log(parkInfo)});
+var namedParkObject = getNamedParkInfo(true)
+
+namedParkObject.getInfo(function(parkInfo){
+	console.log(this.parkImageUrl);
+	console.log(parkInfo);
+});
+
