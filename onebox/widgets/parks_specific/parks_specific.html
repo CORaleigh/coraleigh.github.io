@@ -1,0 +1,282 @@
+<div class="gsa-widget">
+	<!-- Widget Header -->
+	<header class="gsa-widget__header">
+		<h2 id="park-name" class="gsa-widget__title">Pullen Park</h2>
+		<div class="gsa-widget__location">
+			<span class="gsa-icon-location gsa-icon--lrg"></span> 
+			<span class="label">Your Location: </span>
+			<span id="gsa-widget-current-location">Raleigh, NC</span>
+			<button class="button button--text toggle-content" data-target="location-change">
+				Change Location <span class="gsa-icon-arrow-right gsa-icon--right gsa-icon--sm"></span>
+			</button>
+			<div id="location-change" class="gsa-widget__location-change hidden">
+				<form action="">
+					<div class="field field--append-submit">
+						<label for="location-name" class="visuallyhidden">Update Location</label>
+						<input id="location-name" type="text" placeholder="Enter Location">
+						<button type="submit">Update</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</header>
+
+	
+
+	
+
+	<!-- Google Park Image -->
+	<div class="panel panel--google-image">
+		<!-- TODO: city of raleigh to wire up dynamic image of specific park. See google street view image api for more info https://developers.google.com/maps/documentation/streetview/intro#size -->
+		<div class="panel__content panel__content--google-image" style="background-image: url('/img/g_pullen-park.jpg');">
+			<!-- TODO: city of raleigh to wire up dynamic link to park location photos -->
+			<a href="https://www.google.com/search?q=pullen+park+images&biw=1271&bih=1279&tbm=isch&tbo=u&source=univ&sa=X&ved=0ahUKEwiFof_A8cHPAhWELSYKHfvZAbEQsAQIGw" class="button button--overlay button--primary">See Photos</a>
+		</div>
+	</div>
+
+
+
+
+
+	<!-- Google Park Map -->
+	<div class="panel panel--google-map">
+		<div class="panel__content">
+			<div id="google-map-container" class="google-map-container"></div>
+		</div>
+		<!-- TODO: city of raleigh to wire up dynamic url based on location/search term -->
+		<a href="https://www.google.com/maps/place/Pullen+Park" class="button button--overlay button--primary">See Map</a>
+	</div>
+	<script>
+
+      var map;
+      var infowindow;
+
+      function initMap() {
+
+      	// TODO: city of raleigh to wire up dynamic location based on location form
+        var currentLocation = {lat: 35.779793, lng: -78.66434};
+
+        map = new google.maps.Map(document.getElementById('google-map-container'), {
+          center: currentLocation,
+          zoom: 12
+        });
+
+        infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+          location: currentLocation,
+          radius: 50,
+          type: ['park']
+        }, callback);
+      }
+
+      function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+          }
+        }
+      }
+
+      function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
+        });
+      }
+	</script>
+	<!--
+	This example requires the Places library. Include the libraries=places
+	parameter when you first load the API. For example:
+	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+	Key in script below is restricted to local & dev server IP addresses. Visit https://developers.google.com/maps/web/ to set up a key or manage existing key set up in your account.
+	-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfRKY84n9eHnjRRjEITTT1_gb-RaOQtIg&libraries=places&callback=initMap" async defer></script>
+
+
+	
+
+	<!-- Locationnfo -->
+	<div class="panel panel--plain">
+		<div class="panel__content location-info">
+			<ul>
+				<li class="location-info__item">
+					<span class="gsa-icon-pointer gsa-icon--xl gsa-icon--circle gsa-icon--dark-blue"></span>
+					<span class="location-info__label">Website:</span>
+					<a href="#">raleighnc.gov/parks</a>
+				</li>
+				<li class="location-info__item">
+					<span class="gsa-icon-phone gsa-icon--xl gsa-icon--circle gsa-icon--blue"></span>
+					<span class="location-info__label">Phone:</span>
+					<a href="tel:9199966468">(919) 996-6468</a>
+				</li>
+				<li class="location-info__item">
+					<span class="gsa-icon-address gsa-icon--xl gsa-icon--circle gsa-icon--green"></span>
+					<span class="location-info__label">Address:</span>
+					<a href="#">raleighnc.gov/parks</a>
+					<p class="location-info__direction-detail">
+						You could be there in <a href="#">7 mins</a><br />
+						Your best route is <a href="#">1.5 mi</a>
+					</p>
+				</li>
+				<li class="location-info__item">
+					<span class="gsa-icon-clock gsa-icon--xl gsa-icon--circle gsa-icon--gold"></span>
+					<span class="location-info__label">Hours:</span>
+					<span class="location-info__day">Thursday</span>
+					<button data-target="location-info__all-hours" class="location-info__hours button button--text toggle-content">10AM-6PM <span class="gsa-icon-arrow-down gsa-icon--right gsa-icon--sm"></span>
+					</button>
+					<div id="location-info__all-hours" class="hidden">
+						<ul>
+							<li>
+								<span class="location-info__extra-day">Friday</span>
+								<span class="location-info__extra-hours">10AM-6PM</span>
+							</li>
+							<li>
+								<span class="location-info__extra-day">Saturday</span>
+								<span class="location-info__extra-hours">10AM-6PM</span>
+							</li>
+							<li>
+								<span class="location-info__extra-day">Sunday</span>
+								<span class="location-info__extra-hours">10AM-6PM</span>
+							</li>
+							<li>
+								<span class="location-info__extra-day">Monday</span>
+								<span class="location-info__extra-hours">10AM-6PM</span>
+							</li>
+							<li>
+								<span class="location-info__extra-day">Tuesday</span>
+								<span class="location-info__extra-hours">10AM-6PM</span>
+							</li>
+							<li>
+								<span class="location-info__extra-day">Wednesday</span>
+								<span class="location-info__extra-hours">10AM-6PM</span>
+							</li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!-- TODO: city of raleigh to add dynamic class to .location-info__ratings based on rating
+			
+			modifier classes:
+
+			stars-1
+			stars-2
+			stars-3
+			stars-4
+			stars-5
+		-->
+
+		<div class="panel__foot location-info__ratings stars-4">
+
+			<span class="location-info__rating-total">4</span>
+
+			<span class="location-info__rating-star">
+				<span class="gsa-icon-star gsa-icon--lrg"></span>
+			</span>
+			<span class="location-info__rating-star">
+				<span class="gsa-icon-star gsa-icon--lrg"></span>
+			</span>
+			<span class="location-info__rating-star">
+				<span class="gsa-icon-star gsa-icon--lrg"></span>
+			</span>
+			<span class="location-info__rating-star">
+				<span class="gsa-icon-star gsa-icon--lrg"></span>
+			</span>
+			<span class="location-info__rating-star">
+				<span class="gsa-icon-star gsa-icon--lrg"></span>
+			</span>
+
+			<a href="#" class="location-info__reviews-link">130 Reviews</a>
+		</div>
+	</div>
+
+
+
+
+
+	<!-- Park Amenities -->
+	<div class="panel">
+		<header class="panel__header">
+			<h3 class="panel__title">Amenities</h3>
+		</header>
+		<div class="panel__content">
+			<ul class="park-extras">
+				<li class="park-extras__item">
+					<img src="/img/g_amenity-multipurpose-field.png" alt="Amenity image of a field.">
+					Multipurpose Field
+				</li>
+				<li class="park-extras__item">
+					<img src="/img/g_amenity-carousel.png" alt="Amenity image of a carousel.">
+					Carousel
+				</li>
+				<li class="park-extras__item">
+					<img src="/img/g_amenity-boat-ramp.png" alt="Amenity image of a boat ramp.">
+					Boat Ramp
+				</li>
+				<li class="park-extras__item">
+					<img src="/img/g_amenity-amusement-park.png" alt="Amenity image of a train.">
+					Amusement Park
+				</li>
+			</ul>
+		</div>
+		<div class="panel__foot">
+			<a href="#" class="push-right"><strong>View All Amenities</strong> <span class="gsa-icon-arrow-right gsa-icon--sm"></span></a>
+		</div>
+	</div>
+
+	<!-- Activity Types -->
+	<div class="panel">
+		<header class="panel__header">
+			<h3 class="panel__title">Acitivity Types</h3>
+		</header>
+		<div class="panel__content">
+			<ul class="park-extras">
+				<li class="park-extras__item">
+					<img src="/img/g_activity-aquatic.png" alt="Multipurpose Field">
+					Aquatic
+				</li>
+				<li class="park-extras__item">
+					<img src="/img/g_activity-art.png" alt="Carousel">
+					Art
+				</li>
+				<li class="park-extras__item">
+					<img src="/img/g_activity-fitness.png" alt="Boat Ramp">
+					Fitness
+				</li>
+				<li class="park-extras__item">
+					<a href="#" class="park-extras__link">
+						<img src="/img/g_activity-special-events.png" alt="Amusement Park">
+						Special Events
+						<div class="park-extras__overlay">Learn More</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="panel__foot">
+			<a href="#" class="push-right"><strong>View All Activity Types</strong> <span class="gsa-icon-arrow-right gsa-icon--sm"></span></a>
+		</div>
+	</div>
+	
+
+
+
+	<!-- Park CTA -->
+	<div class="panel">
+		<a href="#" class="panel__content cta-parks">
+			<div class="cta-parks__desc">
+				<h2 class="cta-parks__title">Raleigh Parks</h2>
+				<p>Find your closese park, see a full list of amenities, calsses and more.&nbsp;<span class="gsa-icon-arrow-right gsa-icon--sm"></span></p>
+			</div>
+			
+			<div class="cta-parks__img"><img src="/img/g_tree.png" alt=""></div>
+		</a>
+	</div>
+</div>	
