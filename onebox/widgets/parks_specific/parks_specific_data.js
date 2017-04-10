@@ -44,6 +44,7 @@ function getNamedParkInfo(devmode = false){
 		this.getInfo = function(callback=false){
 			if(callback){
 				getParkInfoFromObjectID(this.parkID,function(parkInfo){return parkInfo;})
+				debugger;
 			}else{
 				return getParkInfoFromObjectID(this.parkID);
 			}
