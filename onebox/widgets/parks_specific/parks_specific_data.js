@@ -7,6 +7,7 @@ function getParkInfoFromObjectID(objectID){
 	jQuery.ajax({
 		url : ajaxString
 	}).done(function(parkInfo){
+		parkInfo = JSON.parse(parkInfo);
 		return parkInfo;
 	});
 }
@@ -68,4 +69,5 @@ function getNamedParkInfo(devmode = false){
 
 }
 
-console.log(getNamedParkInfo(true));
+var namedParkInfo = getNamedParkInfo(true).getInfo();
+console.log(namedParkInfo);
