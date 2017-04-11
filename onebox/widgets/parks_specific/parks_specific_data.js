@@ -21,7 +21,7 @@ function getNamedParkInfo(devmode = false){
 
 	//get the string that's in the search box
 	var searchBoxString = jQuery("#SearchInput").val();
-	searchBoxString.toLowerCase();
+	searchBoxString = searchBoxString.toLowerCase();
 	if(devmode){
 		searchBoxString = searchBoxString.substring(0,searchBoxString.length - 6);
 	}
