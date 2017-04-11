@@ -185,10 +185,10 @@ namedParkObject.getInfo(function(parkInfo){
 				text : amenityText,
 				imgURL : "https://CORaleigh.github.io/static/img/parks_activities/" + attribute
 			};
-
+			debugger;
 			amenitiesArray.push(newAmenity);
 		}
-		debugger;
+		
 	});
 
 	console.log(amenitiesArray);
