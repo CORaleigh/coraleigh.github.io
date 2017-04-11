@@ -54,20 +54,8 @@
       function initMap() {
 
       	// TODO: city of raleigh to wire up dynamic location based on location form
-      	var geolocationSelected = false;
-      	// while(geolocationSelected == false){
-      		console.log("hammer");
-      		if(navigator.geolocation){
-      			navigator.geolocation.getCurrentPosition(setCurrentLocation);
-      			function setCurrentLocation(position){
-      				var currentLocation = {lat: position.coords.latitude , lng: position.coords.longitude };
-      				geolocationSelected = true;
-      			}
-      		}else{
-      			var currentLocation = {lat: 35.779793, lng: -78.66434};
-      			geolocationSelected = true;
-      		}
-      	// }
+		var currentLocation = {lat: 35.779793, lng: -78.66434};
+
       	
         
 
