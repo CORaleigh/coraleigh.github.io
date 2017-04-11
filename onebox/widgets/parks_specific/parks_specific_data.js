@@ -140,7 +140,7 @@ namedParkObject.getInfo(function(parkInfo){
 
 	if(navigator.geolocation){
 		console.log('running geolcation');
-		navigator.geolocation.getCurrentPosition(updateLocationDetail);
+		navigator.geolocation.getCurrentPosition(updateNavigationDetail);
 
 		function updateNavigationDetail(pos){
 			var userLocation = {lat:pos.coords.latitude,lng:pos.coords.longitude};
