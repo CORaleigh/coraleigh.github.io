@@ -174,6 +174,7 @@ namedParkObject.getInfo(function(parkInfo){
 
 	var amenitiesArray = [];
 	Object.keys(parkAttributes).forEach(function(attribute){
+		console.log(parkAttributes[attribute]);
 		if(parkAttributes[attribute] == 'yes' && attribute != "UNIQUESP"){
 			//get the text name of the amentiy
 
