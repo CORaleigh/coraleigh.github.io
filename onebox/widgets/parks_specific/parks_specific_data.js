@@ -25,6 +25,7 @@ function getNamedParkInfo(devmode = false){
 	if(devmode){
 		searchBoxString = searchBoxString.substring(0,searchBoxString.length - 6);
 	}
+	debugger;
 
 	//set up list of parks
 
