@@ -160,8 +160,9 @@ namedParkObject.getInfo(function(parkInfo){
 				console.log(status);
 				var results = response.rows[0].elements[0];
 				//generate the html
-				var navDetailHTML = "You could be there in " + results.duration.text + "<br/>";
-				navDetailHTML += "Your best route is " + results.distance.text;
+				var navDetailHTML = "<p id='cor-parks-widget-park-nav-detail' class=\"location-info__direction-detail\">";
+				navDetailHTML += "You could be there in " + results.duration.text + "<br/>";
+				navDetailHTML += "Your best route is " + results.distance.text + "</p>";
 
 				jQuery("#cor-parks-widget-park-nav-detail").text(navDetailHTML);
 			}
