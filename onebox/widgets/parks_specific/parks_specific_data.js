@@ -167,5 +167,28 @@ namedParkObject.getInfo(function(parkInfo){
 			}
 		}
 	}
+
+	//amenities
+
+	//build the amenities array
+
+	var amenitiesArray = [];
+	Object.keys(parkAttributes).forEach(function(attribute){
+		if(parkAttributes[attribute] == 'yes' && attribute != "UNIQUESP"){
+			//get the text name of the amentiy
+
+			var amenityText = parkInfo.fieldAliases[attribute];
+
+			//add it to the array
+			var newAmenity = {
+				text : amenityText,
+				imgURL : "https://CORaleigh.github.io/static/img/parks_activities/" + attribute
+			};
+
+			amenitiesArray.push(newAmenity);
+		}
+	});
+
+	console.log(amenitiesArray);
 });
 
