@@ -131,6 +131,32 @@ namedParkObject.getInfo(function(parkInfo){
 	//adjust the phone number listed
 	jQuery("#cor-parks-widget-park-phone").text(parkAttributes.PHONE);
 	jQuery("#cor-parks-widget-park-phone").attr("href","tel:" + parkAttributes.PHONE);
-	
+
+	//adjust the address
+	jQuery("#cor-parks-widget-park-address").text(parkAttributes.ADDRESS);
+	jQuery("#cor-parks-widget-park-address").attr("href","https://maps.google.com/?q=" + parkAttributes.ADDRESS);
+
+	//location detail info
+
+	if(navigator.geolocation){
+		navigator.geolocation.getCurrentPosition(updateLocationDetail);
+
+		function updateNavigationDetail(pos){
+			var userLocation = {lat:pos.coords.latitude,lng:pos.coords.longitude};
+
+			var distanceService = new google.maps.DistanceMatricService();
+
+			distanceService.getDistanceMatrix({
+				origins : [userLocation],
+				destinations : [parkCoords],
+				travelMode : "DRIVING"
+			},travelTimeCallback);
+
+			function travelTimeCallback(response,status){
+				console.log(response);
+				console.log(status);
+			}
+		}
+	}
 });
 
