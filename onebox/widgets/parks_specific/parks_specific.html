@@ -58,6 +58,7 @@
       	while(geolocationSelected == false){
       		console.log("hammer");
       		if(navigator.geolocation){
+      			navigator.geolocation.getCurrentPosition(setCurrentLocation);
       			function setCurrentLocation(position){
       				var currentLocation = {lat: position.coords.latitude , lng: position.coords.longitude };
       				geolocationSelected = true;
