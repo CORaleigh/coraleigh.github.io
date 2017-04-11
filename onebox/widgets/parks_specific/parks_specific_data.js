@@ -139,6 +139,7 @@ namedParkObject.getInfo(function(parkInfo){
 	//location detail info
 
 	if(navigator.geolocation){
+		console.log('running geolcation');
 		navigator.geolocation.getCurrentPosition(updateLocationDetail);
 
 		function updateNavigationDetail(pos){
