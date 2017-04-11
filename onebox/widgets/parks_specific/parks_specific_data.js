@@ -150,7 +150,8 @@ namedParkObject.getInfo(function(parkInfo){
 			distanceService.getDistanceMatrix({
 				origins : [userLocation],
 				destinations : [parkCoords],
-				travelMode : "DRIVING"
+				travelMode : "DRIVING",
+				unitSystem : google.maps.UnitSystem.IMPERIAL
 			},travelTimeCallback);
 
 			function travelTimeCallback(response,status){
