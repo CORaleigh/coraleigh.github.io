@@ -187,6 +187,7 @@ namedParkObject.getInfo(function(parkInfo){
 
 			amenitiesArray.push(newAmenity);
 		}
+		debugger;
 	});
 
 	console.log(amenitiesArray);
