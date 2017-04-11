@@ -83,6 +83,10 @@ function getNamedParkInfo(devmode = false){
 
 }
 
+function generateImageDivHTML(imgURL){
+	var outputString = "<div id='cor-parks-widget-park-image' class='panel__content panel__content--google-image' style=\"background-image: url('" + imgURL + "');\">";
+}
+
 var namedParkObject = getNamedParkInfo(true)
 
 namedParkObject.getInfo(function(parkInfo){
@@ -90,10 +94,11 @@ namedParkObject.getInfo(function(parkInfo){
 	console.log(parkInfo);
 
 	var parkAttributes = parkInfo.features[0].attributes;
-
+	var imgDivHTML = generateImageDivHTML(namedParkObject.parkImageUrl());
 	//make the changes to the html
 
 	//title
 	jQuery("#park-name").text(parkAttributes.NAME);
+	jQuery("#cor-parks-widget-park-image").html();
 });
 
