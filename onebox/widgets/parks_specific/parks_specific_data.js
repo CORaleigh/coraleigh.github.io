@@ -103,8 +103,8 @@ namedParkObject.getInfo(function(parkInfo){
 	jQuery("#cor-parks-widget-park-image").html(imgDivHTML); //image
 
 	//map
-	parkCoords = {lat: parkAttributes.Y,lng: parkAttributes.X};
-
+	var parkCoords = {lat: parkAttributes.Y,lng: parkAttributes.X};
+	debugger;
 	map.setCenter(parkCoords);
 	var parkMarker = new google.maps.Marker({
 		map : map,
