@@ -135,7 +135,6 @@ namedParkObject.getInfo(function(parkInfo){
 	//adjust the address
 	jQuery("#cor-parks-widget-park-address").text(parkAttributes.ADDRESS);
 	jQuery("#cor-parks-widget-park-address").attr("href","https://maps.google.com/?q=" + parkAttributes.ADDRESS);
-	debugger;
 
 	//location detail info
 
@@ -164,7 +163,7 @@ namedParkObject.getInfo(function(parkInfo){
 				navDetailHTML += "You could be there in " + results.duration.text + "<br/>";
 				navDetailHTML += "Your best route is " + results.distance.text + "</p>";
 
-				jQuery("#cor-parks-widget-park-nav-detail").text(navDetailHTML);
+				jQuery("#cor-parks-widget-park-nav-detail").html(navDetailHTML);
 			}
 		}
 	}
