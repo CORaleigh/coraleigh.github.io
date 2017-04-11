@@ -183,7 +183,7 @@ namedParkObject.getInfo(function(parkInfo){
 			//add it to the array
 			var newAmenity = {
 				text : amenityText,
-				imgURL : "https://CORaleigh.github.io/static/img/parks_activities/" + attribute + ".svg";
+				imgURL : "https://CORaleigh.github.io/static/img/parks_activities/" + attribute + ".svg"
 			};
 			debugger;
 			amenitiesArray.push(newAmenity);
