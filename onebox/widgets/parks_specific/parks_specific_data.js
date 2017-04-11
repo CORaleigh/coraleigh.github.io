@@ -88,6 +88,16 @@ function generateImageDivHTML(imgURL){
 	return outputString;
 }
 
+function generateSeeMapLink(parkName){
+	parkName..replace(/ /g,"+");
+	var outputString = "https://www.google.com/maps/place/" + parkName;
+	return outputString;
+}
+
+function generateParkWebsiteHTML(parkURL){
+	var outputString = "https://www.google.com/maps/place/Pullen+Park"
+}
+
 var namedParkObject = getNamedParkInfo(true)
 
 namedParkObject.getInfo(function(parkInfo){
@@ -106,11 +116,14 @@ namedParkObject.getInfo(function(parkInfo){
 	//map
 	var parkCoords = {lat: parkLocation.y,lng: parkLocation.x};
 	debugger;
-	map.setCenter(parkCoords);
+	map.setCenter(parkCoords); //set map center to map
+	//add marker
 	var parkMarker = new google.maps.Marker({
 		map : map,
 		position : parkCoords
 	});
+	//adjust "see map" link to the correct external link
+	jQuery("#cor-parks-widget-see-map-link").attr("href",generateSeeMapLink(parkAttributes.NAME));
 
 });
 
