@@ -175,7 +175,7 @@ namedParkObject.getInfo(function(parkInfo){
 	var amenitiesArray = [];
 	Object.keys(parkAttributes).forEach(function(attribute){
 		console.log(parkAttributes[attribute]);
-		if((parkAttributes[attribute] == 'Yes' )&& (attribute != "UNIQUESP")){
+		if((parkAttributes[attribute] == 'Yes' ) && (attribute != "UNIQUESP")){
 			//get the text name of the amentiy
 
 			var amenityText = parkInfo.fieldAliases[attribute];
@@ -183,14 +183,28 @@ namedParkObject.getInfo(function(parkInfo){
 			//add it to the array
 			var newAmenity = {
 				text : amenityText,
-				imgURL : "https://CORaleigh.github.io/static/img/parks_activities/" + attribute
+				imgURL : "https://CORaleigh.github.io/static/img/parks_activities/" + attribute + ".svg";
 			};
 			debugger;
 			amenitiesArray.push(newAmenity);
 		}
 		
 	});
+	function generateParkAmenitiesLiElement(amenityInfo){
+		var outputString = "<li class='park-extras__item'><img src=' ";
+		outputString += amenityInfo.imgURL "' alt='Amenity image of a field.'>";
+		outputString += amenityInfo.text + "</li>";
 
+		return outputString;
+	}
+
+	var amenitiesHTML = "";
+
+	amenitiesArray.forEach(function(amentiy){
+		amenitiesHTML += generateParkAmenitiesLiElement(amentiy);
+	})
+
+	jQuery("#cor-parks-widget-park-amenities").html(amenitiesHTML);
 	console.log(amenitiesArray);
 });
 
