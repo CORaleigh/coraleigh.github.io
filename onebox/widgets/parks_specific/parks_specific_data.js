@@ -145,7 +145,7 @@ namedParkObject.getInfo(function(parkInfo){
 		function updateNavigationDetail(pos){
 			var userLocation = {lat:pos.coords.latitude,lng:pos.coords.longitude};
 
-			var distanceService = new google.maps.DistanceMatricService();
+			var distanceService = new google.maps.DistanceMatrixService();
 
 			distanceService.getDistanceMatrix({
 				origins : [userLocation],
