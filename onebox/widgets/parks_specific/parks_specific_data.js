@@ -127,5 +127,9 @@ namedParkObject.getInfo(function(parkInfo){
 	jQuery("#cor-parks-widget-park-url").text(parkAttributes.URL);
 	jQuery("#cor-parks-widget-park-url").attr('href',parkAttributes.URL);
 
+
+	//adjust the phone number listed
+	jQuery("#cor-parks-widget-park-phone").text(parkAttributes.PHONE);
+	jQuery("#cor-parks-widget-park-phone").attr("href","tel:" + parkAttributes.PHONE);
 });
 
