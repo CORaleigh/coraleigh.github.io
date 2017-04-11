@@ -98,6 +98,7 @@ namedParkObject.getInfo(function(parkInfo){
 	//make the changes to the html
 
 	//title
+	debugger;
 	jQuery("#park-name").text(parkAttributes.NAME);
 	jQuery("#cor-parks-widget-park-image").html(imgDivHTML);
 });
