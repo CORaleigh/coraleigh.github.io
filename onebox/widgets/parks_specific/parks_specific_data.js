@@ -134,7 +134,7 @@ namedParkObject.getInfo(function(parkInfo){
 
 	//adjust the address
 	jQuery("#cor-parks-widget-park-address").text(parkAttributes.ADDRESS);
-	jQuery("#cor-parks-widget-park-address").attr("href","https://maps.google.com/?q=" + parkAttributes.ADDRESS);
+	jQuery("#cor-parks-widget-park-address").attr("href","https://maps.google.com/?q=" + parkAttributes.ADDRESS + ", Raleigh, NC");
 
 	//location detail info
 
