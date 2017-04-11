@@ -125,5 +125,8 @@ namedParkObject.getInfo(function(parkInfo){
 	//adjust "see map" link to the correct external link
 	jQuery("#cor-parks-widget-see-map-link").attr("href",generateSeeMapLink(parkAttributes.NAME));
 
+	jQuery("#cor-parks-widget-park-url").text(parkAttributes.URL);
+	jQuery("#cor-parks-widget-park-url").attr('href',parkAttributes.URL);
+
 });
 
