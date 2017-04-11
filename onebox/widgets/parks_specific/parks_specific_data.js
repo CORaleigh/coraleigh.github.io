@@ -89,7 +89,7 @@ function generateImageDivHTML(imgURL){
 }
 
 function generateSeeMapLink(parkName){
-	parkName..replace(/ /g,"+");
+	parkName.replace(/ /g,"+");
 	var outputString = "https://www.google.com/maps/place/" + parkName;
 	return outputString;
 }
