@@ -192,7 +192,7 @@ namedParkObject.getInfo(function(parkInfo){
 	});
 	function generateParkAmenitiesLiElement(amenityInfo){
 		var outputString = "<li class='park-extras__item'><img src=' ";
-		outputString += amenityInfo.imgURL "' alt='Amenity image of a field.'>";
+		outputString += amenityInfo.imgURL + "' alt='Amenity image of a field.'>";
 		outputString += amenityInfo.text + "</li>";
 
 		return outputString;
