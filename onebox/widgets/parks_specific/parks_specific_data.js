@@ -115,7 +115,6 @@ namedParkObject.getInfo(function(parkInfo){
 
 	//map
 	var parkCoords = {lat: parkLocation.y,lng: parkLocation.x};
-	debugger;
 	map.setCenter(parkCoords); //set map center to map
 	//add marker
 	var parkMarker = new google.maps.Marker({
@@ -124,7 +123,7 @@ namedParkObject.getInfo(function(parkInfo){
 	});
 	//adjust "see map" link to the correct external link
 	jQuery("#cor-parks-widget-see-map-link").attr("href",generateSeeMapLink(parkAttributes.NAME));
-
+	//adjust the website link posted
 	jQuery("#cor-parks-widget-park-url").text(parkAttributes.URL);
 	jQuery("#cor-parks-widget-park-url").attr('href',parkAttributes.URL);
 
