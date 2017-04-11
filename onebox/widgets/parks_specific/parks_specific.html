@@ -54,7 +54,20 @@
       function initMap() {
 
       	// TODO: city of raleigh to wire up dynamic location based on location form
-        var currentLocation = {lat: 35.779793, lng: -78.66434};
+      	var geolocationSelected == false;
+      	while(geolocationSelected == false){
+      		if(navigator.geolocation){
+      			function setCurrentLocation(position){
+      				var currentLocation = {lat: position.coords.latitude , lng: position.coords.longitude };
+      				geolocationSelected = true;
+      			}
+      		}else{
+      			var currentLocation = {lat: 35.779793, lng: -78.66434};
+      			geolocationSelected = true;
+      		}
+      	}
+      	
+        
 
         map = new google.maps.Map(document.getElementById('google-map-container'), {
           center: currentLocation,
@@ -98,7 +111,7 @@
 
 	Key in script below is restricted to local & dev server IP addresses. Visit https://developers.google.com/maps/web/ to set up a key or manage existing key set up in your account.
 	-->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfRKY84n9eHnjRRjEITTT1_gb-RaOQtIg&libraries=places&callback=initMap" async defer></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBB8pykYMozf-W2hicdc58ZL7Ujv0rFS4E&libraries=places&callback=initMap" async defer></script>
 
 
 	
