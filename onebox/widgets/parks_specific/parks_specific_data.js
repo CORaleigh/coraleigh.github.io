@@ -2,7 +2,7 @@ console.log("parks_specific widget");
 
 function getParkInfoFromObjectID(objectID,callback = false){
 	//add the object ID to the ajax string
-	var ajaxString = "https://maps.raleighnc.gov/arcgis/rest/services/Parks/ParkLocator/MapServer/0/query?where=OBJECTID%3D" + objectID + "&text=&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&outFields=*&returnGeometry=true&returnTrueCurves=false&maxAllowableOffset=&geometryPrecision=&outSR=&returnIdsOnly=false&returnCountOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&returnZ=false&returnM=false&gdbVersion=&returnDistinctValues=false&resultOffset=&resultRecordCount=&f=pjson";
+	var ajaxString = "https://maps.raleighnc.gov/arcgis/rest/services/Parks/ParkLocator/MapServer/0/query?where=OBJECTID%3D" + objectID + "&text=&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&outFields=*&returnGeometry=true&returnTrueCurves=false&maxAllowableOffset=&geometryPrecision=&outSR=4326&returnIdsOnly=false&returnCountOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&returnZ=false&returnM=false&gdbVersion=&returnDistinctValues=false&resultOffset=&resultRecordCount=&f=pjson";
 
 	jQuery.ajax({
 		url : ajaxString
@@ -98,8 +98,18 @@ namedParkObject.getInfo(function(parkInfo){
 	var imgDivHTML = generateImageDivHTML(namedParkObject.parkImageUrl());
 	//make the changes to the html
 
-	//title
-	jQuery("#park-name").text(parkAttributes.NAME);
-	jQuery("#cor-parks-widget-park-image").html(imgDivHTML);
+
+	jQuery("#park-name").text(parkAttributes.NAME); //title
+	jQuery("#cor-parks-widget-park-image").html(imgDivHTML); //image
+
+	//map
+	parkCoords = {lat: parkAttributes.Y,lng: parkAttributes.X};
+
+	map.setCenter(parkCoords);
+	var parkMarker = new google.maps.Marker({
+		map : map,
+		position : parkCoords
+	});
+
 });
 
