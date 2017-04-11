@@ -172,6 +172,8 @@ namedParkObject.getInfo(function(parkInfo){
 
 	//build the amenities array
 
+	jQuery("#cor-parks-widget-park-amenities-link").attr("href",parkAttributes.URL + "#Amenities");
+
 	var amenitiesArray = [];
 	Object.keys(parkAttributes).forEach(function(attribute){
 		console.log(parkAttributes[attribute]);
