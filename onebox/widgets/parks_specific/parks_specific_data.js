@@ -85,6 +85,7 @@ function getNamedParkInfo(devmode = false){
 
 function generateImageDivHTML(imgURL){
 	var outputString = "<div id='cor-parks-widget-park-image' class='panel__content panel__content--google-image' style=\"background-image: url('" + imgURL + "');\">";
+	return outputString;
 }
 
 var namedParkObject = getNamedParkInfo(true)
