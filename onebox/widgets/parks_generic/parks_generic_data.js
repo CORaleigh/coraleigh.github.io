@@ -1,7 +1,7 @@
 console.log("running");
 if(navigator.geolocation){
 	navigator.geolocation.getCurrentPosition(showPosition);
-	//get the list of all of the parks
+	//get the list of all of the parksf
 	
 }else{
 	console.log("Unable to geolocate");

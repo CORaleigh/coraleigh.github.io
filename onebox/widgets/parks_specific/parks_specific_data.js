@@ -204,7 +204,7 @@ namedParkObject.getInfo(function(parkInfo){
 	amenitiesArray.forEach(function(amentiy){
 		amenitiesHTML += generateParkAmenitiesLiElement(amentiy);
 	})
-
+	debugger;
 	jQuery("#cor-parks-widget-park-amenities").html(amenitiesHTML);
 	console.log(amenitiesArray);
 });
