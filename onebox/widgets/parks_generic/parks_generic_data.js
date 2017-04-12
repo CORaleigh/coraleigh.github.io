@@ -265,9 +265,12 @@ function showPosition(pos){
 				position : parkLatLong,
 				map : map,
 				title : park[0].name,
-				click : function(){console.log('clicked')}
 				// label : park[0].name
 			});
+
+			marker.click(function(){
+				console.log('clicked');
+			})
 		});
 	});
 }
