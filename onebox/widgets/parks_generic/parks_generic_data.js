@@ -268,9 +268,9 @@ function showPosition(pos){
 				// label : park[0].name
 			});
 			debugger;
-			marker.click(function(){
+			marker.addListener('click',function(){
 				console.log('clicked');
-			})
+			});
 		});
 	});
 }
