@@ -265,7 +265,7 @@ function showPosition(pos){
 				position : parkLatLong,
 				map : map,
 				title : park[0].name,
-				label : park[0].name
+				// label : park[0].name
 			});
 		});
 	});
