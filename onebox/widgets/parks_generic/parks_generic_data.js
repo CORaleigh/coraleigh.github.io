@@ -264,7 +264,8 @@ function showPosition(pos){
 			var marker = new google.maps.Marker({
 				position : parkLatLong,
 				map : map,
-				title : park[0].name
+				title : park[0].name,
+				label : park[0].name
 			});
 		});
 	});
