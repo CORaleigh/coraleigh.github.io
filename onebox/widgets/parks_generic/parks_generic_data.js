@@ -267,7 +267,7 @@ function showPosition(pos){
 				title : park[0].name,
 				// label : park[0].name
 			});
-			debugger;
+			// debugger;
 			marker.addListener('click',function(){
 				
 			});
