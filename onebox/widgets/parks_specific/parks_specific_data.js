@@ -98,7 +98,7 @@ function generateParkWebsiteHTML(parkURL){
 	var outputString = "https://www.google.com/maps/place/Pullen+Park"
 }
 
-var namedParkObject = getNamedParkInfo(true)
+var namedParkObject = getNamedParkInfo(false);
 
 namedParkObject.getInfo(function(parkInfo){
 	console.log(namedParkObject.parkImageUrl());
