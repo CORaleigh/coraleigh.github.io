@@ -269,7 +269,7 @@ function showPosition(pos){
 			});
 			debugger;
 			marker.addListener('click',function(){
-				console.log('clicked');
+				
 			});
 		});
 	});
