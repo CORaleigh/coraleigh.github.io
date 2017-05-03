@@ -1,0 +1,183 @@
+<div class="gsa-widget">
+	<!-- Widget Header -->
+	<header class="gsa-widget__header">
+		<h2 id="park-name" class="gsa-widget__title">Raleigh Police Department</h2>
+		<div class="gsa-widget__location">
+			<span class="gsa-icon-location gsa-icon--lrg"></span> 
+			<span class="label">Your Location: </span>
+			<span id="gsa-widget-current-location">Raleigh, NC</span>
+			<button class="button button--text toggle-content" data-target="location-change">
+				Change Location <span class="gsa-icon-arrow-right gsa-icon--right gsa-icon--sm"></span>
+			</button>
+			<div id="location-change" class="gsa-widget__location-change hidden">
+				<form action="">
+					<div class="field field--append-submit">
+						<label for="location-name" class="visuallyhidden">Update Location</label>
+						<input id="location-name" type="text" placeholder="Enter Location">
+						<button type="submit">Update</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</header>
+
+
+
+
+	<!-- Location Info -->
+	<div class="panel panel--plain">
+		<div class="panel__content location-info">
+			<ul>
+				<li class="location-info__item location-info__item--lrg">
+					<span class="gsa-icon-phone gsa-icon--xl gsa-icon--circle gsa-icon--dark-blue"></span>
+					<h3 class="location-info__title">Non-emergency Police Response</h3>
+					<span class="location-info__label">Website:</span>
+					<a href="#">raleighnc.gov/parks</a>
+				</li>
+				<li class="location-info__item location-info__item--lrg">
+					<span class="gsa-icon-phone gsa-icon--xl gsa-icon--circle gsa-icon--dark-blue"></span>
+					<h3 class="location-info__title">Non-emergency Police Response</h3>
+					<span class="location-info__label">Website:</span>
+					<a href="#">raleighnc.gov/parks</a>
+				</li>
+				<li class="location-info__item location-info__item--lrg">
+					<span class="gsa-icon-mail  gsa-icon--circle gsa-icon--orange"></span>
+					<h3 class="location-info__title">Non-emergency Police Response</h3>
+					<span class="location-info__label">Website:</span>
+					<a href="#">raleighnc.gov/parks</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+
+
+
+	<!-- Crime Report CTA -->
+	<div class="panel cta">
+		<header class="panel__header">
+			<h2 class="panel__title">Report a Crime</h2>
+		</header>
+		<div class="panel__content">
+			<a href="#" class="button button--lrg">
+				Fill Out a Crime Report
+				<span class="gsa-icon-arrow-right"></span>
+			</a>
+		</div>
+		<div class="panel__foot">
+			<h3 class="cta__subheading">Report a Crime in Progress: Dial 911</h3>
+		</div>
+	</div>
+
+
+
+
+
+	<!-- Contact (general) -->
+	<div class="panel ">
+		<header class="panel__header">
+			<h2 class="panel__title">General Contact Information</h2>
+		</header>
+		<div class="panel__content">
+			<div class="contact">
+				<figure class="contact__img">
+					<img src="/img/th_raleigh-police-station.jpg" alt="">
+				</figure>
+				<div class="contact__details">
+					<div class="contact__title">Raleigh Police Headquarters</div>
+					<div class="contact__address">6716 Six Forks Rd, Raleigh, NC 27615</div>
+					<div class="contact__person">
+						<span class="contact__label">Police Chief:</span> <a href="#">Cassandra Deck-Brown</a>
+					</div>
+					<div class="contact__person">
+						<span class="contact__label">Deputy Chief:</span> <a href="#">JC Penney</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	<!-- Contact (Station Nearest You) -->
+	<div class="panel ">
+		<header class="panel__header">
+			<h2 class="panel__title">Station Nearest You</h2>
+		</header>
+		<div class="panel__content">
+			<div class="contact">
+				<figure class="contact__img">
+					<img src="/img/th_raleigh-police-headquarters.jpg" alt="Raleigh Police Headquarters">
+				</figure>
+				<div class="contact__details">
+					<div class="contact__title">Raleigh Police Headquarters</div>
+					<div class="contact__address">8016 Glennwood Ave, Raleigh, NC 27615</div>
+					<div class="contact__phone">
+						<span class="contact__label">Phone:</span> <a href="tel:9199962300">(919) 996-2300</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<!-- Common Permit Stats -->
+	<div class="panel panel--plain">
+		<!-- Common Permits Chart -->
+		<div class="panel__content panel__content--dark-blue">
+			<div class="gsa-chart__title">Crimes Near You</div>
+			<div id="chart-nearby-crimes" class="gsa-chart gsa-chart--short">
+			</div>
+		</div>
+		<div class="panel__foot text-right">
+			<a href="" class=""><strong>View More Data at data.raleighnc.gov</strong> <span class="gsa-icon--sm gsa-icon-arrow-right"></span></a>
+		</div>
+	</div>
+
+	<!-- Google Charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        google.charts.load('current', {'packages':['corechart']});
+    </script>
+
+
+
+
+
+    <!-- Ad Space and Stat CTA-->
+    <div class="panel">
+    	<div class="panel__content panel__content--dark-blue">
+    		<div class="ad-space">
+    			<a href="#" class="ad-space__link">
+    				<img src="/img/g_rpd-career-ad.jpg" alt="Raleigh Police Departemnt: Not Just a Job...A CAREER" class="ad-space__img">
+    			</a>
+    		</div>
+
+    		<div class="cta-stats cta-stats--border">
+				<span class="gsa-icon-police cta-stats__icon"></span>
+				<div class="cta-stats__item">
+					<div class="cta-stats__item-text">Open Jobs<br/> At RPD</div>
+					<div class="cta-stats__item-count">14</div>
+				</div>
+				<div class="cta-stats__item">
+					<div class="cta-stats__item-text">Days Until App Period Ends</div>
+					<div class="cta-stats__item-count">162</div>
+				</div>
+			</div>
+    	</div>
+    	<div class="panel__foot text-center">
+    		<a href="#" class="buton .button--text button--lrg">
+    			Learn More <span class="gsa-icon-arrow-right"></span>
+    		</a>
+    	</div>
+    </div>
+
+
+
+
+
+</div>
