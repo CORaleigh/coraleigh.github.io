@@ -5,6 +5,10 @@ if(navigator.geolocation){
 	console.log("Unable to geolocate");
 }
 
+function deg2rad(deg) {
+  return deg * (Math.PI/180)
+}
+
 function distanceBetweenArrays(originArr, destArr){ //wrapper for the calculate distance function to make it easier to work w/ the arrays
 	return getDistanceFromLatLonInKm(originArr[0],originArr[1],destArr[0],destArr[1]);
 }
