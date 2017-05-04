@@ -46,7 +46,6 @@ function showPosition(pos){
 
 		var stationArray = [];
 
-		debugger;
 		stations.forEach(function(station){
 			//get distance from station and user
 
@@ -106,6 +105,7 @@ function showPosition(pos){
 						"</div>";
 
 		jQuery(".cor-station-nearest-you").empty();
+		jQuery(".cor-station-nearest-you-title").text("Station Nearest You");
 		jQuery(".cor-station-nearest-you").append(appendHTML);
 	});
 }
