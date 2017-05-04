@@ -41,6 +41,7 @@ function showPosition(pos){
 
 		var stationArray = [];
 
+		debugger;
 		stations.forEach(function(station){
 			//get distance from station and user
 
