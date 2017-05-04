@@ -80,7 +80,7 @@ function showPosition(pos){
 			phoneNumber : "919-996-4455"
 		};
 		nameToImgArray['Downtown District'] = {
-			imgUrl : 'dddistrictstation.png',
+			imgUrl : 'dddistrict.png',
 			phoneNumber : "919-996-3855"
 		};
 		nameToImgArray['Southwest District'] = {
