@@ -37,6 +37,7 @@ function showPosition(pos){
 	$.ajax({
 		url : "https://services1.arcgis.com/a7CWfuGP5ZnLYE7I/arcgis/rest/services/PoliceDepartments/FeatureServer/0/query?where=UPPER(AGENCY)%20like%20%27%25RALEIGH%25%27&outFields=*&outSR=4326&f=json"
 	}).done(function(response){
+		response = JSON.parse(response);
 		var stations = response.features;
 
 		var stationArray = [];
