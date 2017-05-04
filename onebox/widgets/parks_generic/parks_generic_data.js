@@ -301,6 +301,7 @@ jQuery.ajax({
 		eventsHTML += eventsTableRow(event);
 	});
 	jQuery("#cor-events-tbody").empty();
+	jQuery(".cor-blurred-div").removeClass();
 	jQuery("#cor-events-tbody").removeClass("cor-blurred");
 	jQuery("#cor-events-tbody").append(eventsHTML);
 });
