@@ -301,7 +301,7 @@ jQuery.ajax({
 		eventsHTML += eventsTableRow(event);
 	});
 	jQuery("#cor-events-tbody").empty();
-	jQuery(".cor-blurred-div").removeClass();
+
 	jQuery("#cor-events-tbody").removeClass("cor-blurred");
 	jQuery("#cor-events-tbody").append(eventsHTML);
 });
@@ -366,6 +366,7 @@ jQuery.ajax({
 		jQuery(parentContainer).children("img").html(forecastHTML);
 		// jQuery(parentContainer).children("img").attr("alt",forecastText);
 		jQuery(parentContainer).children(".weather__forecast-degree").text(forecastTemp);
+		jQuery(".cor-blurred-div").removeClass('cor-blurred-div');
 	});
 
 
