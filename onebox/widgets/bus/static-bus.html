@@ -1,6 +1,6 @@
 <div class="gsa-widget">
     <header class="gsa-widget__header">
-        <h2 class="gsa-widget__title">Jobs</h2>
+        <h2 class="gsa-widget__title">Bus Routes</h2>
         <div class="gsa-widget__location">
             <!-- <span class="gsa-icon-location gsa-icon--lrg"></span><span class="label">Your Location:</span> <span id="gsa-widget-current-location">Raleigh, NC</span> <button class="button button--text toggle-content" data-target="location-change">Change Location <span class="gsa-icon-arrow-right gsa-icon--sm gsa-icon--right gsa-icon--sm"></span></button> -->
             <div class="gsa-widget__location-change hidden" id="location-change">
@@ -34,7 +34,7 @@
                     </option>
                 </select>
             </div>
-            <h3 class="panel__title">Open Jobs</h3>
+            <h3 class="panel__title">Nearby Routes</h3>
         </header>
         <div class="panel__content"></div>
     </div>
@@ -569,32 +569,32 @@
     <table class="gsa-table gsa-table--open-jobs" id="open-jobs">
         <thead>
             <tr>
-                <th>Job Title</th>
-                <th>Salary Range</th>
-                <th>Dept</th>
+                <th>Route</th>
+                <th>Inbound/Outbound</th>
+                <th>Status</th>
             </tr>
         </thead>
-        <tbody class='cor-blurred'>
+        <tbody>
             <tr class="gsa-table__row">
                 <td>
-                    <a href="#">Bicycle and Pedestrian Coordinator</a>
+                    <a href="#">1 - Capital</a>
                 </td>
-                <td>$44,880.76 - $78,206.56</td>
-                <td>Planning and Development / Transportation</td>
+                <td>Outbound</td>
+                <td>On Time</td>
             </tr>
             <tr class="gsa-table__row">
                 <td>
-                    <a href="#">Bicycle and Pedestrian Coordinator</a>
+                    <a href="#">2 - Falls of Neuse</a>
                 </td>
-                <td>$44,880.76 - $78,206.56</td>
-                <td>Planning and Development / Transportation</td>
+                <td>Inbound</td>
+                <td>Delayed</td>
             </tr>
             <tr class="gsa-table__row">
                 <td>
-                    <a href="#">Bicycle and Pedestrian Coordinator</a>
+                    <a href="#">16 - Oberlin</a>
                 </td>
-                <td>$44,880.76 - $78,206.56</td>
-                <td>Planning and Development / Transportation</td>
+                <td>Inbound</td>
+                <td>On Time</td>
             </tr>
             <tr class="gsa-table__row">
                 <td>
@@ -626,26 +626,4 @@
             </tr>
         </tbody>
     </table>
-    <div class="panel__foot">
-        <a id='cor-onebox-view-all-jobs' class="push-right" href="http://bit.ly/2eL5Eq6" target="_blank">
-            <strong>View All Jobs</strong>
-            <span class="gsa-icon-arrow-right gsa-icon--sm gsa-icon--sm"></span>
-        </a>
-        <button id='cor-onebox-expand-list' class="button--text button--text-dark show-all-rows" data-target="open-jobs">
-            <span class="gsa-icon-plus gsa-icon--left gsa-icon--sm"></span>Expand List</button>
-    </div>
-    <div class="panel">
-        <header class="panel__header">
-            <h3 class="panel__title">Peak Hiring Months</h3>
-        </header>
-        <div class="panel__content">
-            <div class="gsa-chart" id="chart-peak-hiring"></div>
-        </div>
-        <div class="panel__foot">
-            <a id='cor-onebox-view-more-data' class="push-right" href="https://data.raleighnc.gov/d/3jt5-q669" target="_blank">
-                <strong>View More Data at data.raleighnc.gov</strong>
-                <span class="gsa-icon-arrow-right gsa-icon--sm gsa-icon--sm"></span>
-            </a>
-        </div>
-    </div>
-</div>
+   
