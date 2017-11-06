@@ -1,6 +1,6 @@
 <div class="gsa-widget">
     <header class="gsa-widget__header">
-        <h2 class="gsa-widget__title">Bus Routes <img src="https://imageog.flaticon.com/icons/png/512/61/61985.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF" alt=""></h2>
+        <h2 class="gsa-widget__title" style="text-align: center;">Bus Routes <img src="https://imageog.flaticon.com/icons/png/512/61/61985.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF" alt=""></h2>
         <div class="gsa-widget__location">
             <!-- <span class="gsa-icon-location gsa-icon--lrg"></span><span class="label">Your Location:</span> <span id="gsa-widget-current-location">Raleigh, NC</span> <button class="button button--text toggle-content" data-target="location-change">Change Location <span class="gsa-icon-arrow-right gsa-icon--sm gsa-icon--right gsa-icon--sm"></span></button> -->
             <div class="gsa-widget__location-change " id="location-change">
@@ -8,7 +8,7 @@
                 <div class="field field--append-submit">
                     <label class="visuallyhidden" for="location-name">Update Location</label>
                     <span id="location-name"></span>
-                    <button type="submit">Update</button>
+                    <button id="bus-status" type="">DELAYED</button>
                 </div>
             </div>
         </div>
@@ -389,6 +389,35 @@
             height: 27px;
         }
 
+        /* Peter styles for delays button */
+
+        #bus-status{
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-color: red;
+            border: 0;
+            border-radius: 0;
+            color: #ffffff;
+            cursor: pointer;
+            display: inline-block;
+            font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+            font-size: 1em;
+            -webkit-font-smoothing: antialiased;
+            font-weight: 600;
+            line-height: 1;
+            padding: 0.75em 1.5em;
+            text-decoration: none;
+            transition: background-color 150ms ease;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            vertical-align: middle;
+            white-space: nowrap;
+            height: 43px;
+        }
+
         /** CSS for document previews. */
 
         div.result-item {
@@ -462,13 +491,7 @@
             content: '';
         }
 
-        /* peter styles for bus */
-
-        /* .panel__title>a>img {
-            display: inline-block; 
-            height: 200px; 
-            width: 200px;  */
-        }
+       
     </style>
     <style>
         /*
