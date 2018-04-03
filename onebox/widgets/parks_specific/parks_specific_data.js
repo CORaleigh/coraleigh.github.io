@@ -64,16 +64,16 @@ function getNamedParkInfo(devmode = false){
 
 	//hard coded list of parks
 
-	CORParks.pullen = new CORPark(['pullen park'], 80);
-	CORParks.lakeJohnson = new CORPark(['lake johnson park'], 48);
-	CORParks.lakeLynn = new CORPark(['lake lynn park'], 50);
-	CORParks.lakeWheeler = new CORPark(['lake wheeler park'], 51);
-	CORParks.laurelHills = new CORPark(['laurel hills park'], 54); 
-	CORParks.millbrookExchange = new CORPark(['millbrook exchange park'], 67);
-	CORParks.mordecai = new CORPark(['mordecai historic park',"mordecai park"], 70); 
-	CORParks.fredFletcher = new CORPark(['fred fletcher park'], 31);
-	CORParks.andersonPoint = new CORPark(['anderson point park'], 1);
-	CORParks.durantNaturePreserve = new CORPark(['durant nature preserve'], 25);
+	// CORParks.pullen = new CORPark(['pullen park'], 80); //seems not to be listed in socrata
+	CORParks.lakeJohnson = new CORPark(['lake johnson park'], 20);
+	CORParks.lakeLynn = new CORPark(['lake lynn park'], 21);
+	CORParks.lakeWheeler = new CORPark(['lake wheeler park'], 22);
+	CORParks.laurelHills = new CORPark(['laurel hills park'], 25); 
+	CORParks.millbrookExchange = new CORPark(['millbrook exchange park'], 38);
+	CORParks.mordecai = new CORPark(['mordecai historic park',"mordecai park"], 41); 
+	CORParks.fredFletcher = new CORPark(['fred fletcher park'], 4);
+	// CORParks.andersonPoint = new CORPark(['anderson point park'], 1); //seems not to be listed in socrata
+	// CORParks.durantNaturePreserve = new CORPark(['durant nature preserve'], 25); //seems not to be listed in socrata
 
 
 	var matchingPark = false;
