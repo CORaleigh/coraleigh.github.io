@@ -32,7 +32,7 @@ $.ajax({
 	recentPermits = JSON.parse(recentPermits);
 	// console.log(recentPermits);
 	recentPermits.features.forEach(function(recentPermit){
-		console.log(recentPermit.properties.WorkClassCount);
+		// console.log(recentPermit.properties.WorkClassCount);
 		numberOfGlobalPermits = numberOfGlobalPermits + recentPermit.properties.WorkClassCount;
 	});
 
@@ -132,7 +132,7 @@ $.ajax({
 
 	    var chartCommonPermits = new google.visualization.PieChart(document.getElementById('chart-common-permits'));
 	        chartCommonPermits.draw(dataCommonPermits, optionsCommonPermits);
-
+	       console.log(numberOfGlobalPermits);
         $(".cta-stats__item-count").text(numberOfGlobalPermits); //paint the total permit number
 	}
 });
