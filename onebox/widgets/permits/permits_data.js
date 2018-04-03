@@ -32,6 +32,7 @@ $.ajax({
 	recentPermits = JSON.parse(recentPermits);
 	console.log(recentPermits);
 	recentPermits.features.forEach(function(recentPermit){
+		console.log(recentPermit.properties.WorkClassCount);
 		numberOfGlobalPermits = numberOfGlobalPermits + recentPermit.properties.WorkClassCount;
 	});
 
