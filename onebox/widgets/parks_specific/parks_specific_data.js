@@ -14,7 +14,7 @@ function getParkInfoFromObjectID(objectID,callback = false){
 		if(callback){
 			callback(parkInfo);
 		}else{
-			return parkInfo;
+			return parkInfo.features;
 		}
 	});
 }
