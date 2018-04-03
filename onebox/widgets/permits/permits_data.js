@@ -40,17 +40,21 @@ $.ajax({
 	if ( $('#' + $chartCommonPermitsContainer).length > 0 ) {
 
 	    var workTypeCount = [];
-	    recentPermits.features.forEach(function(recentPermit){
-	    	if(workTypeCount[recentPermit.workclass]){
-	    		workTypeCount[   -.workclass]++;
-	    	}else{
-	    		workTypeCount[recentPermit.workclass] = 1;
-	    	}
+	    // recentPermits.features.forEach(function(recentPermit){
+	    // 	if(workTypeCount[recentPermit.workclass]){
+	    // 		workTypeCount[   -.workclass]++;
+	    // 	}else{
+	    // 		workTypeCount[recentPermit.workclass] = 1;
+	    // 	}
 
-	    });
-	    console.log(workTypeCount);
+	    // });
+	    // console.log(workTypeCount);
 
 	    var arr = [];
+
+	    recentPermits.features.forEach(function(recentPermit){
+	    	arr.push([recentPermit.properties.workclass,recentPermit.properties.WorkClassCount]);
+	    })
 	    var obj = workTypeCount;
 	    for (var key in obj) {
 	        if (obj.hasOwnProperty(key)) {
