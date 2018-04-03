@@ -116,6 +116,7 @@ jobsWidget = {
 				// url: "https://data.raleighnc.gov/resource/a95t-r2n7.json", THIS IS THE OLD URL
 				url : "https://services.arcgis.com/v400IkDOw1ad7Yad/arcgis/rest/services/Job_Postings_Current/FeatureServer/0/query?where=1%3D1&objectIds=&time=&resultType=none&outFields=*&returnIdsOnly=false&returnCountOnly=false&returnDistinctValues=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&sqlFormat=none&f=pjson&token="
 			}).done(function(data){
+				data = JSON.parse(data);
 				console.log(data);
 				data = data.features; //we only want the features, not the fields format
 				
