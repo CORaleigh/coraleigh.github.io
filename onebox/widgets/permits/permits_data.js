@@ -38,7 +38,7 @@ $.ajax({
 	    var workTypeCount = [];
 	    recentPermits.forEach(function(recentPermit){
 	    	if(workTypeCount[recentPermit.workclass]){
-	    		workTypeCount[recentPermit.workclass]++;
+	    		workTypeCount[   -.workclass]++;
 	    	}else{
 	    		workTypeCount[recentPermit.workclass] = 1;
 	    	}
