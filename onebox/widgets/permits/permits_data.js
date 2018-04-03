@@ -25,18 +25,22 @@ $.ajax({
 
 
 $.ajax({
-	url : "https://data.raleighnc.gov/resource/32wj-c4mi.json?$where=issueddate%20IS%20NOT%20NULL&$limit=50000",
+	url : "https://services.arcgis.com/v400IkDOw1ad7Yad/ArcGIS/rest/services/Building_Permits_Past_31_Days/FeatureServer/0/query?where=1%3D1&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&returnGeodetic=false&outFields=&returnGeometry=false&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnDistinctValues=false&orderByFields=&groupByFieldsForStatistics=workclass&outStatistics=%5B%0D%0A++%7B%0D%0A++++%22statisticType%22%3A+%22count%22%2C%0D%0A++++%22onStatisticField%22%3A+%22workclass%22%2C+%0D%0A++++%22outStatisticFieldName%22%3A+%22WorkClassCount%22%0D%0A++%7D%0D%0A%5D&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pgeojson&token==",
 }).done(function(recentPermits){
-	var numberOfGlobalPermits = recentPermits.length; //the number for permits
+	var numberOfGlobalPermits; //= recentPermits.length; //the number for permits
+	//get the full number of permits
+	recentPermits.features.forEach(function(recentPermit){
+		numberOfGlobalPermits = numberOfGlobalPermits + recentPermit.properties.WorkClassCount;
+	});
 
 	//get the types of each permit
 
-	$(".cta-stats__item-count").text(numberOfGlobalPermits);
+	
 	//set up the permits chart
 	if ( $('#' + $chartCommonPermitsContainer).length > 0 ) {
 
 	    var workTypeCount = [];
-	    recentPermits.forEach(function(recentPermit){
+	    recentPermits.features.forEach(function(recentPermit){
 	    	if(workTypeCount[recentPermit.workclass]){
 	    		workTypeCount[   -.workclass]++;
 	    	}else{
@@ -121,6 +125,8 @@ $.ajax({
 
 	    var chartCommonPermits = new google.visualization.PieChart(document.getElementById('chart-common-permits'));
 	        chartCommonPermits.draw(dataCommonPermits, optionsCommonPermits);
+
+        $(".cta-stats__item-count").text(numberOfGlobalPermits); //paint the total permit number
 	}
 });
 
