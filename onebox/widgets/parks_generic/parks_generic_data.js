@@ -208,6 +208,7 @@ function showPosition(pos){
 		var parksJSON = JSON.parse(parks);
 		var parksJSONArray = [];
 		parksJSON.features.forEach(function(park){
+			console.log(park);
 			//generate array form latlong
 			var destArr = [park.geometry.y,park.geometry.x];
 
