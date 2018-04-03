@@ -30,7 +30,7 @@ $.ajax({
 	var numberOfGlobalPermits; //= recentPermits.length; //the number for permits
 	//get the full number of permits
 	recentPermits = JSON.parse(recentPermits);
-	console.log(recentPermits);
+	// console.log(recentPermits);
 	recentPermits.features.forEach(function(recentPermit){
 		console.log(recentPermit.properties.WorkClassCount);
 		numberOfGlobalPermits = numberOfGlobalPermits + recentPermit.properties.WorkClassCount;
@@ -54,7 +54,7 @@ $.ajax({
 	    // console.log(workTypeCount);
 
 	    var arr = [];
-	    console.log(recentPermits)
+	    // console.log(recentPermits)
 	    recentPermits.features.forEach(function(recentPermit){
 	    	arr.push([recentPermit.properties.workclass,recentPermit.properties.WorkClassCount]);
 	    })
@@ -73,7 +73,7 @@ $.ajax({
 	    //sort the smaller types into a "remaining types" category
 	    var consolidationFactor = 0.10 //anything under 10% gets moved to "remaining types"
 	    var consolidationNumber = numberOfGlobalPermits * consolidationFactor; //if there are less than this number, then consolidate the section.
-	    console.log(consolidationNumber);
+	    // console.log(consolidationNumber);
 	    var numberOfConsolidatedPermits = 0;
 	    var elementsToSplice = []
 	    for(x = 0; x < googleChartWorkTypeCount.length; x++){
@@ -98,11 +98,11 @@ $.ajax({
 	    //convert the array into something gcharts can digest
 	    // var googleChartWorkTypeCount = [];
 	    workTypeCount.forEach(function(key){
-	    	console.log(key);
-	    	console.log(value);
+	    	// console.log(key);
+	    	// console.log(value);
 	    	googleChartWorkTypeCount.push([String(key),value]);
 	    });
-	    console.log(googleChartWorkTypeCount);
+	    // console.log(googleChartWorkTypeCount);
 	    dataCommonPermits.addRows(googleChartWorkTypeCount);
 	    // dataCommonPermits.addRows([
 	    //     ['Home Additions', 500],
