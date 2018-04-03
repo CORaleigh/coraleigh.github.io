@@ -29,6 +29,7 @@ $.ajax({
 }).done(function(recentPermits){
 	var numberOfGlobalPermits; //= recentPermits.length; //the number for permits
 	//get the full number of permits
+	recentPermits = JSON.parse(recentPermits);
 	recentPermits.features.forEach(function(recentPermit){
 		numberOfGlobalPermits = numberOfGlobalPermits + recentPermit.properties.WorkClassCount;
 	});
@@ -51,7 +52,7 @@ $.ajax({
 	    // console.log(workTypeCount);
 
 	    var arr = [];
-
+	    console.log(recentPermits)
 	    recentPermits.features.forEach(function(recentPermit){
 	    	arr.push([recentPermit.properties.workclass,recentPermit.properties.WorkClassCount]);
 	    })
