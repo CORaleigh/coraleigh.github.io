@@ -116,8 +116,9 @@ jobsWidget = {
 				// url: "https://data.raleighnc.gov/resource/a95t-r2n7.json", THIS IS THE OLD URL
 				url : "https://services.arcgis.com/v400IkDOw1ad7Yad/arcgis/rest/services/Job_Postings_Current/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json"
 			}).done(function(data){
-				data = data.features; //we only want the features, not the fields format
 				console.log(data);
+				data = data.features; //we only want the features, not the fields format
+				
 				//load the array, and only keep the attr that we want
 				jobsWidget.openJobs.jobData = [] //clear the array, since we're re-pulling the data
 				data.forEach(function(jobListing){
