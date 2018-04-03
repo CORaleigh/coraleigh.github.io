@@ -33,7 +33,7 @@ $.ajax({
 	// console.log(recentPermits);
 	recentPermits.features.forEach(function(recentPermit){
 		// console.log(recentPermit.properties.WorkClassCount);
-		numberOfGlobalPermits = numberOfGlobalPermits + recentPermit.properties.WorkClassCount;
+		numberOfGlobalPermits = numberOfGlobalPermits + parseInt(recentPermit.properties.WorkClassCount);
 	});
 
 	//get the types of each permit
