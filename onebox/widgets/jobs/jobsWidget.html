@@ -1,294 +1,301 @@
-<div class="gsa-widget">
-	<header class="gsa-widget__header">
-		<h2 class="gsa-widget__title">Jobs</h2>
-		<div class="gsa-widget__location">
-			<!-- <span class="gsa-icon-location gsa-icon--lrg"></span><span class="label">Your Location:</span> <span id="gsa-widget-current-location">Raleigh, NC</span> <button class="button button--text toggle-content" data-target="location-change">Change Location <span class="gsa-icon-arrow-right gsa-icon--sm gsa-icon--right gsa-icon--sm"></span></button> -->
-			<div class="gsa-widget__location-change hidden" id="location-change">
-				<form action=""></form>
-				<div class="field field--append-submit">
-					<label class="visuallyhidden" for="location-name">Update Location</label><span id="location-name"></span><button type="submit">Update</button>
+<head>
+	<link href="https://coraleigh.github.io/onebox/cor.css" rel="stylesheet"/>
+	<link href="https://coraleigh.github.io/onebox/css/style.css" rel="stylesheet"/>
+	<link href="https://coraleigh.github.io/onebox/css/print.css" media="print" rel="stylesheet"/>
+</head>
+<body>
+	<div class="gsa-widget">
+		<header class="gsa-widget__header">
+			<h2 class="gsa-widget__title">Jobs</h2>
+			<div class="gsa-widget__location">
+				<!-- <span class="gsa-icon-location gsa-icon--lrg"></span><span class="label">Your Location:</span> <span id="gsa-widget-current-location">Raleigh, NC</span> <button class="button button--text toggle-content" data-target="location-change">Change Location <span class="gsa-icon-arrow-right gsa-icon--sm gsa-icon--right gsa-icon--sm"></span></button> -->
+				<div class="gsa-widget__location-change hidden" id="location-change">
+					<form action=""></form>
+					<div class="field field--append-submit">
+						<label class="visuallyhidden" for="location-name">Update Location</label><span id="location-name"></span><button type="submit">Update</button>
+					</div>
 				</div>
 			</div>
+		</header>
+		<div class="panel">
+			<header class="panel__header">
+				<div class="filter push-right">
+					<label class="visuallyhidden" for="filter-jobs">Filter Open Jobs</label><span class="filter__icon gsa-icon-filter gsa-icon--lrg"></span><select class="select-boxit" id="filter-jobs" name="filter-jobs">
+						<option value="highest salary">
+							Highest Salary
+						</option>
+						<option value="all">
+							All
+						</option>
+						
+						<option value="part time">
+							Part-Time
+						</option>
+						<option value="most popular">
+							Most Popular
+						</option>
+					</select>
+				</div>
+				<h3 class="panel__title">Open Jobs</h3>
+			</header>
+			<div class="panel__content"></div>
 		</div>
-	</header>
-	<div class="panel">
-		<header class="panel__header">
-			<div class="filter push-right">
-				<label class="visuallyhidden" for="filter-jobs">Filter Open Jobs</label><span class="filter__icon gsa-icon-filter gsa-icon--lrg"></span><select class="select-boxit" id="filter-jobs" name="filter-jobs">
-					<option value="highest salary">
-						Highest Salary
-					</option>
-					<option value="all">
-						All
-					</option>
-					
-					<option value="part time">
-						Part-Time
-					</option>
-					<option value="most popular">
-						Most Popular
-					</option>
-				</select>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js">
+		</script> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+		</script>
+		<style>
+		             /* http://gsa.raleighnc.gov/ inline styles from live 10/6/2016 */
+		             @media only screen and (min-width: 95em) {
+		               #Nav ul {padding-left:0;}
+		               #Nav li:first-child {width:6%;}
+		             }
+		             @media only screen and (max-width: 40em) {
+		               #SearchBox {display:block;}
+		               #SearchInput {width:85%;}
+		               span.toggle-preview, .floating-viewer {display:none;}
+		               tr, td {display:table-cell;}
+		             }
+
+		             #contentArea {padding:0;}
+		             .l{font-size:1.25em;}
+		             .related h3 {background:#DD4B39;}
+		             .related ul {background:#F76553;}
+		             #search_sort_by {color:#666;}
+		             #Search #SearchBox, #contentArea #SearchBox {position:static; width:100%; margin-bottom:10px; background:#ececec; padding:2%; clear:both; overflow:hidden;}
+		             #Search #SearchInput, #contentArea #SearchInput {width:70%; background:#fdfdfd; background-image:none; margin:0; padding:5px 5px 8px;}
+		             #SearchInput:focus {border:1px solid #537ac1; box-shadow:none;}
+		             #SearchBox .action {width:15%; background:#DD4B39; margin:0; margin-left:-5px; padding:9px;}
+		             #search_stats {clear:both; margin-bottom:10px; color:#666; border-bottom:1px solid #ddd; padding:0 2%;}
+		             .suggestion {padding:7px; color:#666;}
+		             .g a {font-size:1.4em; font-weight:normal; text-shadow:none; word-wrap:break-word;}
+		             .content div {margin-bottom:1em; font-family:sans-serif;}
+		             .content .s {margin:0;}
+		             .floating-viewer div {margin:0;}
+		             .url {color:#007928; word-wrap: break-word;display:block;}
+		             .g {margin:0; font-family:sans-serif; line-height:1.1;}
+		             .content a:before, .content a:after, #bottom-navigation a:before, #bottom-navigation a:after {display:none;}
+		             #col2 a {border:0; vertical-align:middle;}
+		             .box {margin:4%;}
+		             .indent {margin:10px 0; padding:0 0 0 20px; border-left:1px solid #ccc;}
+		             table {clear:both; border:0; width:350px; margin:10px auto;}
+		             table td {border:0; text-align:center; background:#fff;}
+		             .navstart,.navcurrent,.navpage,.navend,.dn-more-img,.dn-limg,.dn-mimg,.dn-zippy-hdr-img{background:url(http://www.raleighnc.gov/content/static/images/gsa.png); display:block; height:40px;}
+		             .navstart {background-position:-24px 0; width:28px;}
+		             .navcurrent {background-position:-53px 0; width:20px;}
+		             .navpage {background-position:-74px 0; width:20px;}
+		             .navend {background-position:-96px 0; width:71px;}
+		             #Advanced {clear:both; padding:20px 0 0 250px; border-top:1px solid #CCC;}
+		             #Advanced li {margin-bottom:10px;}
+		             #Advanced .action {float:none; margin:10px 60px;}
+		             ol li {list-style-type:decimal;}
+		             li.dn-attr-hdr div.dn-zippy-hdr-img {background-position:166px 256px; float:right; height:16px; margin-right:4px; width:16px; display:none;}
+		             .dn-hidden {display:none;}
+		             .dn-inline-block, .dn-bar-rt, .dn-bar-rt table, .dn-img, span.dn-more-img {display:inline-block;}
+		             .dn-block {display:block;}
+		             span.dn-attr-c {color:#777;}
+		             a.dn-attr-v {display: block;overflow-x: hidden;width: 99%;}
+		             a.dn-link, .dn-img {outline-style:none;}
+		             .dn-overflow {overflow-x:hidden;}
+		             .dn-bar-v {color:#000;}
+		             .dn-bar-rt {border:0 none; float:right; margin:-2px 5px 0 20px;}
+		             .dn-bar-nav {font-size:80%;}
+		             span.dn-more-img {margin-top:6px; height:15px; margin-right:4px; overflow:hidden; position:relative; vertical-align:text-bottom; width:15px;}
+		             span.dn-limg {background-position:35px 275px; width:17px; height:17px;}
+		             span.dn-mimg {background-position:17px 275px; width:17px; height:17px;}
+		             div.dn-bar {background:#E5ECF9; clear:both; font-size:80%; padding:6px; width:100%;}
+		             div.dn-bar dfn {font-size: 1.2em; padding:4px;}
+		             div.dn-bar a.cancel-url:hover {text-decoration:line-through;}
+		             .more_results {font-size:0.9em;}
+		             .main-results {margin:10px 10px 0 280px;}
+		             .main-results h3 {margin:0; padding:0;}
+		             .s {font-size:0.9em; line-height:1.5;}
+		             .medium {width:480px; height:27px; border:1px solid #ddd; padding:2px;}
+		             .medium_select {width:280px; height:27px; border:1px solid #ddd; padding:2px;}
+		             #omitted{font-style:italic; font-size:0.9em;}
+		             .btnG1{cursor:pointer; width:150px; margin-left:54px; height:27px;}
+
+		                   /** CSS for document previews. */
+		             div.result-item {position:relative; border:1px solid #fff;}
+		             .non-previewable {background-color:transparent !important; border:1px solid white !important;}
+		             .non-previewable .s {background-color:transparent !important;}
+		             div.result-item .dps-viewer {margin:0;}
+		             body.previews-enabled div.result-item-hover {background-color:#ebf2fc; border:1px solid #cddcf9;}
+		             body.previews-enabled div.result-item-hover .s {background-color:#ebf2fc !important;}
+		             span.toggle-preview {display:inline-block; margin-left:5px; cursor:pointer; width:10px; height:10px; background:transparent url(preview_off.png) no-repeat;}
+		             div.result-item-hover span.toggle-preview {color:#0000cc; background-image:url(preview_on.png) !important;}
+		             body.previews-enabled span.toggle-preview {color:#0000cc !important; background-image:url(preview_on.png);}
+
+		             .floating-viewer {top:0; right:-275px;}
+		             .floating-viewer-arrow {top:20px; left:-24px;}
+
+		             a[href ^="https://data.raleighnc.gov"] {padding-left: 30px; background: transparent url(http://www.raleighnc.gov/content/static/images/Datasets.jpg) no-repeat;}
+		             a[href ^="https://data.raleighnc.gov"][href*="Map"], a[href ^="https://data.raleighnc.gov"][href*="map"], a[href ^="https://data.raleighnc.gov"][href*="District"] {background: transparent url(http://www.raleighnc.gov/content/static/images/Maps.jpg) no-repeat;}
+		             #Nav li:first-child>a:before {content:'';}
+		</style>
+		<style>
+
+		             /*
+
+		             - green color updated in above inline styles for .url to fix contrast 508 AA low contrast issue and fix for word break in IE11
+
+		             */
+
+		             /*updated keymatch styles*/
+		             #keymatch {box-shadow: 0 0 10px rgba(0,0,0,.25);margin:0 0 30px 8px;padding:20px;}
+		             #keymatch h3 {margin:0;font-weight:bold;line-height:1;}
+
+		             /* NEW AtlanticBT styles added for wrappers on search page */
+		             #col2, #col3 { width: 99%; float: none; }
+		             .gsa-widget { width: 94%; margin-right: auto; margin-left: auto; }
+
+		             /* widget table fixe(s) due to inline table styles from live */
+		             table.gsa-table td { text-align: left; }
+
+
+		             @media only screen and (max-width: 40em) {
+		               /* widget table fixe(s) due to inline table styles from live */
+		               .gsa-table tr, .gsa-table td { display: block; }
+		             }
+
+		             /* 768+ */
+		             @media only screen and (min-width: 48em) {
+		               #col2 { width: 51%; }
+		               #col3 { width: 45%; float: right; }
+		               .gsa-widget { width: 45%; margin-right: 10px; float: right; clear: right; }
+		             }
+
+		             /* 800+ */
+		             @media only screen and (min-width: 50em) {
+		               #col2 { width: 56%; }
+		               #col3 { width: 40%; }
+		               .gsa-widget { width: 40%; margin-right: 20px; }
+		             }
+
+		             @media only screen and (min-width: 95em) {
+		               #col2 { width: 62.5%; }
+		               #col3 { width: 34.5%; }
+		               .gsa-widget { width: 34.5%; }
+		             }
+		</style>
+		<table></table>
+		<table class="gsa-table gsa-table--open-jobs" id="open-jobs">
+			<thead>
+				<tr>
+					<th>Job Title</th>
+					<th>Salary Range</th>
+					<th>Dept</th>
+				</tr>
+			</thead>
+			<tbody class='cor-blurred'>
+				<tr class="gsa-table__row">
+					<td>
+						<a href="#">Bicycle and Pedestrian Coordinator</a>
+					</td>
+					<td>$44,880.76 - $78,206.56</td>
+					<td>Planning and Development / Transportation</td>
+				</tr>
+				<tr class="gsa-table__row">
+					<td>
+						<a href="#">Bicycle and Pedestrian Coordinator</a>
+					</td>
+					<td>$44,880.76 - $78,206.56</td>
+					<td>Planning and Development / Transportation</td>
+				</tr>
+				<tr class="gsa-table__row">
+					<td>
+						<a href="#">Bicycle and Pedestrian Coordinator</a>
+					</td>
+					<td>$44,880.76 - $78,206.56</td>
+					<td>Planning and Development / Transportation</td>
+				</tr>
+				<tr class="gsa-table__row">
+					<td>
+						<a href="#">Bicycle and Pedestrian Coordinator</a>
+					</td>
+					<td>$44,880.76 - $78,206.56</td>
+					<td>Planning and Development / Transportation</td>
+				</tr>
+				<tr class="gsa-table__row">
+					<td>
+						<a href="#">Bicycle and Pedestrian Coordinator</a>
+					</td>
+					<td>$44,880.76 - $78,206.56</td>
+					<td>Planning and Development / Transportation</td>
+				</tr>
+				<tr class="gsa-table__row">
+					<td>
+						<a href="#">Bicycle and Pedestrian Coordinator</a>
+					</td>
+					<td>$44,880.76 - $78,206.56</td>
+					<td>Planning and Development / Transportation</td>
+				</tr>
+				<tr class="gsa-table__row">
+					<td>
+						<a href="#">Bicycle and Pedestrian Coordinator</a>
+					</td>
+					<td>$44,880.76 - $78,206.56</td>
+					<td>Planning and Development / Transportation</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="panel__foot">
+			<a id='cor-onebox-view-all-jobs' class="push-right" href="http://bit.ly/2eL5Eq6" target="_blank"><strong>View All Jobs</strong><span class="gsa-icon-arrow-right gsa-icon--sm gsa-icon--sm"></span></a><button id='cor-onebox-expand-list' class="button--text button--text-dark show-all-rows" data-target="open-jobs"><span class="gsa-icon-plus gsa-icon--left gsa-icon--sm"></span>Expand List</button>
+		</div>
+
+		<!-- Temporary suspension of these widgets until data is acquired 
+		<div class="panel">
+			<header class="panel__header">
+				<h3 class="panel__title">Peak Hiring Months</h3>
+			</header>
+			<div class="panel__content">
+				<div class="gsa-chart" id="chart-peak-hiring"></div>
 			</div>
-			<h3 class="panel__title">Open Jobs</h3>
-		</header>
-		<div class="panel__content"></div>
+			<div class="panel__foot">
+				<a id='cor-onebox-view-more-data' class="push-right" href="https://data.raleighnc.gov/d/3jt5-q669" target="_blank"><strong>View More Data at data.raleighnc.gov</strong><span class="gsa-icon-arrow-right gsa-icon--sm gsa-icon--sm"></span></a>
+			</div>
+		</div>
+		
+		<div class="panel">
+			<header class="panel__header">
+				<h3 class="panel__title">Benefits Comparison</h3>
+			</header>
+			<div class="panel__content">
+				<div class="gsa-chart" id="chart-benefits-comparison"></div>
+			</div>
+			<div class="panel__foot">
+				<a class="push-right" href="#"><strong>View More Data at data.raleighnc.gov</strong><span class="gsa-icon-arrow-right gsa-icon--sm gsa-icon--sm"></span></a>
+			</div>
+		</div>
+		<div class="panel">
+			<header class="panel__header">
+				<h3 class="panel__title">Cost of Living</h3>
+			</header>
+			<div class="panel__content">
+				<div class="gsa-chart" id="chart-cost-of-living"></div>
+			</div>
+			<div class="panel__foot">
+				<a class="push-right" href="#"><strong>View More Data at data.raleighnc.gov</strong><span class="gsa-icon-arrow-right gsa-icon--sm gsa-icon--sm"></span></a>
+			</div>
+		</div>
+		<div class="panel">
+			<header class="panel__header">
+				<h3 class="panel__title">Biggest Hirers in Raleigh</h3>
+			</header>
+			<div class="panel__content">
+				<ul class="quick-links">
+					<li class="quick-links__item">
+						<a class="quick-links__link" href="#">State of North Carolina <span class="gsa-icon-arrow-right gsa-icon--sm"></span></a>
+					</li>
+					<li class="quick-links__item">
+						<a class="quick-links__link" href="#">Wake County Public School System Extra Long Link <span class="gsa-icon-arrow-right gsa-icon--sm"></span></a>
+					</li>
+					<li class="quick-links__item">
+						<a class="quick-links__link" href="#">IBM Corporation <span class="gsa-icon-arrow-right gsa-icon--sm"></span></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		-->
 	</div>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js">
-	</script> 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
-	</script>
-	<style>
-	             /* http://gsa.raleighnc.gov/ inline styles from live 10/6/2016 */
-	             @media only screen and (min-width: 95em) {
-	               #Nav ul {padding-left:0;}
-	               #Nav li:first-child {width:6%;}
-	             }
-	             @media only screen and (max-width: 40em) {
-	               #SearchBox {display:block;}
-	               #SearchInput {width:85%;}
-	               span.toggle-preview, .floating-viewer {display:none;}
-	               tr, td {display:table-cell;}
-	             }
-
-	             #contentArea {padding:0;}
-	             .l{font-size:1.25em;}
-	             .related h3 {background:#DD4B39;}
-	             .related ul {background:#F76553;}
-	             #search_sort_by {color:#666;}
-	             #Search #SearchBox, #contentArea #SearchBox {position:static; width:100%; margin-bottom:10px; background:#ececec; padding:2%; clear:both; overflow:hidden;}
-	             #Search #SearchInput, #contentArea #SearchInput {width:70%; background:#fdfdfd; background-image:none; margin:0; padding:5px 5px 8px;}
-	             #SearchInput:focus {border:1px solid #537ac1; box-shadow:none;}
-	             #SearchBox .action {width:15%; background:#DD4B39; margin:0; margin-left:-5px; padding:9px;}
-	             #search_stats {clear:both; margin-bottom:10px; color:#666; border-bottom:1px solid #ddd; padding:0 2%;}
-	             .suggestion {padding:7px; color:#666;}
-	             .g a {font-size:1.4em; font-weight:normal; text-shadow:none; word-wrap:break-word;}
-	             .content div {margin-bottom:1em; font-family:sans-serif;}
-	             .content .s {margin:0;}
-	             .floating-viewer div {margin:0;}
-	             .url {color:#007928; word-wrap: break-word;display:block;}
-	             .g {margin:0; font-family:sans-serif; line-height:1.1;}
-	             .content a:before, .content a:after, #bottom-navigation a:before, #bottom-navigation a:after {display:none;}
-	             #col2 a {border:0; vertical-align:middle;}
-	             .box {margin:4%;}
-	             .indent {margin:10px 0; padding:0 0 0 20px; border-left:1px solid #ccc;}
-	             table {clear:both; border:0; width:350px; margin:10px auto;}
-	             table td {border:0; text-align:center; background:#fff;}
-	             .navstart,.navcurrent,.navpage,.navend,.dn-more-img,.dn-limg,.dn-mimg,.dn-zippy-hdr-img{background:url(http://www.raleighnc.gov/content/static/images/gsa.png); display:block; height:40px;}
-	             .navstart {background-position:-24px 0; width:28px;}
-	             .navcurrent {background-position:-53px 0; width:20px;}
-	             .navpage {background-position:-74px 0; width:20px;}
-	             .navend {background-position:-96px 0; width:71px;}
-	             #Advanced {clear:both; padding:20px 0 0 250px; border-top:1px solid #CCC;}
-	             #Advanced li {margin-bottom:10px;}
-	             #Advanced .action {float:none; margin:10px 60px;}
-	             ol li {list-style-type:decimal;}
-	             li.dn-attr-hdr div.dn-zippy-hdr-img {background-position:166px 256px; float:right; height:16px; margin-right:4px; width:16px; display:none;}
-	             .dn-hidden {display:none;}
-	             .dn-inline-block, .dn-bar-rt, .dn-bar-rt table, .dn-img, span.dn-more-img {display:inline-block;}
-	             .dn-block {display:block;}
-	             span.dn-attr-c {color:#777;}
-	             a.dn-attr-v {display: block;overflow-x: hidden;width: 99%;}
-	             a.dn-link, .dn-img {outline-style:none;}
-	             .dn-overflow {overflow-x:hidden;}
-	             .dn-bar-v {color:#000;}
-	             .dn-bar-rt {border:0 none; float:right; margin:-2px 5px 0 20px;}
-	             .dn-bar-nav {font-size:80%;}
-	             span.dn-more-img {margin-top:6px; height:15px; margin-right:4px; overflow:hidden; position:relative; vertical-align:text-bottom; width:15px;}
-	             span.dn-limg {background-position:35px 275px; width:17px; height:17px;}
-	             span.dn-mimg {background-position:17px 275px; width:17px; height:17px;}
-	             div.dn-bar {background:#E5ECF9; clear:both; font-size:80%; padding:6px; width:100%;}
-	             div.dn-bar dfn {font-size: 1.2em; padding:4px;}
-	             div.dn-bar a.cancel-url:hover {text-decoration:line-through;}
-	             .more_results {font-size:0.9em;}
-	             .main-results {margin:10px 10px 0 280px;}
-	             .main-results h3 {margin:0; padding:0;}
-	             .s {font-size:0.9em; line-height:1.5;}
-	             .medium {width:480px; height:27px; border:1px solid #ddd; padding:2px;}
-	             .medium_select {width:280px; height:27px; border:1px solid #ddd; padding:2px;}
-	             #omitted{font-style:italic; font-size:0.9em;}
-	             .btnG1{cursor:pointer; width:150px; margin-left:54px; height:27px;}
-
-	                   /** CSS for document previews. */
-	             div.result-item {position:relative; border:1px solid #fff;}
-	             .non-previewable {background-color:transparent !important; border:1px solid white !important;}
-	             .non-previewable .s {background-color:transparent !important;}
-	             div.result-item .dps-viewer {margin:0;}
-	             body.previews-enabled div.result-item-hover {background-color:#ebf2fc; border:1px solid #cddcf9;}
-	             body.previews-enabled div.result-item-hover .s {background-color:#ebf2fc !important;}
-	             span.toggle-preview {display:inline-block; margin-left:5px; cursor:pointer; width:10px; height:10px; background:transparent url(preview_off.png) no-repeat;}
-	             div.result-item-hover span.toggle-preview {color:#0000cc; background-image:url(preview_on.png) !important;}
-	             body.previews-enabled span.toggle-preview {color:#0000cc !important; background-image:url(preview_on.png);}
-
-	             .floating-viewer {top:0; right:-275px;}
-	             .floating-viewer-arrow {top:20px; left:-24px;}
-
-	             a[href ^="https://data.raleighnc.gov"] {padding-left: 30px; background: transparent url(http://www.raleighnc.gov/content/static/images/Datasets.jpg) no-repeat;}
-	             a[href ^="https://data.raleighnc.gov"][href*="Map"], a[href ^="https://data.raleighnc.gov"][href*="map"], a[href ^="https://data.raleighnc.gov"][href*="District"] {background: transparent url(http://www.raleighnc.gov/content/static/images/Maps.jpg) no-repeat;}
-	             #Nav li:first-child>a:before {content:'';}
-	</style>
-	<style>
-
-	             /*
-
-	             - green color updated in above inline styles for .url to fix contrast 508 AA low contrast issue and fix for word break in IE11
-
-	             */
-
-	             /*updated keymatch styles*/
-	             #keymatch {box-shadow: 0 0 10px rgba(0,0,0,.25);margin:0 0 30px 8px;padding:20px;}
-	             #keymatch h3 {margin:0;font-weight:bold;line-height:1;}
-
-	             /* NEW AtlanticBT styles added for wrappers on search page */
-	             #col2, #col3 { width: 99%; float: none; }
-	             .gsa-widget { width: 94%; margin-right: auto; margin-left: auto; }
-
-	             /* widget table fixe(s) due to inline table styles from live */
-	             table.gsa-table td { text-align: left; }
-
-
-	             @media only screen and (max-width: 40em) {
-	               /* widget table fixe(s) due to inline table styles from live */
-	               .gsa-table tr, .gsa-table td { display: block; }
-	             }
-
-	             /* 768+ */
-	             @media only screen and (min-width: 48em) {
-	               #col2 { width: 51%; }
-	               #col3 { width: 45%; float: right; }
-	               .gsa-widget { width: 45%; margin-right: 10px; float: right; clear: right; }
-	             }
-
-	             /* 800+ */
-	             @media only screen and (min-width: 50em) {
-	               #col2 { width: 56%; }
-	               #col3 { width: 40%; }
-	               .gsa-widget { width: 40%; margin-right: 20px; }
-	             }
-
-	             @media only screen and (min-width: 95em) {
-	               #col2 { width: 62.5%; }
-	               #col3 { width: 34.5%; }
-	               .gsa-widget { width: 34.5%; }
-	             }
-	</style>
-	<table></table>
-	<table class="gsa-table gsa-table--open-jobs" id="open-jobs">
-		<thead>
-			<tr>
-				<th>Job Title</th>
-				<th>Salary Range</th>
-				<th>Dept</th>
-			</tr>
-		</thead>
-		<tbody class='cor-blurred'>
-			<tr class="gsa-table__row">
-				<td>
-					<a href="#">Bicycle and Pedestrian Coordinator</a>
-				</td>
-				<td>$44,880.76 - $78,206.56</td>
-				<td>Planning and Development / Transportation</td>
-			</tr>
-			<tr class="gsa-table__row">
-				<td>
-					<a href="#">Bicycle and Pedestrian Coordinator</a>
-				</td>
-				<td>$44,880.76 - $78,206.56</td>
-				<td>Planning and Development / Transportation</td>
-			</tr>
-			<tr class="gsa-table__row">
-				<td>
-					<a href="#">Bicycle and Pedestrian Coordinator</a>
-				</td>
-				<td>$44,880.76 - $78,206.56</td>
-				<td>Planning and Development / Transportation</td>
-			</tr>
-			<tr class="gsa-table__row">
-				<td>
-					<a href="#">Bicycle and Pedestrian Coordinator</a>
-				</td>
-				<td>$44,880.76 - $78,206.56</td>
-				<td>Planning and Development / Transportation</td>
-			</tr>
-			<tr class="gsa-table__row">
-				<td>
-					<a href="#">Bicycle and Pedestrian Coordinator</a>
-				</td>
-				<td>$44,880.76 - $78,206.56</td>
-				<td>Planning and Development / Transportation</td>
-			</tr>
-			<tr class="gsa-table__row">
-				<td>
-					<a href="#">Bicycle and Pedestrian Coordinator</a>
-				</td>
-				<td>$44,880.76 - $78,206.56</td>
-				<td>Planning and Development / Transportation</td>
-			</tr>
-			<tr class="gsa-table__row">
-				<td>
-					<a href="#">Bicycle and Pedestrian Coordinator</a>
-				</td>
-				<td>$44,880.76 - $78,206.56</td>
-				<td>Planning and Development / Transportation</td>
-			</tr>
-		</tbody>
-	</table>
-	<div class="panel__foot">
-		<a id='cor-onebox-view-all-jobs' class="push-right" href="http://bit.ly/2eL5Eq6" target="_blank"><strong>View All Jobs</strong><span class="gsa-icon-arrow-right gsa-icon--sm gsa-icon--sm"></span></a><button id='cor-onebox-expand-list' class="button--text button--text-dark show-all-rows" data-target="open-jobs"><span class="gsa-icon-plus gsa-icon--left gsa-icon--sm"></span>Expand List</button>
-	</div>
-
-	<!-- Temporary suspension of these widgets until data is acquired 
-	<div class="panel">
-		<header class="panel__header">
-			<h3 class="panel__title">Peak Hiring Months</h3>
-		</header>
-		<div class="panel__content">
-			<div class="gsa-chart" id="chart-peak-hiring"></div>
-		</div>
-		<div class="panel__foot">
-			<a id='cor-onebox-view-more-data' class="push-right" href="https://data.raleighnc.gov/d/3jt5-q669" target="_blank"><strong>View More Data at data.raleighnc.gov</strong><span class="gsa-icon-arrow-right gsa-icon--sm gsa-icon--sm"></span></a>
-		</div>
-	</div>
-	
-	<div class="panel">
-		<header class="panel__header">
-			<h3 class="panel__title">Benefits Comparison</h3>
-		</header>
-		<div class="panel__content">
-			<div class="gsa-chart" id="chart-benefits-comparison"></div>
-		</div>
-		<div class="panel__foot">
-			<a class="push-right" href="#"><strong>View More Data at data.raleighnc.gov</strong><span class="gsa-icon-arrow-right gsa-icon--sm gsa-icon--sm"></span></a>
-		</div>
-	</div>
-	<div class="panel">
-		<header class="panel__header">
-			<h3 class="panel__title">Cost of Living</h3>
-		</header>
-		<div class="panel__content">
-			<div class="gsa-chart" id="chart-cost-of-living"></div>
-		</div>
-		<div class="panel__foot">
-			<a class="push-right" href="#"><strong>View More Data at data.raleighnc.gov</strong><span class="gsa-icon-arrow-right gsa-icon--sm gsa-icon--sm"></span></a>
-		</div>
-	</div>
-	<div class="panel">
-		<header class="panel__header">
-			<h3 class="panel__title">Biggest Hirers in Raleigh</h3>
-		</header>
-		<div class="panel__content">
-			<ul class="quick-links">
-				<li class="quick-links__item">
-					<a class="quick-links__link" href="#">State of North Carolina <span class="gsa-icon-arrow-right gsa-icon--sm"></span></a>
-				</li>
-				<li class="quick-links__item">
-					<a class="quick-links__link" href="#">Wake County Public School System Extra Long Link <span class="gsa-icon-arrow-right gsa-icon--sm"></span></a>
-				</li>
-				<li class="quick-links__item">
-					<a class="quick-links__link" href="#">IBM Corporation <span class="gsa-icon-arrow-right gsa-icon--sm"></span></a>
-				</li>
-			</ul>
-		</div>
-	</div>
-	-->
-</div>
+</body>
