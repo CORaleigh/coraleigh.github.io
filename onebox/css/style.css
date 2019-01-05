@@ -1399,9 +1399,9 @@ a [class^="gsa-icon-"]:hover, a [class^="gsa-icon-"]:focus, a [class^="gsa-icon-
 .gsa-widget .panel__content--dark-blue, .gsa-widget .panel__content--dark-blue + .panel__foot {
   background: #3c61a5;
   color: #ffffff;
-  width: 100%;
+/*  width: 100%;
   float: left;
-  clear: both;
+*/  clear: both;
 }
 
 .gsa-widget .panel__content--dark-blue a, .gsa-widget .panel__content--dark-blue + .panel__foot a {
