@@ -3,6 +3,7 @@
 
 //get the top permit downloads
 // $().ready(function(){
+
 	console.log("attempting maps...")
 	$.ajax({
 		url : "https://data.raleighnc.gov/resource/3nnh-j2uc.json",
