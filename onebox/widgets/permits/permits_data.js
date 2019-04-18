@@ -42,7 +42,7 @@
 
 
 		//set up the permits chart
-		if ( $('#' + $chartCommonPermitsContainer).length > 0 ) {
+		// if ( $('#' + $chartCommonPermitsContainer).length > 0 ) {
 
 			var workTypeCount = [];
 			// recentPermits.features.forEach(function(recentPermit){
@@ -136,7 +136,7 @@
 				chartCommonPermits.draw(dataCommonPermits, optionsCommonPermits);
 			   console.log(numberOfGlobalPermits);
 			$(".cta-stats__item-count").text(numberOfGlobalPermits); //paint the total permit number
-		}
+		// }
 	});
 	//Chlorepleth Map CODE
 	google.charts.load('current', {'packages':['corechart']})
