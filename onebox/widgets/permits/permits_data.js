@@ -139,6 +139,7 @@ $.ajax({
 
 //Chlorepleth Map CODE
 
+
 google.charts.load('current', {'packages':['corechart']});
 
 	
