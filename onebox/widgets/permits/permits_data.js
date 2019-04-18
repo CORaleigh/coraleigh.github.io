@@ -2,8 +2,7 @@
 //for document.ready() for it to run
 
 //get the top permit downloads
-
-$.ajax({
+$(window).on('load',function(){
 	url : "https://data.raleighnc.gov/resource/3nnh-j2uc.json",
 }).done(function(topFormDownloads){
 	topFormDownloads.forEach(function(topFormDownload){
@@ -141,5 +140,6 @@ $.ajax({
 
 
 google.charts.load('current', {'packages':['corechart']});
+});
 
 	
