@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6f2caa1-b7f4-4bf2-abec-843977c85d5a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/parks_generic/parks_generic.html" beforeDir="false" afterPath="$PROJECT_DIR$/parks_generic/parks_generic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/police/policeWidget.html" beforeDir="false" afterPath="$PROJECT_DIR$/police/policeWidget.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,16 +12,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parks_generic/parks_generic.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="402" column="25" selection-start-line="402" selection-start-column="25" selection-end-line="402" selection-end-column="25" />
+            <state relative-caret-position="368">
+              <caret line="399" lean-forward="true" selection-start-line="399" selection-end-line="399" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/police/policeWidget.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="317">
+              <caret line="114" column="112" selection-start-line="114" selection-start-column="112" selection-end-line="114" selection-end-column="112" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>raleigh parks</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -31,6 +45,7 @@
       <list>
         <option value="$PROJECT_DIR$/jobs/jobs_data.js" />
         <option value="$PROJECT_DIR$/parks_generic/parks_generic.html" />
+        <option value="$PROJECT_DIR$/police/policeWidget.html" />
       </list>
     </option>
   </component>
@@ -67,6 +82,11 @@
               <item name="widgets" type="462c0819:PsiDirectoryNode" />
               <item name="parks_generic" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="widgets" type="b2602c69:ProjectViewProjectNode" />
+              <item name="widgets" type="462c0819:PsiDirectoryNode" />
+              <item name="police" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -75,6 +95,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -102,12 +123,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1556224054122</updated>
-      <workItem from="1556224057093" duration="338000" />
+      <workItem from="1556224057093" duration="458000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="338000" />
+    <option name="totallyTimeSpent" value="458000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1920" height="985" extended-state="6" />
@@ -150,8 +171,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/parks_generic/parks_generic.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="402" column="25" selection-start-line="402" selection-start-column="25" selection-end-line="402" selection-end-column="25" />
+        <state relative-caret-position="368">
+          <caret line="399" lean-forward="true" selection-start-line="399" selection-end-line="399" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/police/policeWidget.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="114" column="112" selection-start-line="114" selection-start-column="112" selection-end-line="114" selection-end-column="112" />
         </state>
       </provider>
     </entry>
