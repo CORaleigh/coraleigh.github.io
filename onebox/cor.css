@@ -11,7 +11,7 @@
 	display: inline;
 }
 
-.cor-blurred td{
+/*.cor-blurred td{
 	text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
 	opacity: 1;
 	color: rgba(0,0,0,0);
@@ -31,7 +31,7 @@
 	-ms-filter: blur(10px);
 	filter: blur(10px);
 }
-
+*/
 #col3{ 
 	float : none !important;
 	width : 62.5% !important;
