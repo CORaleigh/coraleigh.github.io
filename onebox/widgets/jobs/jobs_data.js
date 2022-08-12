@@ -262,7 +262,7 @@ $.ajax({
 	var peakHiringData = [['Year','Full-Time','Part-Time'
 	// ,{role : "annotation"}
 	]];
-	rawPeakHiringData.forEach(function(rawMonthData){
+	rawPeakHiringData.features.forEach(function(rawMonthData){
 		var monthData = [monthAbbrArray.shift(),Number(rawMonthData.full_time_hires),Number(rawMonthData.part_time_hires)];
 		peakHiringData.push(monthData);
 	});
