@@ -255,7 +255,8 @@ $("#filter-jobs").change(function(){
 })
 jobsWidget.openJobs.updateJobsTable("Highest Salary");
 $.ajax({
-	url:"https://data.raleighnc.gov/resource/8e89-69gk.json"
+	//url:"https://data.raleighnc.gov/resource/8e89-69gk.json"
+	url : "https://services.arcgis.com/v400IkDOw1ad7Yad/arcgis/rest/services/Job_Postings_Current/FeatureServer/0/query?where=1%3D1&objectIds=&time=&resultType=none&outFields=*&returnIdsOnly=false&returnCountOnly=false&returnDistinctValues=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&sqlFormat=none&f=pjson&token="
 }).done(function(rawPeakHiringData){
 	var monthAbbrArray = ['J',"F","M","A","M","J","J","A","S","O","N","D"];
 	var peakHiringData = [['Year','Full-Time','Part-Time'
