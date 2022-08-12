@@ -25,7 +25,8 @@ $.ajax({
 
 
 $.ajax({
-	url : "https://data.raleighnc.gov/resource/32wj-c4mi.json?$where=issueddate%20IS%20NOT%20NULL&$limit=50000",
+	//url : "https://data.raleighnc.gov/resource/32wj-c4mi.json?$where=issueddate%20IS%20NOT%20NULL&$limit=50000",
+	url : "https://services.arcgis.com/v400IkDOw1ad7Yad/arcgis/rest/services/Building_Permits/FeatureServer/0/query?outFields=*&where=issueddate%20IS%20NOT%20NULL&$limit=50000&f=json",
 }).done(function(recentPermits){
 	var numberOfGlobalPermits = recentPermits.length; //the number for permits
 
