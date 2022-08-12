@@ -4,7 +4,8 @@
 //get the top permit downloads
 
 $.ajax({
-	url : "https://data.raleighnc.gov/resource/3nnh-j2uc.json",
+	//url : "https://data.raleighnc.gov/resource/3nnh-j2uc.json",
+	url : "https://services.arcgis.com/v400IkDOw1ad7Yad/arcgis/rest/services/Building_Permits/FeatureServer/0/query?outFields=*&where=issueddate%20IS%20NOT%20NULL&$limit=50000&f=json",
 }).done(function(topFormDownloads){
 	topFormDownloads.forEach(function(topFormDownload){
 
