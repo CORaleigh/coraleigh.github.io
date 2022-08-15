@@ -268,7 +268,7 @@ $.ajax({
 	});
 	// debugger;
 	var refinedPeakHiringData = google.visualization.arrayToDataTable(peakHiringData);
-	// debugger;
+	 debugger;
 	var hiringDataChartOptions = {
 		isStacked : true,
         hAxis: {title: 'Month',  titleTextStyle: {color: '#333'}},
